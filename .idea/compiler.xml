@@ -17,7 +17,7 @@
       <module name="dataclean" target="1.5" />
       <module name="hotelclean" target="1.5" />
       <module name="routeclean" target="1.5" />
-      <module name="scenicclean" target="1.7" />
+      <module name="scenicclean" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

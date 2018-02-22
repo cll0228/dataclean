@@ -13,7 +13,6 @@ import java.util.Set;
  */
 public class ConfigManager {
     static Logger logger = LoggerFactory.getLogger(ConfigManager.class);
-
     /**
      * 获得值
      *
@@ -32,7 +31,7 @@ public class ConfigManager {
                 }
                 return props.getProperty(key);
             }catch (Exception ex){
-
+                logger.error(ex.getMessage());
             }
             return "";
 
