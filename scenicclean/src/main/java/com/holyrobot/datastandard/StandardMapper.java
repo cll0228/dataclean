@@ -1,6 +1,5 @@
 package com.holyrobot.datastandard;
 
-import com.holyrobot.common.ScenicData;
 import org.apache.kafka.streams.kstream.ValueMapper;
 
 public class StandardMapper implements ValueMapper<ScenicData,ScenicData> {

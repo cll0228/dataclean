@@ -1,7 +1,6 @@
 package com.holyrobot.datastandard;
 
 import com.holyrobot.common.RobotObject;
-import com.holyrobot.common.ScenicData;
 
 /**
  * 景点数据标准化

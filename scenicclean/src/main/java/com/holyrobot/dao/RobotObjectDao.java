@@ -5,7 +5,6 @@ import com.holyrobot.common.HBaseApi;
 import com.holyrobot.common.HbaseColumn;
 
 import com.holyrobot.common.RobotObject;
-import com.holyrobot.common.ScenicData;
 
 import java.io.IOException;
 import java.lang.reflect.Field;

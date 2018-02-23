@@ -1,6 +1,5 @@
 package com.holyrobot.datastandard;
 
-import com.holyrobot.common.ScenicData;
 import com.holyrobot.dao.RobotObjectDao;
 import org.apache.kafka.streams.kstream.ValueMapper;
 

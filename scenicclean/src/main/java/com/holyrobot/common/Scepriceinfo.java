@@ -1,45 +1,39 @@
 package com.holyrobot.common;
 
+import java.io.Serializable;
 import java.util.Date;
 
-/**
- * 景点数据
- */
-public class ScenicPriceData extends RobotObject {
-    public String id;
+public class Scepriceinfo extends RobotObject{
+    private static final long serialVersionUID = 1L;
 
-    public String scenicid;
+	private String id;
 
-    public String urlid;
+    private String scenicid;
 
-    public String pricetype;
+    private String urlid;
 
-    public String tickettype;
+    private String pricetype;
 
-    public String priceitem;
+    private String tickettype;
 
-    public String publicingprice;
+    private String priceitem;
 
-    public String salecondition;
+    private String marketingprice;
 
-    public String saleprice;
+    private String salecondition;
 
-    public String discountinfo;
+    private String saleprice;
 
-    public Date createdate;
+    private String discountinfo;
 
-    public String creator;
+    private Date createdate;
 
-    public String creatorid;
+    private String remark;
 
-    public String remark;
-
-    @Override
     public String getId() {
         return id;
     }
 
-    @Override
     public void setId(String id) {
         this.id = id == null ? null : id.trim();
     }
@@ -84,12 +78,12 @@ public class ScenicPriceData extends RobotObject {
         this.priceitem = priceitem == null ? null : priceitem.trim();
     }
 
-    public String getpublicingprice() {
-        return publicingprice;
+    public String getMarketingprice() {
+        return marketingprice;
     }
 
-    public void setpublicingprice(String publicingprice) {
-        this.publicingprice = publicingprice == null ? null : publicingprice.trim();
+    public void setMarketingprice(String marketingprice) {
+        this.marketingprice = marketingprice == null ? null : marketingprice.trim();
     }
 
     public String getSalecondition() {
@@ -124,21 +118,6 @@ public class ScenicPriceData extends RobotObject {
         this.createdate = createdate;
     }
 
-    public String getCreator() {
-        return creator;
-    }
-
-    public void setCreator(String creator) {
-        this.creator = creator == null ? null : creator.trim();
-    }
-
-    public String getCreatorid() {
-        return creatorid;
-    }
-
-    public void setCreatorid(String creatorid) {
-        this.creatorid = creatorid == null ? null : creatorid.trim();
-    }
 
     public String getRemark() {
         return remark;

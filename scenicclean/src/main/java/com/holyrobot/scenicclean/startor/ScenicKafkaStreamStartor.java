@@ -32,11 +32,11 @@ public class ScenicKafkaStreamStartor {
         KStreamBuilder builder = new KStreamBuilder();
         KStream<String,byte[]> scienStream = builder.stream(cm.getConfig(ConfigItem.SCENIC_INPUT_TOPIC));
         //流转成ScenicData
-        KStream<String,ScenicData> scenicDataStream = scienStream.mapValues(new ParseValueMapper());
+//        KStream<String,ScenicData> scenicDataStream = scienStream.mapValues(new ParseValueMapper());
         //标准化景点数据
-        KStream<String,ScenicData> standardStream = scenicDataStream.mapValues(new StandardMapper());
+//        KStream<String,ScenicData> standardStream = scenicDataStream.mapValues(new StandardMapper());
         //保存到hbase
-        standardStream.mapValues(new SaveHbaseMapper());
+//        standardStream.mapValues(new SaveHbaseMapper());
         KafkaStreams streams = new KafkaStreams(builder,config);
         streams.start();
     }
