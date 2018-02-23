@@ -7,54 +7,34 @@ import java.util.Map;
  * 接收的数据对象
  */
 public class ReceiverData implements Serializable{
-    private static final long serialVersionUID =771208872458900148L;
+    private static final long serialVersionUID = 771208872458900148L;
     /**
-     * 数据类型:酒店、景点、行程
+     * data对象类型
+     * 1.酒店详情；2.酒店价格；3.酒店房型；
+     * 4.景点价格；5.景点详情；
+     * 6.行程详情；7.行程价格；
+     * 8.机票详情；9.机票价格。
      */
-    private String type;
+    private Integer type;
     /**
-     * 消息体：包括主页面byte，详情页byte
+     * 对应酒店、景点、行程、机票数据
      */
-    private Map<String,byte[]> body;
-    /**
-     * 数据标示
-     */
-    private String id;
+    private Object data;
 
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    /**
-     * 网站Url地址
-     */
-    private String dataUrl;
-
-    public String getDataUrl() {
-        return dataUrl;
-    }
-
-    public void setDataUrl(String dataUrl) {
-        this.dataUrl = dataUrl;
-    }
-
-    public String getType() {
+    public Integer getType() {
         return type;
     }
-    public void setType(String type) {
+
+    public void setType(Integer type) {
         this.type = type;
     }
 
-    public Map<String, byte[]> getBody() {
-        return body;
+    public Object getData() {
+        return data;
     }
 
-    public void setBody(Map<String, byte[]> body) {
-        this.body = body;
+    public void setData(Object data) {
+        this.data = data;
     }
 }
 

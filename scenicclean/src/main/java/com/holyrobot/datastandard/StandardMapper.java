@@ -1,12 +1,13 @@
 package com.holyrobot.datastandard;
 
+import com.holyrobot.common.Sceinfo;
 import org.apache.kafka.streams.kstream.ValueMapper;
 
-public class StandardMapper implements ValueMapper<ScenicData,ScenicData> {
+public class StandardMapper implements ValueMapper<Sceinfo,Sceinfo> {
     @Override
-    public ScenicData apply(ScenicData scenicData) {
+    public Sceinfo apply(Sceinfo scenicData) {
         ScenicDataStandard dataStandard = new ScenicDataStandard();
-        ScenicData standarded = dataStandard.standardData(scenicData);
+        Sceinfo standarded = dataStandard.standardData(scenicData);
         return standarded;
     }
 }
