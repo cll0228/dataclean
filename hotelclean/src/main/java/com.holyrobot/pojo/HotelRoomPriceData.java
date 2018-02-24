@@ -5,72 +5,72 @@ import com.holyrobot.common.RobotObject;
 import java.util.Date;
 
 public class HotelRoomPriceData extends RobotObject {
-    private String id;
+    public String id;
 
-    private String hotelid;
+    public String hotelId;
 
-    private String roomid;
+    public String roomId;
 
-    private String productname;//产品名称
+    public String productName;//产品名称
 
-    private String price;
+    public String price;
 
-    private String date;
+    public String date;
 
-    private String availablenum;//剩余房间数
+    public String availableNum;//剩余房间数
 
-    private String isbooking;//是否可以预定
+    public String isbooking;//是否可以预定
 
-    private String appliyby;//供应商
+    public String appliyBy;//供应商
 
-    private String ishasbreakfast;//是否有早餐
+    public String isHasBreakfast;//是否有早餐
 
-    private String iswindow;//是否有窗
+    public String isWindow;//是否有窗
 
-    private String iscancled;//是否可以取消
+    public String isCancled;//是否可以取消
 
-    private String iswifi;//是否有wifi
+    public String isWifi;//是否有wifi
 
-    private String paymethod;//付款方式
+    public String paymethod;//付款方式
 
-    private String isdomesticguest;//是否内宾
+    public String isDomesticGuest;//是否内宾
 
-    private Date createdate;
+    public Date createDate;
 
-    private String creator;
+    public String creator;
 
-    private String creatorid;
+    public String creatorId;
 
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+        this.id = id;
     }
 
-    public String getHotelid() {
-        return hotelid;
+    public String getHotelId() {
+        return hotelId;
     }
 
-    public void setHotelid(String hotelid) {
-        this.hotelid = hotelid == null ? null : hotelid.trim();
+    public void setHotelId(String hotelId) {
+        this.hotelId = hotelId;
     }
 
-    public String getRoomid() {
-        return roomid;
+    public String getRoomId() {
+        return roomId;
     }
 
-    public void setRoomid(String roomid) {
-        this.roomid = roomid == null ? null : roomid.trim();
+    public void setRoomId(String roomId) {
+        this.roomId = roomId;
     }
 
-    public String getProductname() {
-        return productname;
+    public String getProductName() {
+        return productName;
     }
 
-    public void setProductname(String productname) {
-        this.productname = productname == null ? null : productname.trim();
+    public void setProductName(String productName) {
+        this.productName = productName;
     }
 
     public String getPrice() {
@@ -78,7 +78,7 @@ public class HotelRoomPriceData extends RobotObject {
     }
 
     public void setPrice(String price) {
-        this.price = price == null ? null : price.trim();
+        this.price = price;
     }
 
     public String getDate() {
@@ -86,15 +86,15 @@ public class HotelRoomPriceData extends RobotObject {
     }
 
     public void setDate(String date) {
-        this.date = date == null ? null : date.trim();
+        this.date = date;
     }
 
-    public String getAvailablenum() {
-        return availablenum;
+    public String getAvailableNum() {
+        return availableNum;
     }
 
-    public void setAvailablenum(String availablenum) {
-        this.availablenum = availablenum == null ? null : availablenum.trim();
+    public void setAvailableNum(String availableNum) {
+        this.availableNum = availableNum;
     }
 
     public String getIsbooking() {
@@ -102,47 +102,47 @@ public class HotelRoomPriceData extends RobotObject {
     }
 
     public void setIsbooking(String isbooking) {
-        this.isbooking = isbooking == null ? null : isbooking.trim();
+        this.isbooking = isbooking;
     }
 
-    public String getAppliyby() {
-        return appliyby;
+    public String getAppliyBy() {
+        return appliyBy;
     }
 
-    public void setAppliyby(String appliyby) {
-        this.appliyby = appliyby == null ? null : appliyby.trim();
+    public void setAppliyBy(String appliyBy) {
+        this.appliyBy = appliyBy;
     }
 
-    public String getIshasbreakfast() {
-        return ishasbreakfast;
+    public String getIsHasBreakfast() {
+        return isHasBreakfast;
     }
 
-    public void setIshasbreakfast(String ishasbreakfast) {
-        this.ishasbreakfast = ishasbreakfast == null ? null : ishasbreakfast.trim();
+    public void setIsHasBreakfast(String isHasBreakfast) {
+        this.isHasBreakfast = isHasBreakfast;
     }
 
-    public String getIswindow() {
-        return iswindow;
+    public String getIsWindow() {
+        return isWindow;
     }
 
-    public void setIswindow(String iswindow) {
-        this.iswindow = iswindow == null ? null : iswindow.trim();
+    public void setIsWindow(String isWindow) {
+        this.isWindow = isWindow;
     }
 
-    public String getIscancled() {
-        return iscancled;
+    public String getIsCancled() {
+        return isCancled;
     }
 
-    public void setIscancled(String iscancled) {
-        this.iscancled = iscancled == null ? null : iscancled.trim();
+    public void setIsCancled(String isCancled) {
+        this.isCancled = isCancled;
     }
 
-    public String getIswifi() {
-        return iswifi;
+    public String getIsWifi() {
+        return isWifi;
     }
 
-    public void setIswifi(String iswifi) {
-        this.iswifi = iswifi == null ? null : iswifi.trim();
+    public void setIsWifi(String isWifi) {
+        this.isWifi = isWifi;
     }
 
     public String getPaymethod() {
@@ -150,23 +150,23 @@ public class HotelRoomPriceData extends RobotObject {
     }
 
     public void setPaymethod(String paymethod) {
-        this.paymethod = paymethod == null ? null : paymethod.trim();
+        this.paymethod = paymethod;
     }
 
-    public String getIsdomesticguest() {
-        return isdomesticguest;
+    public String getIsDomesticGuest() {
+        return isDomesticGuest;
     }
 
-    public void setIsdomesticguest(String isdomesticguest) {
-        this.isdomesticguest = isdomesticguest == null ? null : isdomesticguest.trim();
+    public void setIsDomesticGuest(String isDomesticGuest) {
+        this.isDomesticGuest = isDomesticGuest;
     }
 
-    public Date getCreatedate() {
-        return createdate;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setCreatedate(Date createdate) {
-        this.createdate = createdate;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
     public String getCreator() {
@@ -174,14 +174,14 @@ public class HotelRoomPriceData extends RobotObject {
     }
 
     public void setCreator(String creator) {
-        this.creator = creator == null ? null : creator.trim();
+        this.creator = creator;
     }
 
-    public String getCreatorid() {
-        return creatorid;
+    public String getCreatorId() {
+        return creatorId;
     }
 
-    public void setCreatorid(String creatorid) {
-        this.creatorid = creatorid == null ? null : creatorid.trim();
+    public void setCreatorId(String creatorId) {
+        this.creatorId = creatorId;
     }
 }

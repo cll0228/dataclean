@@ -23,7 +23,6 @@ public class HBaseApi {
 
     static {
         try {
-            logger.info("=================hbase初始化配置开始======================");
             conf = HBaseConfiguration.create();
             conf.set("hbase.zookeeper.quorum", "node2,node3,node4,node6");
             conf.set("hbase.zookeeper.property.clientPort", "2181");
@@ -34,16 +33,6 @@ public class HBaseApi {
         }
 
         // conf.set("hbase.zookeeper.quorum", "s1:2181");
-    }
-
-    public static void run() {
-        try {
-            logger.info("=============hbase初始化运行开始====================");
-            HBaseAdmin admin = new HBaseAdmin(conf);
-            logger.info("=============hbase初始化运行结束====================");
-        } catch (Exception e) {
-            logger.info("hbase初始化运行失败:" + e.getMessage());
-        }
     }
 
     public static void insertRow(String tableName, String rowKey, List<HbaseColumn> datas) throws IOException {

@@ -39,10 +39,10 @@ public class HotelStandard {
         hotel.setGrade(StandardUtil.preGrade(hotel.getGrade()));
 
         //评分人数
-        hotel.setGradenum(null == hotel.getGradenum() ? "0" : hotel.getGradenum());
+        hotel.setGradeNum(null == hotel.getGradeNum() ? "0" : hotel.getGradeNum());
 
         //数据源
-        hotel.setDatasource(StandardUtil.captureName(hotel.getDatasource()));
+        hotel.setDataSource(StandardUtil.captureName(hotel.getDataSource()));
         return hotel;
     }
 }
