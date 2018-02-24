@@ -8,7 +8,7 @@ public class ScenicForeachAction implements ForeachAction<String,byte[]> {
     @Override
     public void apply(String s, byte[] bytes) {
         ReceiverData rd = (ReceiverData) Object2Array.byteArrayToObject(bytes);  //解析
-        ScenicData scenicData = ReciverDataParser.parse(rd);
+        Sceinfo scenicData = ReciverDataParser.parse(rd);
         ScenicDataStandard standard = new ScenicDataStandard();
         standard.standardData(scenicData);
     }

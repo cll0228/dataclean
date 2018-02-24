@@ -1,22 +1,24 @@
 package com.holyrobot.datastandard;
 
 import com.holyrobot.common.RobotObject;
+import com.holyrobot.common.Sceinfo;
+
+import java.io.Serializable;
 
 /**
  * 景点数据标准化
  */
 public class ScenicDataStandard {
-    public ScenicData standardData(RobotObject robotObject){
-        ScenicData result = (ScenicData) robotObject;
+    public Sceinfo standardData(Sceinfo robotObject){
+        Sceinfo result = (Sceinfo) robotObject;
         longLatStandard(result);
         nameStandard(result);
-        priceStandard(result);
         addressStandard(result);
         return result;
     }
 
     //经纬度标准化
-    private void longLatStandard(ScenicData result){
+    private void longLatStandard(Sceinfo result){
         LongitudeLatDataStandard lld = new LongitudeLatDataStandard();
         //经纬度标准化
         result.setLongitude(lld.standardData(result.getLongitude()));
@@ -31,20 +33,12 @@ public class ScenicDataStandard {
 
     }
     //名称标注化
-    private void nameStandard(ScenicData result){
+    private void nameStandard(Sceinfo result){
         SceientNameFieldStandarder standarder = new SceientNameFieldStandarder();
         result.setName(standarder.standardData(result.getName()));
     }
-    //景点价格标准化
-    private void priceStandard(ScenicData result){
-        ScientPriceDataStanadard stanadard = new ScientPriceDataStanadard();
-//        for(ScenicPriceData price : result.getPriceDataList()){
-//            price.setSaleprice(stanadard.standardData(price.getSaleprice()));
-//            price.setpublicingprice(stanadard.standardData(price.getpublicingprice()));
-//        }
-    }
     //景点地址
-    private void addressStandard(ScenicData result){
+    private void addressStandard(Sceinfo result){
         ScenicAddressFieldStandarder standarder = new ScenicAddressFieldStandarder();
         result.setAddress(standarder.standardData(result.getAddress()));
     }
