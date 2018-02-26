@@ -8,7 +8,7 @@ import java.util.Date;
 public class HotelDetail extends RobotObject implements Serializable {
     public String id;
 
-    public String urlid;
+    public String url;
 
     public String name;
 
@@ -22,21 +22,21 @@ public class HotelDetail extends RobotObject implements Serializable {
 
     public String price;
 
-    public String datasource;
+    public String dataSource;
 
     public String grade;
 
-    public String gradenum;
+    public String gradeNum;
 
-    public String beennum;
+    public String beenNum;
 
-    public String whantto;
+    public String whantTo;
 
-    public Date createdate;
+    public Date createDate;
 
     public String creator;
 
-    public String creatorid;
+    public String creatorId;
 
     public String remark;
 
@@ -47,15 +47,15 @@ public class HotelDetail extends RobotObject implements Serializable {
     }
 
     public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+        this.id = id;
     }
 
-    public String getUrlid() {
-        return urlid;
+    public String getUrl() {
+        return url;
     }
 
-    public void setUrlid(String urlid) {
-        this.urlid = urlid == null ? null : urlid.trim();
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public String getName() {
@@ -63,7 +63,7 @@ public class HotelDetail extends RobotObject implements Serializable {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public String getAddress() {
@@ -71,7 +71,7 @@ public class HotelDetail extends RobotObject implements Serializable {
     }
 
     public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
+        this.address = address;
     }
 
     public String getLongitude() {
@@ -79,7 +79,7 @@ public class HotelDetail extends RobotObject implements Serializable {
     }
 
     public void setLongitude(String longitude) {
-        this.longitude = longitude == null ? null : longitude.trim();
+        this.longitude = longitude;
     }
 
     public String getLatitude() {
@@ -87,7 +87,7 @@ public class HotelDetail extends RobotObject implements Serializable {
     }
 
     public void setLatitude(String latitude) {
-        this.latitude = latitude == null ? null : latitude.trim();
+        this.latitude = latitude;
     }
 
     public String getStar() {
@@ -95,7 +95,7 @@ public class HotelDetail extends RobotObject implements Serializable {
     }
 
     public void setStar(String star) {
-        this.star = star == null ? null : star.trim();
+        this.star = star;
     }
 
     public String getPrice() {
@@ -103,15 +103,15 @@ public class HotelDetail extends RobotObject implements Serializable {
     }
 
     public void setPrice(String price) {
-        this.price = price == null ? null : price.trim();
+        this.price = price;
     }
 
-    public String getDatasource() {
-        return datasource;
+    public String getDataSource() {
+        return dataSource;
     }
 
-    public void setDatasource(String datasource) {
-        this.datasource = datasource == null ? null : datasource.trim();
+    public void setDataSource(String dataSource) {
+        this.dataSource = dataSource;
     }
 
     public String getGrade() {
@@ -119,39 +119,39 @@ public class HotelDetail extends RobotObject implements Serializable {
     }
 
     public void setGrade(String grade) {
-        this.grade = grade == null ? null : grade.trim();
+        this.grade = grade;
     }
 
-    public String getGradenum() {
-        return gradenum;
+    public String getGradeNum() {
+        return gradeNum;
     }
 
-    public void setGradenum(String gradenum) {
-        this.gradenum = gradenum == null ? null : gradenum.trim();
+    public void setGradeNum(String gradeNum) {
+        this.gradeNum = gradeNum;
     }
 
-    public String getBeennum() {
-        return beennum;
+    public String getBeenNum() {
+        return beenNum;
     }
 
-    public void setBeennum(String beennum) {
-        this.beennum = beennum == null ? null : beennum.trim();
+    public void setBeenNum(String beenNum) {
+        this.beenNum = beenNum;
     }
 
-    public String getWhantto() {
-        return whantto;
+    public String getWhantTo() {
+        return whantTo;
     }
 
-    public void setWhantto(String whantto) {
-        this.whantto = whantto == null ? null : whantto.trim();
+    public void setWhantTo(String whantTo) {
+        this.whantTo = whantTo;
     }
 
-    public Date getCreatedate() {
-        return createdate;
+    public Date getCreateDate() {
+        return createDate;
     }
 
-    public void setCreatedate(Date createdate) {
-        this.createdate = createdate;
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
     }
 
     public String getCreator() {
@@ -159,15 +159,15 @@ public class HotelDetail extends RobotObject implements Serializable {
     }
 
     public void setCreator(String creator) {
-        this.creator = creator == null ? null : creator.trim();
+        this.creator = creator;
     }
 
-    public String getCreatorid() {
-        return creatorid;
+    public String getCreatorId() {
+        return creatorId;
     }
 
-    public void setCreatorid(String creatorid) {
-        this.creatorid = creatorid == null ? null : creatorid.trim();
+    public void setCreatorId(String creatorId) {
+        this.creatorId = creatorId;
     }
 
     public String getRemark() {
@@ -175,7 +175,7 @@ public class HotelDetail extends RobotObject implements Serializable {
     }
 
     public void setRemark(String remark) {
-        this.remark = remark == null ? null : remark.trim();
+        this.remark = remark;
     }
 
     public String getIntroduction() {
@@ -183,30 +183,6 @@ public class HotelDetail extends RobotObject implements Serializable {
     }
 
     public void setIntroduction(String introduction) {
-        this.introduction = introduction == null ? null : introduction.trim();
-    }
-
-    @Override
-    public String toString() {
-        return "HotelDetail{" +
-                "id='" + id + '\'' +
-                ", urlid='" + urlid + '\'' +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", longitude='" + longitude + '\'' +
-                ", latitude='" + latitude + '\'' +
-                ", star='" + star + '\'' +
-                ", price='" + price + '\'' +
-                ", datasource='" + datasource + '\'' +
-                ", grade='" + grade + '\'' +
-                ", gradenum='" + gradenum + '\'' +
-                ", beennum='" + beennum + '\'' +
-                ", whantto='" + whantto + '\'' +
-                ", createdate=" + createdate +
-                ", creator='" + creator + '\'' +
-                ", creatorid='" + creatorid + '\'' +
-                ", remark='" + remark + '\'' +
-                ", introduction='" + introduction + '\'' +
-                '}';
+        this.introduction = introduction;
     }
 }
