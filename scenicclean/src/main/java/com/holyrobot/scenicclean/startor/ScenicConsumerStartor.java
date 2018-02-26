@@ -47,18 +47,24 @@ public class ScenicConsumerStartor {
             ConsumerRecords<String, byte[]> records = consumer.poll(Long.MAX_VALUE);
             for (ConsumerRecord<String, byte[]> record : records){
                 try{
+
                     byte[] bytes = record.value();
                     ReceiverData rd = (ReceiverData) Object2Array.byteArrayToObject(bytes);
                     if(rd.getType() == 4){
-                        Sceinfo si = (Sceinfo)rd.getData();
-                        ScenicDataStandard dataStandard = new ScenicDataStandard();
-                        Sceinfo sci = dataStandard.standardData(si);
-                        RobotObjectDao.insertHbase(sci);
-                    }else{
+                        logger.info("==================处理景点价格开始===================");
                         Scepriceinfo scepriceinfo = (Scepriceinfo)rd.getData();
                         ScePriceDataStandard dataStandard = new ScePriceDataStandard();
                         Scepriceinfo spi = dataStandard.standardData(scepriceinfo);
                         RobotObjectDao.insertHbase(spi);
+                        logger.info("==================处理景点价格结束===================");
+                    }else{
+                        logger.info("==================处理景点详情开始===================");
+                        Sceinfo si = (Sceinfo)rd.getData();
+                        ScenicDataStandard dataStandard = new ScenicDataStandard();
+                        dataStandard.standardData(si);
+
+                        RobotObjectDao.insertHbase(si);
+                        logger.info("==================处理景点详情结束===================");
                     }
                     ;
                 }catch (Exception e){

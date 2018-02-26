@@ -6,7 +6,8 @@ import org.apache.hadoop.hbase.client.HBaseAdmin;
 import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.util.Bytes;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.List;
  */
 public class HBaseApi {
     // 日志
-    public static Logger logger = Logger.getLogger(HBaseApi.class);
+    public static Logger logger = LoggerFactory.getLogger(HBaseApi.class);
 
     // 声明静态配置
     public static Configuration conf = null;
