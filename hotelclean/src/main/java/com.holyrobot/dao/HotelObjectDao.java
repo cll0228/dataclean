@@ -1,11 +1,11 @@
 package com.holyrobot.dao;
 
-import com.holyrobot.common.ReceiverData;
-import com.holyrobot.hbase.HBaseApi;
-import com.holyrobot.hbase.HbaseColumn;
 import com.holyrobot.common.Hotelinfo;
+import com.holyrobot.common.ReceiverData;
 import com.holyrobot.common.Roombasicinfo;
 import com.holyrobot.common.Roomprice;
+import com.holyrobot.hbase.HBaseApi;
+import com.holyrobot.hbase.HbaseColumn;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -37,14 +37,14 @@ public class HotelObjectDao {
         if (obj.getType() == 2) {
             Roomprice priceData = (Roomprice) obj.getData();
             tableName = "HolyRobot:RoomPrice_clean";
-            String rowKey = priceData.getHotelId() + "_" + priceData.getRoomId();
+            String rowKey = priceData.getHotelid() + "_" + priceData.getRoomid();
             hotelObjToHbaseSchema(obj, rowKey, tableName, Roomprice.class);
         }
 
         if (obj.getType() == 3) {
             Roombasicinfo hotelRoomData = (Roombasicinfo) obj.getData();
             tableName = "HolyRobot:RoomBasicInfo_clean";
-            String rowKey = hotelRoomData.getRoomType();
+            String rowKey = hotelRoomData.getRoomtype();
             hotelObjToHbaseSchema(obj, rowKey, tableName, Roombasicinfo.class);
         }
 
@@ -52,9 +52,9 @@ public class HotelObjectDao {
 
     private static void hotelObjToHbaseSchema(ReceiverData receiverData, String rowKey, String tableName, Class cls) {
         List<HbaseColumn> cols = new ArrayList<HbaseColumn>();
-        Field[] fields = cls.getFields();
-        for (Field field :
-                fields) {
+        Field[] fields = cls.getDeclaredFields();
+        for (Field field : fields) {
+            field.setAccessible(true);
             try {
                 if (field.getName().equals("rowKey") || field.getName().equals("creator") || field.getName().equals("creatorId")) {
                     continue;
