@@ -4,7 +4,7 @@ import com.holyrobot.common.RobotObject;
 
 import java.util.Date;
 
-public class HotelRoomData extends RobotObject {
+public class Roombasicinfo extends RobotObject {
     public String id;
 
     public String hotelId;

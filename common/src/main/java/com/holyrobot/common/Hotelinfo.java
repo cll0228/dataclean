@@ -2,7 +2,7 @@ package com.holyrobot.common;
 
 import java.util.Date;
 
-public class HotelDetail extends RobotObject {
+public class Hotelinfo extends RobotObject {
 
     private static final long serialVersionUID = 1L;
 
@@ -188,7 +188,7 @@ public class HotelDetail extends RobotObject {
 
     @Override
     public String toString() {
-        return "HotelDetail{" +
+        return "Hotelinfo{" +
                 "id='" + id + '\'' +
                 ", url='" + url + '\'' +
                 ", name='" + name + '\'' +

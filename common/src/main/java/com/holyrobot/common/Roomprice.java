@@ -2,7 +2,7 @@ package com.holyrobot.common;
 
 import java.util.Date;
 
-public class HotelRoomPriceData extends RobotObject {
+public class Roomprice extends RobotObject {
     public String id;
 
     public String hotelId;
