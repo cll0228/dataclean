@@ -1,11 +1,11 @@
-package com.holyrobot.pojo;
+package com.holyrobot.common;
 
-import com.holyrobot.common.RobotObject;
-
-import java.io.Serializable;
 import java.util.Date;
 
-public class HotelDetail extends RobotObject implements Serializable {
+public class HotelDetail extends RobotObject {
+
+    private static final long serialVersionUID = 1L;
+
     public String id;
 
     public String url;

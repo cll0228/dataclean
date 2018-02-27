@@ -1,8 +1,8 @@
 package com.holyrobot.start;
 
+import com.holyrobot.common.HotelDetail;
 import com.holyrobot.common.ReceiverData;
 import com.holyrobot.dao.HotelObjectDao;
-import com.holyrobot.pojo.HotelDetail;
 import com.holyrobot.util.HotelStandard;
 import com.holyrobot.util.StandardUtil;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -24,7 +24,7 @@ public class HotelConumerStartor {
     public static void main(String[] args) {
         if (args.length == 0) {
             args = new String[]{"node5:9092,node4:9092,node3:9092", "topic_hotel", "test2", "latest"};
-            System.out.println("param init success");
+            logger.info("param init success");
         }
         String bootstrap = args[0];
         String topic = args[1];
@@ -49,15 +49,15 @@ public class HotelConumerStartor {
                 try {
                     byte[] bytes = record.value();
                     ReceiverData rd = (ReceiverData) StandardUtil.byteArrayToObject(bytes);
-                    System.out.println("消费者接受消息=====" + rd.getData().getClass() + " 启动处理");
                     if (null == rd || null == rd.getType() || null == rd.getData()) {
                         continue;
                     }
+                    logger.info("消费者接受消息===== Type == " + rd.getType() + rd.getData().getClass() + " 启动处理");
                     try {
                         new ProcessObj(rd).start();
-                        System.out.println("start a thread to process data sucess Class = " + rd.getData().getClass());
+                        logger.info("启动线程处理数据 Class = " + rd.getData().getClass());
                     } catch (Exception e) {
-                        logger.error("start a thread to process data failed Class = " + rd.getData().getClass(), e);
+                        logger.error("启动线程失败处理数据 Class = " + rd.getData().getClass(), e);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -88,17 +88,20 @@ public class HotelConumerStartor {
         @Override
         public void run() {
             if (receiverData.getType() == 1) {
+                logger.info("TYPE = 1，进入数据清洗");
                 HotelDetail hotelDetail = (HotelDetail) receiverData.getData();
                 try {
+                    logger.info("清洗前数据 hotelDetail = " + hotelDetail.toString());
                     receiverData.setData(HotelStandard.standardHotel(hotelDetail));
-                    System.out.println(receiverData.getData().getClass() + " standard success ID = " + hotelDetail.getName());
+                    logger.info(receiverData.getData().getClass() + " 酒店数据标准化成功 酒店名称 = " + hotelDetail.getName());
+                    logger.info("清洗后数据 hotelDetail = " + receiverData.getData().toString());
                 } catch (Exception e) {
-                    logger.error(receiverData.getData().getClass() + " standard fail ID = " + hotelDetail.getName(), e);
+                    logger.error(receiverData.getData().getClass() + " 酒店数据标准化失败 酒店名称= " + hotelDetail.getName(), e);
                 }
             }
             //保存hbase
             HotelObjectDao.saveToHbase(receiverData);
-            System.out.println("save to hbase success Data = " + receiverData.getClass());
+            logger.info("保存hhbase成功 Data = " + receiverData.getClass());
         }
     }
 

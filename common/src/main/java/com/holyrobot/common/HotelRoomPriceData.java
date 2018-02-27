@@ -1,6 +1,4 @@
-package com.holyrobot.pojo;
-
-import com.holyrobot.common.RobotObject;
+package com.holyrobot.common;
 
 import java.util.Date;
 

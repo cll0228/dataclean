@@ -1,4 +1,4 @@
-package com.holyrobot.pojo;
+package com.holyrobot.common;
 
 import com.holyrobot.common.RobotObject;
 

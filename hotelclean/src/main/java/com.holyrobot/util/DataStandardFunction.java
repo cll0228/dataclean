@@ -1,7 +1,7 @@
 package com.holyrobot.util;
 
 import com.holyrobot.common.ReceiverData;
-import com.holyrobot.pojo.HotelDetail;
+import com.holyrobot.common.HotelDetail;
 import org.apache.spark.api.java.function.Function;
 
 /**

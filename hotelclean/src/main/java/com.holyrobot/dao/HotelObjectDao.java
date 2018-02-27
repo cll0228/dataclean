@@ -3,9 +3,9 @@ package com.holyrobot.dao;
 import com.holyrobot.common.ReceiverData;
 import com.holyrobot.hbase.HBaseApi;
 import com.holyrobot.hbase.HbaseColumn;
-import com.holyrobot.pojo.HotelDetail;
-import com.holyrobot.pojo.HotelRoomData;
-import com.holyrobot.pojo.HotelRoomPriceData;
+import com.holyrobot.common.HotelDetail;
+import com.holyrobot.common.HotelRoomData;
+import com.holyrobot.common.HotelRoomPriceData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -1,7 +1,7 @@
 package com.holyrobot.util;
 
 
-import com.holyrobot.pojo.HotelDetail;
+import com.holyrobot.common.HotelDetail;
 
 /**
  * 标准化酒店数据
