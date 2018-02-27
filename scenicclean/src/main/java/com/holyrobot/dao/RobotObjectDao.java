@@ -19,11 +19,12 @@ public class RobotObjectDao {
             Sceinfo scenicData = (Sceinfo)object;
             String rowKey = scenicData.getId() ;
             insertHbase(object,rowKey,"HolyRobot:SceInfo");
-//            ESIndeBuilder.buildScenicIndex(scenicData);
+            ESDocumentManager.insertDoc("scenic","detail",scenicData.getId(),scenicData);
         }else if(object instanceof Scepriceinfo){
             Scepriceinfo scenicData = (Scepriceinfo)object;
             String rowKey = scenicData.getId();
             insertHbase(object,rowKey,"HolyRobot:ScePriceInfo");
+            ESDocumentManager.insertDoc("scenicprice","price",scenicData.getId(),scenicData);
         }
     }
 

@@ -7,10 +7,8 @@ import com.holyrobot.datastandard.ScenicDataStandard;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.apache.kafka.common.serialization.ByteArrayDeserializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.Arrays;
 import java.util.Properties;
 /**
@@ -36,11 +34,9 @@ public class ScenicConsumerStartor {
         props.put("enable.auto.commit", "true");  //自动commit
         props.put("auto.commit.interval.ms", "1000"); //定时commit的周期
         props.put("session.timeout.ms", "30000"); //consumer活性超时时间
-        props.put("auto.offset.reset",offset);
+//        props.put("auto.offset.reset",offset);
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.ByteArrayDeserializer");
-        props.put("key.deserializer.encoding", "UTF8");
-        props.put("value.deserializer.encoding", "UTF8");
         KafkaConsumer<String, byte[]> consumer = new KafkaConsumer<>(props);
         consumer.subscribe(Arrays.asList(topic));
         while (!isStop) {
@@ -53,22 +49,26 @@ public class ScenicConsumerStartor {
                     if(rd.getType() == 4){
                         logger.info("==================处理景点价格开始===================");
                         Scepriceinfo scepriceinfo = (Scepriceinfo)rd.getData();
+                        logger.info("处理前的数据：" + JsonCommon.prepareData(scepriceinfo));
                         ScePriceDataStandard dataStandard = new ScePriceDataStandard();
                         Scepriceinfo spi = dataStandard.standardData(scepriceinfo);
+                        logger.info("处理后的数据：" + JsonCommon.prepareData(spi));
                         RobotObjectDao.insertHbase(spi);
                         logger.info("==================处理景点价格结束===================");
                     }else{
                         logger.info("==================处理景点详情开始===================");
+
                         Sceinfo si = (Sceinfo)rd.getData();
+                        logger.info("处理前的数据：" + JsonCommon.prepareData(si));
                         ScenicDataStandard dataStandard = new ScenicDataStandard();
                         dataStandard.standardData(si);
-
+                        logger.info("处理后的数据：" + JsonCommon.prepareData(si));
                         RobotObjectDao.insertHbase(si);
                         logger.info("==================处理景点详情结束===================");
                     }
                     ;
                 }catch (Exception e){
-                    e.printStackTrace();
+                    logger.error(e.getMessage() + ":" + e.getStackTrace());
                 }
             }
         }

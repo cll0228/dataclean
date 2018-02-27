@@ -2,6 +2,8 @@ package com.holyrobot.datastandard;
 
 import com.holyrobot.common.RobotObject;
 import com.holyrobot.common.Sceinfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.Serializable;
 
@@ -9,11 +11,14 @@ import java.io.Serializable;
  * 景点数据标准化
  */
 public class ScenicDataStandard {
+    static Logger logger = LoggerFactory.getLogger(ScenicDataStandard.class);
     public Sceinfo standardData(Sceinfo robotObject){
+        logger.info("================景点标准化开始================");
         Sceinfo result = (Sceinfo) robotObject;
         longLatStandard(result);
         nameStandard(result);
         addressStandard(result);
+        logger.info("================景点标准化结束================");
         return result;
     }
 

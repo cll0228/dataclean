@@ -13,11 +13,11 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="common" target="1.8" />
-      <module name="dataclean" target="1.8" />
-      <module name="hotelclean" target="1.8" />
-      <module name="routeclean" target="1.8" />
-      <module name="scenicclean" target="1.8" />
+      <module name="common" target="1.5" />
+      <module name="dataclean" target="1.5" />
+      <module name="hotelclean" target="1.7" />
+      <module name="routeclean" target="1.5" />
+      <module name="scenicclean" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
