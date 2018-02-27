@@ -6,7 +6,8 @@ import org.apache.hadoop.hbase.client.HBaseAdmin;
 import org.apache.hadoop.hbase.client.HTable;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.util.Bytes;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.List;
@@ -16,7 +17,7 @@ import java.util.List;
  */
 public class HBaseApi {
     // 日志
-    public static Logger logger = Logger.getLogger(HBaseApi.class);
+    public static Logger logger = LoggerFactory.getLogger(HBaseApi.class);
 
     // 声明静态配置
     public static Configuration conf = null;
@@ -24,7 +25,7 @@ public class HBaseApi {
         try {
             logger.info("=================hbase初始化配置开始======================");
             conf = HBaseConfiguration.create();
-            conf.set("hbase.zookeeper.quorum", "node2,node3,node4,node6");
+            conf.set("hbase.zookeeper.quorum", "node3,node4");
             conf.set("hbase.zookeeper.property.clientPort",  "2181");
             System.setProperty("HADOOP_USER_NAME", "hdfs");
             logger.info("hbase初始化配置结束");
