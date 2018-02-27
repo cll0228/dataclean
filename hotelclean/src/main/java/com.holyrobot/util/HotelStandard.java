@@ -9,7 +9,7 @@ import com.holyrobot.pojo.HotelDetail;
 public class HotelStandard {
 
 
-    public HotelDetail standardHotel(Object obj) throws Exception {
+    public static HotelDetail standardHotel(Object obj) throws Exception {
         HotelDetail hotel = (HotelDetail) obj;
 
         //酒店名称 del ,test ,测试

@@ -185,4 +185,28 @@ public class HotelDetail extends RobotObject implements Serializable {
     public void setIntroduction(String introduction) {
         this.introduction = introduction;
     }
+
+    @Override
+    public String toString() {
+        return "HotelDetail{" +
+                "id='" + id + '\'' +
+                ", url='" + url + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", longitude='" + longitude + '\'' +
+                ", latitude='" + latitude + '\'' +
+                ", star='" + star + '\'' +
+                ", price='" + price + '\'' +
+                ", dataSource='" + dataSource + '\'' +
+                ", grade='" + grade + '\'' +
+                ", gradeNum='" + gradeNum + '\'' +
+                ", beenNum='" + beenNum + '\'' +
+                ", whantTo='" + whantTo + '\'' +
+                ", createDate=" + createDate +
+                ", creator='" + creator + '\'' +
+                ", creatorId='" + creatorId + '\'' +
+                ", remark='" + remark + '\'' +
+                ", introduction='" + introduction + '\'' +
+                '}';
+    }
 }

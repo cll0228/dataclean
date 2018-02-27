@@ -2,7 +2,6 @@ package com.holyrobot.hbase;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.Cell;
-import org.apache.hadoop.hbase.CellUtil;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.util.Bytes;
@@ -60,18 +59,21 @@ public class HBaseApi {
         HTable table = new HTable(conf, Bytes.toBytes(tableName));
         Scan s = new Scan();
         ResultScanner scanner = table.getScanner(s);
+        Integer count = 0;
         for (Result r : scanner) {
             for (Cell cell : r.rawCells()) {
-                System.out.println(Bytes.toString(r.getRow()) +"  " + Bytes.toString(CellUtil.cloneQualifier(cell)) +
-                        "===" + Bytes.toString(CellUtil.cloneValue(cell)) +
-                        "   Time : " + cell.getTimestamp());
-            }
-            System.out.println("================================================================================================");
-        }
+                count += r.rawCells().length;
+//                System.out.println(Bytes.toString(r.getRow()) +"  " + Bytes.toString(CellUtil.cloneQualifier(cell)) +
+//                        "===" + Bytes.toString(CellUtil.cloneValue(cell)) +
+//                        "   Time : " + cell.getTimestamp());
 
+            }
+//            System.out.println("================================================================================================");
+        }
+        System.out.println(count);
     }
 
     public static void main(String[] args) throws IOException {
-        scan("HolyRobot:HotelBasicInfo");
+        scan("HolyRobot:HotelBasicInfo_clean");
     }
 }
