@@ -9,18 +9,16 @@ import org.apache.spark.api.java.function.Function;
  */
 public class DataStandardFunction implements Function<ReceiverData, ReceiverData> {
 
-    private HotelStandard hotelStandard;
     private SaveCleanDataToKafka toKafka;
 
     @Override
     public ReceiverData call(ReceiverData receiverData) throws Exception {
-        if (null == hotelStandard || null == toKafka) {
-            hotelStandard = new HotelStandard();
+        if (null == toKafka) {
             toKafka = new SaveCleanDataToKafka();
         }
 
         if (null != receiverData && null != receiverData.getType() && receiverData.getType() == 1) {
-            HotelDetail hotel = hotelStandard.standardHotel(receiverData.getData());
+            HotelDetail hotel = HotelStandard.standardHotel(receiverData.getData());
             if (null == hotel) {
                 //保存到失败主题
                 toKafka.send("fail_clean_hotel_topic", receiverData);
@@ -29,4 +27,6 @@ public class DataStandardFunction implements Function<ReceiverData, ReceiverData
         }
         return receiverData;
     }
+
+
 }
