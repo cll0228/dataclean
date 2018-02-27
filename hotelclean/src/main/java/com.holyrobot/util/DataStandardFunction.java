@@ -1,7 +1,7 @@
 package com.holyrobot.util;
 
+import com.holyrobot.common.Hotelinfo;
 import com.holyrobot.common.ReceiverData;
-import com.holyrobot.common.HotelDetail;
 import org.apache.spark.api.java.function.Function;
 
 /**
@@ -18,7 +18,7 @@ public class DataStandardFunction implements Function<ReceiverData, ReceiverData
         }
 
         if (null != receiverData && null != receiverData.getType() && receiverData.getType() == 1) {
-            HotelDetail hotel = HotelStandard.standardHotel(receiverData.getData());
+            Hotelinfo hotel = HotelStandard.standardHotel(receiverData.getData());
             if (null == hotel) {
                 //保存到失败主题
                 toKafka.send("fail_clean_hotel_topic", receiverData);

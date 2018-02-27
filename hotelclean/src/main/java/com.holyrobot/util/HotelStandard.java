@@ -1,7 +1,7 @@
 package com.holyrobot.util;
 
 
-import com.holyrobot.common.HotelDetail;
+import com.holyrobot.common.Hotelinfo;
 
 /**
  * 标准化酒店数据
@@ -9,8 +9,8 @@ import com.holyrobot.common.HotelDetail;
 public class HotelStandard {
 
 
-    public static HotelDetail standardHotel(Object obj) throws Exception {
-        HotelDetail hotel = (HotelDetail) obj;
+    public static Hotelinfo standardHotel(Object obj) throws Exception {
+        Hotelinfo hotel = (Hotelinfo) obj;
 
         //酒店名称 del ,test ,测试
         String[] split = FilterName.HOTEL_NAME_FILTER.split(",");

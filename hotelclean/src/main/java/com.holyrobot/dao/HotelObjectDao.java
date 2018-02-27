@@ -3,9 +3,9 @@ package com.holyrobot.dao;
 import com.holyrobot.common.ReceiverData;
 import com.holyrobot.hbase.HBaseApi;
 import com.holyrobot.hbase.HbaseColumn;
-import com.holyrobot.common.HotelDetail;
-import com.holyrobot.common.HotelRoomData;
-import com.holyrobot.common.HotelRoomPriceData;
+import com.holyrobot.common.Hotelinfo;
+import com.holyrobot.common.Roombasicinfo;
+import com.holyrobot.common.Roomprice;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,24 +28,24 @@ public class HotelObjectDao {
 
         String tableName = null;
         if (obj.getType() == 1) {
-            HotelDetail hotelDetail = (HotelDetail) obj.getData();
+            Hotelinfo hotelDetail = (Hotelinfo) obj.getData();
             tableName = "HolyRobot:HotelBasicInfo_clean";
             String rowKey = hotelDetail.getName() + "_" + hotelDetail.getAddress();
-            hotelObjToHbaseSchema(obj, rowKey, tableName, HotelDetail.class);
+            hotelObjToHbaseSchema(obj, rowKey, tableName, Hotelinfo.class);
         }
 
         if (obj.getType() == 2) {
-            HotelRoomPriceData priceData = (HotelRoomPriceData) obj.getData();
+            Roomprice priceData = (Roomprice) obj.getData();
             tableName = "HolyRobot:RoomPrice_clean";
             String rowKey = priceData.getHotelId() + "_" + priceData.getRoomId();
-            hotelObjToHbaseSchema(obj, rowKey, tableName, HotelRoomPriceData.class);
+            hotelObjToHbaseSchema(obj, rowKey, tableName, Roomprice.class);
         }
 
         if (obj.getType() == 3) {
-            HotelRoomData hotelRoomData = (HotelRoomData) obj.getData();
+            Roombasicinfo hotelRoomData = (Roombasicinfo) obj.getData();
             tableName = "HolyRobot:RoomBasicInfo_clean";
             String rowKey = hotelRoomData.getRoomType();
-            hotelObjToHbaseSchema(obj, rowKey, tableName, HotelRoomData.class);
+            hotelObjToHbaseSchema(obj, rowKey, tableName, Roombasicinfo.class);
         }
 
     }

@@ -1,6 +1,6 @@
 package com.holyrobot.start;
 
-import com.holyrobot.common.HotelDetail;
+import com.holyrobot.common.Hotelinfo;
 import com.holyrobot.common.ReceiverData;
 import com.holyrobot.dao.HotelObjectDao;
 import com.holyrobot.util.HotelStandard;
@@ -89,14 +89,14 @@ public class HotelConumerStartor {
         public void run() {
             if (receiverData.getType() == 1) {
                 logger.info("TYPE = 1，进入数据清洗");
-                HotelDetail hotelDetail = (HotelDetail) receiverData.getData();
+                Hotelinfo hotelinfo = (Hotelinfo) receiverData.getData();
                 try {
-                    logger.info("清洗前数据 hotelDetail = " + hotelDetail.toString());
-                    receiverData.setData(HotelStandard.standardHotel(hotelDetail));
-                    logger.info(receiverData.getData().getClass() + " 酒店数据标准化成功 酒店名称 = " + hotelDetail.getName());
+                    logger.info("清洗前数据 hotelDetail = " + hotelinfo.toString());
+                    receiverData.setData(HotelStandard.standardHotel(hotelinfo));
+                    logger.info(receiverData.getData().getClass() + " 酒店数据标准化成功 酒店名称 = " + hotelinfo.getName());
                     logger.info("清洗后数据 hotelDetail = " + receiverData.getData().toString());
                 } catch (Exception e) {
-                    logger.error(receiverData.getData().getClass() + " 酒店数据标准化失败 酒店名称= " + hotelDetail.getName(), e);
+                    logger.error(receiverData.getData().getClass() + " 酒店数据标准化失败 酒店名称= " + hotelinfo.getName(), e);
                 }
             }
             //保存hbase
