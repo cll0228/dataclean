@@ -1,53 +1,53 @@
 package com.holyrobot.common;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Hotelinfo extends RobotObject {
-
+public class Hotelinfo implements Serializable{
     private static final long serialVersionUID = 1L;
 
-    public String id;
+    private String id;
 
-    public String url;
+    private String url;
 
-    public String name;
+    private String name;
 
-    public String address;
+    private String address;
 
-    public String longitude;
+    private String longitude;
 
-    public String latitude;
+    private String latitude;
 
-    public String star;
+    private String star;
 
-    public String price;
+    private String price;
 
-    public String dataSource;
+    private String datasource;
 
-    public String grade;
+    private String grade;
 
-    public String gradeNum;
+    private String gradenum;
 
-    public String beenNum;
+    private String beennum;
 
-    public String whantTo;
+    private String whantto;
 
-    public Date createDate;
+    private Date createdate;
 
-    public String creator;
+    private String creator;
 
-    public String creatorId;
+    private String creatorid;
 
-    public String remark;
+    private String remark;
 
-    public String introduction;
+    private String introduction;
 
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.id = id == null ? null : id.trim();
     }
 
     public String getUrl() {
@@ -63,7 +63,7 @@ public class Hotelinfo extends RobotObject {
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name == null ? null : name.trim();
     }
 
     public String getAddress() {
@@ -71,7 +71,7 @@ public class Hotelinfo extends RobotObject {
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        this.address = address == null ? null : address.trim();
     }
 
     public String getLongitude() {
@@ -79,7 +79,7 @@ public class Hotelinfo extends RobotObject {
     }
 
     public void setLongitude(String longitude) {
-        this.longitude = longitude;
+        this.longitude = longitude == null ? null : longitude.trim();
     }
 
     public String getLatitude() {
@@ -87,7 +87,7 @@ public class Hotelinfo extends RobotObject {
     }
 
     public void setLatitude(String latitude) {
-        this.latitude = latitude;
+        this.latitude = latitude == null ? null : latitude.trim();
     }
 
     public String getStar() {
@@ -95,7 +95,7 @@ public class Hotelinfo extends RobotObject {
     }
 
     public void setStar(String star) {
-        this.star = star;
+        this.star = star == null ? null : star.trim();
     }
 
     public String getPrice() {
@@ -103,15 +103,15 @@ public class Hotelinfo extends RobotObject {
     }
 
     public void setPrice(String price) {
-        this.price = price;
+        this.price = price == null ? null : price.trim();
     }
 
-    public String getDataSource() {
-        return dataSource;
+    public String getDatasource() {
+        return datasource;
     }
 
-    public void setDataSource(String dataSource) {
-        this.dataSource = dataSource;
+    public void setDatasource(String datasource) {
+        this.datasource = datasource == null ? null : datasource.trim();
     }
 
     public String getGrade() {
@@ -119,39 +119,39 @@ public class Hotelinfo extends RobotObject {
     }
 
     public void setGrade(String grade) {
-        this.grade = grade;
+        this.grade = grade == null ? null : grade.trim();
     }
 
-    public String getGradeNum() {
-        return gradeNum;
+    public String getGradenum() {
+        return gradenum;
     }
 
-    public void setGradeNum(String gradeNum) {
-        this.gradeNum = gradeNum;
+    public void setGradenum(String gradenum) {
+        this.gradenum = gradenum == null ? null : gradenum.trim();
     }
 
-    public String getBeenNum() {
-        return beenNum;
+    public String getBeennum() {
+        return beennum;
     }
 
-    public void setBeenNum(String beenNum) {
-        this.beenNum = beenNum;
+    public void setBeennum(String beennum) {
+        this.beennum = beennum == null ? null : beennum.trim();
     }
 
-    public String getWhantTo() {
-        return whantTo;
+    public String getWhantto() {
+        return whantto;
     }
 
-    public void setWhantTo(String whantTo) {
-        this.whantTo = whantTo;
+    public void setWhantto(String whantto) {
+        this.whantto = whantto == null ? null : whantto.trim();
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public Date getCreatedate() {
+        return createdate;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setCreatedate(Date createdate) {
+        this.createdate = createdate;
     }
 
     public String getCreator() {
@@ -159,15 +159,15 @@ public class Hotelinfo extends RobotObject {
     }
 
     public void setCreator(String creator) {
-        this.creator = creator;
+        this.creator = creator == null ? null : creator.trim();
     }
 
-    public String getCreatorId() {
-        return creatorId;
+    public String getCreatorid() {
+        return creatorid;
     }
 
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
+    public void setCreatorid(String creatorid) {
+        this.creatorid = creatorid == null ? null : creatorid.trim();
     }
 
     public String getRemark() {
@@ -175,7 +175,7 @@ public class Hotelinfo extends RobotObject {
     }
 
     public void setRemark(String remark) {
-        this.remark = remark;
+        this.remark = remark == null ? null : remark.trim();
     }
 
     public String getIntroduction() {
@@ -183,30 +183,6 @@ public class Hotelinfo extends RobotObject {
     }
 
     public void setIntroduction(String introduction) {
-        this.introduction = introduction;
-    }
-
-    @Override
-    public String toString() {
-        return "Hotelinfo{" +
-                "id='" + id + '\'' +
-                ", url='" + url + '\'' +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", longitude='" + longitude + '\'' +
-                ", latitude='" + latitude + '\'' +
-                ", star='" + star + '\'' +
-                ", price='" + price + '\'' +
-                ", dataSource='" + dataSource + '\'' +
-                ", grade='" + grade + '\'' +
-                ", gradeNum='" + gradeNum + '\'' +
-                ", beenNum='" + beenNum + '\'' +
-                ", whantTo='" + whantTo + '\'' +
-                ", createDate=" + createDate +
-                ", creator='" + creator + '\'' +
-                ", creatorId='" + creatorId + '\'' +
-                ", remark='" + remark + '\'' +
-                ", introduction='" + introduction + '\'' +
-                '}';
+        this.introduction = introduction == null ? null : introduction.trim();
     }
 }

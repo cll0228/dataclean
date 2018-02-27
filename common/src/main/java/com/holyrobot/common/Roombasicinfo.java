@@ -1,92 +1,93 @@
 package com.holyrobot.common;
 
-import com.holyrobot.common.RobotObject;
-
+import java.io.Serializable;
 import java.util.Date;
 
-public class Roombasicinfo extends RobotObject {
-    public String id;
+public class Roombasicinfo implements Serializable{
+    private static final long serialVersionUID = 1L;
 
-    public String hotelId;
+    private String id;
 
-    public String roomType;
+    private String hotelid;
 
-    public String bedType;//床型
+    private String roomtype;
 
-    public String bedCount;//床的数量
+    private String bedtype;
 
-    public String isAddBed;//是否可以加床
+    private String bedcount;
 
-    public String bedSize;//床的大小
+    private String isaddbed;
 
-    public String price;
+    private String bedsize;
 
-    public String isWifi;
+    private String price;
 
-    public String floor;
+    private String iswifi;
 
-    public String peopleCount;//可以住几个人
+    private String floor;
 
-    public Date createDate;
+    private String peoplecount;
 
-    public String creator;
+    private Date createdate;
 
-    public String creatorId;
+    private String creator;
+
+    private String creatorid;
 
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
-        this.id = id;
+        this.id = id == null ? null : id.trim();
     }
 
-    public String getHotelId() {
-        return hotelId;
+    public String getHotelid() {
+        return hotelid;
     }
 
-    public void setHotelId(String hotelId) {
-        this.hotelId = hotelId;
+    public void setHotelid(String hotelid) {
+        this.hotelid = hotelid == null ? null : hotelid.trim();
     }
 
-    public String getRoomType() {
-        return roomType;
+    public String getRoomtype() {
+        return roomtype;
     }
 
-    public void setRoomType(String roomType) {
-        this.roomType = roomType;
+    public void setRoomtype(String roomtype) {
+        this.roomtype = roomtype == null ? null : roomtype.trim();
     }
 
-    public String getBedType() {
-        return bedType;
+    public String getBedtype() {
+        return bedtype;
     }
 
-    public void setBedType(String bedType) {
-        this.bedType = bedType;
+    public void setBedtype(String bedtype) {
+        this.bedtype = bedtype == null ? null : bedtype.trim();
     }
 
-    public String getBedCount() {
-        return bedCount;
+    public String getBedcount() {
+        return bedcount;
     }
 
-    public void setBedCount(String bedCount) {
-        this.bedCount = bedCount;
+    public void setBedcount(String bedcount) {
+        this.bedcount = bedcount == null ? null : bedcount.trim();
     }
 
-    public String getIsAddBed() {
-        return isAddBed;
+    public String getIsaddbed() {
+        return isaddbed;
     }
 
-    public void setIsAddBed(String isAddBed) {
-        this.isAddBed = isAddBed;
+    public void setIsaddbed(String isaddbed) {
+        this.isaddbed = isaddbed == null ? null : isaddbed.trim();
     }
 
-    public String getBedSize() {
-        return bedSize;
+    public String getBedsize() {
+        return bedsize;
     }
 
-    public void setBedSize(String bedSize) {
-        this.bedSize = bedSize;
+    public void setBedsize(String bedsize) {
+        this.bedsize = bedsize == null ? null : bedsize.trim();
     }
 
     public String getPrice() {
@@ -94,15 +95,15 @@ public class Roombasicinfo extends RobotObject {
     }
 
     public void setPrice(String price) {
-        this.price = price;
+        this.price = price == null ? null : price.trim();
     }
 
-    public String getIsWifi() {
-        return isWifi;
+    public String getIswifi() {
+        return iswifi;
     }
 
-    public void setIsWifi(String isWifi) {
-        this.isWifi = isWifi;
+    public void setIswifi(String iswifi) {
+        this.iswifi = iswifi == null ? null : iswifi.trim();
     }
 
     public String getFloor() {
@@ -110,23 +111,23 @@ public class Roombasicinfo extends RobotObject {
     }
 
     public void setFloor(String floor) {
-        this.floor = floor;
+        this.floor = floor == null ? null : floor.trim();
     }
 
-    public String getPeopleCount() {
-        return peopleCount;
+    public String getPeoplecount() {
+        return peoplecount;
     }
 
-    public void setPeopleCount(String peopleCount) {
-        this.peopleCount = peopleCount;
+    public void setPeoplecount(String peoplecount) {
+        this.peoplecount = peoplecount == null ? null : peoplecount.trim();
     }
 
-    public Date getCreateDate() {
-        return createDate;
+    public Date getCreatedate() {
+        return createdate;
     }
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
+    public void setCreatedate(Date createdate) {
+        this.createdate = createdate;
     }
 
     public String getCreator() {
@@ -134,14 +135,14 @@ public class Roombasicinfo extends RobotObject {
     }
 
     public void setCreator(String creator) {
-        this.creator = creator;
+        this.creator = creator == null ? null : creator.trim();
     }
 
-    public String getCreatorId() {
-        return creatorId;
+    public String getCreatorid() {
+        return creatorid;
     }
 
-    public void setCreatorId(String creatorId) {
-        this.creatorId = creatorId;
+    public void setCreatorid(String creatorid) {
+        this.creatorid = creatorid == null ? null : creatorid.trim();
     }
 }
