@@ -2,12 +2,16 @@ package com.holyrobot.util;
 
 
 import com.holyrobot.common.Hotelinfo;
+import org.apache.commons.lang3.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 标准化酒店数据
  */
 public class HotelStandard {
 
+    private static final Logger logger = LoggerFactory.getLogger(HotelStandard.class);
 
     public static Hotelinfo standardHotel(Object obj) throws Exception {
         Hotelinfo hotel = (Hotelinfo) obj;
@@ -24,14 +28,16 @@ public class HotelStandard {
         hotel.setName(StandardUtil.replaceE2C(hotel.getName()));
         hotel.setAddress(StandardUtil.replaceE2C(hotel.getAddress()));
 
-        try {
-            //经纬度
-            hotel.setLatitude(StandardUtil.save2dec(Double.valueOf(StandardUtil.delSpechar(hotel.getLatitude()))).toString());
-            hotel.setLongitude(StandardUtil.save2dec(Double.valueOf(StandardUtil.delSpechar(hotel.getLongitude()))).toString());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
+        if (StringUtils.isNoneBlank(hotel.getLatitude()) && StringUtils.isNoneBlank(hotel.getLongitude())) {
+            try {
+                //经纬度
+                hotel.setLatitude(StandardUtil.save2dec(Double.valueOf(StandardUtil.delSpechar(hotel.getLatitude()))).toString());
+                hotel.setLongitude(StandardUtil.save2dec(Double.valueOf(StandardUtil.delSpechar(hotel.getLongitude()))).toString());
+            } catch (Exception e) {
+                logger.error("经纬度标准化失败！，Latitude" + hotel.getLatitude() + " Longitude" + hotel.getLongitude(), e);
+            }
+        }
         //星级
         hotel.setStar(StandardUtil.preStar(hotel.getStar()));
 

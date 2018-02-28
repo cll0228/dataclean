@@ -101,7 +101,7 @@ public class HotelConumerStartor {
             }
             //保存hbase
             HotelObjectDao.saveToHbase(receiverData);
-            logger.info("保存hhbase成功 Data = " + receiverData.getClass());
+            logger.info("保存hhbase成功 Data = " + receiverData.getData().getClass());
         }
     }
 
