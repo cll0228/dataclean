@@ -33,9 +33,8 @@ public class ScenicDataStandard {
         String longLat = llds.standardData(ll);
         if(longLat.length() > 1){
             result.setLongitude(longLat.split(",")[0]);
-            result.setLongitude(longLat.split(",")[1]);
+            result.setLatitude(longLat.split(",")[1]);
         }
-
     }
     //名称标注化
     private void nameStandard(Sceinfo result){

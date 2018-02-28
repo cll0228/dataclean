@@ -25,6 +25,7 @@ public class HBaseApi {
         try {
             logger.info("=================hbase初始化配置开始======================");
             conf = HBaseConfiguration.create();
+            conf.set("fs.hdfs.impl",org.apache.hadoop.hdfs.DistributedFileSystem.class.getName());
             conf.set("hbase.zookeeper.quorum", "node3,node4");
             conf.set("hbase.zookeeper.property.clientPort",  "2181");
             System.setProperty("HADOOP_USER_NAME", "hdfs");
@@ -40,6 +41,7 @@ public class HBaseApi {
         try {
             logger.info("=============hbase初始化运行开始====================");
             HBaseAdmin admin = new HBaseAdmin(conf);
+
             logger.info("=============hbase初始化运行结束====================");
         } catch (Exception e) {
             logger.info("hbase初始化运行失败:" + e.getMessage());
