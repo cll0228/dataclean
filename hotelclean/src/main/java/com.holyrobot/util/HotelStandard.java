@@ -29,7 +29,7 @@ public class HotelStandard {
         hotel.setAddress(StandardUtil.replaceE2C(hotel.getAddress()));
 
 
-        if (StringUtils.isNoneBlank(hotel.getLatitude()) && StringUtils.isNoneBlank(hotel.getLongitude())) {
+        if (StringUtils.isNotBlank(hotel.getLatitude()) && StringUtils.isNotBlank(hotel.getLongitude())) {
             try {
                 //经纬度
                 hotel.setLatitude(StandardUtil.save2dec(Double.valueOf(StandardUtil.delSpechar(hotel.getLatitude()))).toString());
