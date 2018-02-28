@@ -1,11 +1,11 @@
 package com.holyrobot.dao;
 
+import com.holyrobot.common.Hotelinfo;
 import com.holyrobot.common.ReceiverData;
+import com.holyrobot.common.Roombasicinfo;
+import com.holyrobot.common.Roomprice;
 import com.holyrobot.hbase.HBaseApi;
 import com.holyrobot.hbase.HbaseColumn;
-import com.holyrobot.pojo.HotelDetail;
-import com.holyrobot.pojo.HotelRoomData;
-import com.holyrobot.pojo.HotelRoomPriceData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -28,33 +28,33 @@ public class HotelObjectDao {
 
         String tableName = null;
         if (obj.getType() == 1) {
-            HotelDetail hotelDetail = (HotelDetail) obj.getData();
+            Hotelinfo hotelDetail = (Hotelinfo) obj.getData();
             tableName = "HolyRobot:HotelBasicInfo_clean";
             String rowKey = hotelDetail.getName() + "_" + hotelDetail.getAddress();
-            hotelObjToHbaseSchema(obj, rowKey, tableName, HotelDetail.class);
+            hotelObjToHbaseSchema(obj, rowKey, tableName, Hotelinfo.class);
         }
 
         if (obj.getType() == 2) {
-            HotelRoomPriceData priceData = (HotelRoomPriceData) obj.getData();
+            Roomprice priceData = (Roomprice) obj.getData();
             tableName = "HolyRobot:RoomPrice_clean";
-            String rowKey = priceData.getHotelId() + "_" + priceData.getRoomId();
-            hotelObjToHbaseSchema(obj, rowKey, tableName, HotelRoomPriceData.class);
+            String rowKey = priceData.getHotelid() + "_" + priceData.getRoomid();
+            hotelObjToHbaseSchema(obj, rowKey, tableName, Roomprice.class);
         }
 
         if (obj.getType() == 3) {
-            HotelRoomData hotelRoomData = (HotelRoomData) obj.getData();
+            Roombasicinfo hotelRoomData = (Roombasicinfo) obj.getData();
             tableName = "HolyRobot:RoomBasicInfo_clean";
-            String rowKey = hotelRoomData.getRoomType();
-            hotelObjToHbaseSchema(obj, rowKey, tableName, HotelRoomData.class);
+            String rowKey = hotelRoomData.getRoomtype();
+            hotelObjToHbaseSchema(obj, rowKey, tableName, Roombasicinfo.class);
         }
 
     }
 
     private static void hotelObjToHbaseSchema(ReceiverData receiverData, String rowKey, String tableName, Class cls) {
         List<HbaseColumn> cols = new ArrayList<HbaseColumn>();
-        Field[] fields = cls.getFields();
-        for (Field field :
-                fields) {
+        Field[] fields = cls.getDeclaredFields();
+        for (Field field : fields) {
+            field.setAccessible(true);
             try {
                 if (field.getName().equals("rowKey") || field.getName().equals("creator") || field.getName().equals("creatorId")) {
                     continue;
