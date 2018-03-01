@@ -2,6 +2,7 @@ package com.holyrobot.dao;
 
 
 import com.holyrobot.common.*;
+import org.apache.hadoop.hdfs.DistributedFileSystem;
 
 import java.io.IOException;
 import java.io.Serializable;
@@ -15,6 +16,7 @@ import java.util.Random;
  */
 public class RobotObjectDao {
     public static void insertHbase(Serializable object) throws Exception{
+
         if(object instanceof Sceinfo){
             Sceinfo scenicData = (Sceinfo)object;
             String rowKey = scenicData.getId() ;

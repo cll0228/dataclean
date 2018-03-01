@@ -55,5 +55,14 @@ public class ESDocumentManager {
         IndexResponse response = client.prepareIndex(indexName,type,id)
                 .setSource(doc2)
                 .get();
+        System.out.println(response.status());
+    }
+
+    public static void main(String[] args) throws Exception{
+        Sceinfo sceinfo = new Sceinfo();
+        sceinfo.setId("---");
+        sceinfo.setAddress("海南是来来来");
+        sceinfo.setName("wewe");
+        insertDoc("sceinfo","detail","6354",sceinfo);
     }
 }
