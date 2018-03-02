@@ -13,12 +13,17 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Arrays;
 import java.util.Properties;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by cuill on 2018/2/26.
  */
 public class HotelConumerStartor {
     private static final Logger logger = LoggerFactory.getLogger(HotelConumerStartor.class);
+
+    final static ThreadPoolExecutor executor = new ThreadPoolExecutor(100, 150, 5, TimeUnit.SECONDS, new LinkedBlockingDeque<>());
 
 
     public static void main(String[] args) {
@@ -54,7 +59,7 @@ public class HotelConumerStartor {
                     }
                     logger.info("消费者接受消息===== Type == " + rd.getType() + rd.getData().getClass() + " 启动处理");
                     try {
-                        new ProcessObj(rd).start();
+                        executor.execute(new ProcessObj(rd));
                         logger.info("启动线程处理数据 Class = " + rd.getData().getClass());
                     } catch (Exception e) {
                         logger.error("启动线程失败处理数据 Class = " + rd.getData().getClass(), e);

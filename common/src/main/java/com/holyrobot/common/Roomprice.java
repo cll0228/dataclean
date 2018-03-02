@@ -3,8 +3,7 @@ package com.holyrobot.common;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Roomprice implements Serializable{
-    private static final long serialVersionUID = 1L;
+public class Roomprice implements Serializable {
 
     private String id;
 
@@ -184,5 +183,29 @@ public class Roomprice implements Serializable{
 
     public void setCreatorid(String creatorid) {
         this.creatorid = creatorid == null ? null : creatorid.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "Roomprice{" +
+                "id='" + id + '\'' +
+                ", hotelid='" + hotelid + '\'' +
+                ", roomid='" + roomid + '\'' +
+                ", productname='" + productname + '\'' +
+                ", price='" + price + '\'' +
+                ", date='" + date + '\'' +
+                ", availablenum='" + availablenum + '\'' +
+                ", isbooking='" + isbooking + '\'' +
+                ", appliyby='" + appliyby + '\'' +
+                ", ishasbreakfast='" + ishasbreakfast + '\'' +
+                ", iswindow='" + iswindow + '\'' +
+                ", iscancled='" + iscancled + '\'' +
+                ", iswifi='" + iswifi + '\'' +
+                ", paymethod='" + paymethod + '\'' +
+                ", isdomesticguest='" + isdomesticguest + '\'' +
+                ", createdate=" + createdate +
+                ", creator='" + creator + '\'' +
+                ", creatorid='" + creatorid + '\'' +
+                '}';
     }
 }

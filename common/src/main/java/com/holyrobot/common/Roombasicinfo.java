@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Roombasicinfo implements Serializable{
-    private static final long serialVersionUID = 1L;
 
     private String id;
 
@@ -144,5 +143,25 @@ public class Roombasicinfo implements Serializable{
 
     public void setCreatorid(String creatorid) {
         this.creatorid = creatorid == null ? null : creatorid.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "Roombasicinfo{" +
+                "id='" + id + '\'' +
+                ", hotelid='" + hotelid + '\'' +
+                ", roomtype='" + roomtype + '\'' +
+                ", bedtype='" + bedtype + '\'' +
+                ", bedcount='" + bedcount + '\'' +
+                ", isaddbed='" + isaddbed + '\'' +
+                ", bedsize='" + bedsize + '\'' +
+                ", price='" + price + '\'' +
+                ", iswifi='" + iswifi + '\'' +
+                ", floor='" + floor + '\'' +
+                ", peoplecount='" + peoplecount + '\'' +
+                ", createdate=" + createdate +
+                ", creator='" + creator + '\'' +
+                ", creatorid='" + creatorid + '\'' +
+                '}';
     }
 }

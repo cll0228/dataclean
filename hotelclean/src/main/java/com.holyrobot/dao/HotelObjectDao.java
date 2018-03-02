@@ -30,21 +30,21 @@ public class HotelObjectDao {
         if (obj.getType() == 1) {
             Hotelinfo hotelDetail = (Hotelinfo) obj.getData();
             tableName = "HolyRobot:HotelBasicInfo_clean";
-            String rowKey = hotelDetail.getName() + "_" + hotelDetail.getAddress();
+            String rowKey = hotelDetail.getName() + "_" + hotelDetail.getAddress() + "_" + hotelDetail.getId();
             hotelObjToHbaseSchema(obj, rowKey, tableName, Hotelinfo.class);
         }
 
         if (obj.getType() == 2) {
             Roomprice priceData = (Roomprice) obj.getData();
             tableName = "HolyRobot:RoomPrice_clean";
-            String rowKey = priceData.getHotelid() + "_" + priceData.getRoomid();
+            String rowKey = priceData.getRoomid() + "_" + priceData.getId();
             hotelObjToHbaseSchema(obj, rowKey, tableName, Roomprice.class);
         }
 
         if (obj.getType() == 3) {
             Roombasicinfo hotelRoomData = (Roombasicinfo) obj.getData();
             tableName = "HolyRobot:RoomBasicInfo_clean";
-            String rowKey = hotelRoomData.getRoomtype();
+            String rowKey = hotelRoomData.getRoomtype() + "_" + hotelRoomData.getId();
             hotelObjToHbaseSchema(obj, rowKey, tableName, Roombasicinfo.class);
         }
 
@@ -56,7 +56,7 @@ public class HotelObjectDao {
         for (Field field : fields) {
             field.setAccessible(true);
             try {
-                if (field.getName().equals("rowKey") || field.getName().equals("creator") || field.getName().equals("creatorId")) {
+                if (field.getName().equals("rowKey") || field.getName().equals("creator") || field.getName().equals("creatorid")) {
                     continue;
                 }
                 HbaseColumn col = new HbaseColumn();

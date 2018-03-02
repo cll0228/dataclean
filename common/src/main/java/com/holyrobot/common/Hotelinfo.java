@@ -4,7 +4,6 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Hotelinfo implements Serializable{
-    private static final long serialVersionUID = 1L;
 
     private String id;
 
@@ -184,5 +183,29 @@ public class Hotelinfo implements Serializable{
 
     public void setIntroduction(String introduction) {
         this.introduction = introduction == null ? null : introduction.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "Hotelinfo{" +
+                "id='" + id + '\'' +
+                ", url='" + url + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", longitude='" + longitude + '\'' +
+                ", latitude='" + latitude + '\'' +
+                ", star='" + star + '\'' +
+                ", price='" + price + '\'' +
+                ", datasource='" + datasource + '\'' +
+                ", grade='" + grade + '\'' +
+                ", gradenum='" + gradenum + '\'' +
+                ", beennum='" + beennum + '\'' +
+                ", whantto='" + whantto + '\'' +
+                ", createdate=" + createdate +
+                ", creator='" + creator + '\'' +
+                ", creatorid='" + creatorid + '\'' +
+                ", remark='" + remark + '\'' +
+                ", introduction='" + introduction + '\'' +
+                '}';
     }
 }

@@ -17,9 +17,8 @@ public class HotelStandard {
         Hotelinfo hotel = (Hotelinfo) obj;
 
         //酒店名称 del ,test ,测试
-        String[] split = FilterName.HOTEL_NAME_FILTER.split(",");
-        for (String s : split) {
-            if (hotel.getName().contains(s)) {
+        for (String filter : FilterName.HOTEL_NAME_FILTER) {
+            if (hotel.getName().contains(filter)) {
                 return null;
             }
         }
@@ -45,7 +44,7 @@ public class HotelStandard {
         hotel.setGrade(StandardUtil.preGrade(hotel.getGrade()));
 
         //评分人数
-        hotel.setGradenum(null == hotel.getGradenum() ? "0" : hotel.getGradenum());
+        hotel.setGradenum(StandardUtil.preGradeNum(hotel.getGradenum()));
 
         //数据源
         hotel.setDatasource(StandardUtil.captureName(hotel.getDatasource()));
