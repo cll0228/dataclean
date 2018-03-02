@@ -49,13 +49,19 @@ public class StandardUtil {
 
     public static String delSpechar(String str) {
         try {
-            return str.replaceAll("\\(", "").replaceAll("\\[", "").replaceAll("\\|", "").replaceAll("\\]", "");
+            return str.replaceAll("[^0-9a-zA-Z\u4e00-\u9fa5.，,。？“”]+", "");
         } catch (Throwable t) {
             System.err.println(str);
             t.printStackTrace();
             throw t;
         }
     }
+
+    public static void main(String[] args) {
+        System.out.println(delSpechar("18【.】243【54-}93112"));
+        System.out.println(StandardUtil.save2dec(Double.valueOf(StandardUtil.delSpechar("18【.】243【54-}93112"))).toString());
+    }
+
 
     public static String preStar(String star) {
         try {
@@ -76,8 +82,9 @@ public class StandardUtil {
                     type = FilterName.HOTEL_STAR_TYPE2;
                 }
                 return type + FilterName.HOTEL_STAR_TYPE;
+            } else {
+                return "其它";
             }
-            return "其它";
         } catch (Throwable t) {
             System.err.println(star);
             t.printStackTrace();
@@ -87,7 +94,7 @@ public class StandardUtil {
 
     public static String preGrade(String grade) {
         if (StringUtils.isBlank(grade)) {
-            return null;
+            return "0";
         }
         try {
             if (grade.contains("%")) {
@@ -201,5 +208,14 @@ public class StandardUtil {
 
         }
         return bytes;
+    }
+
+    public static String preGradeNum(String gradenum) {
+        try {
+            return Integer.valueOf(gradenum).toString();
+        } catch (Exception e) {
+            LOGGER.error("评分个数处理事变，返回0,GradeNum = " + gradenum, e);
+            return "0";
+        }
     }
 }
