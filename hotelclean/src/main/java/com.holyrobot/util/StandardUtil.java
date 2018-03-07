@@ -57,12 +57,6 @@ public class StandardUtil {
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println(delSpechar("18【.】243【54-}93112"));
-        System.out.println(StandardUtil.save2dec(Double.valueOf(StandardUtil.delSpechar("18【.】243【54-}93112"))).toString());
-    }
-
-
     public static String preStar(String star) {
         try {
             if (StringUtils.isBlank(star)) {

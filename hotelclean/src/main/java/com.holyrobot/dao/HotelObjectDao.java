@@ -56,7 +56,7 @@ public class HotelObjectDao {
         for (Field field : fields) {
             field.setAccessible(true);
             try {
-                if (field.getName().equals("rowKey") || field.getName().equals("creator") || field.getName().equals("creatorid")) {
+                if (field.getName().equals("rowKey") || field.getName().equals("creator") || field.getName().equals("creatorid") || field.getName().equals("serialVersionUID")) {
                     continue;
                 }
                 HbaseColumn col = new HbaseColumn();
