@@ -14,7 +14,6 @@ import util.StandardUtil;
 import java.util.Arrays;
 import java.util.Properties;
 
-import static com.sun.deploy.trace.Trace.println;
 
 
 public class RouteConumerStartor {
@@ -24,7 +23,6 @@ public class RouteConumerStartor {
     public static void main(String[] args) {
         if (args.length == 0) {
             args = new String[]{"cdh01:9092,cdh02:9092,cdh04:9092", "topic_route", "routegroup1", "latest"};
-            println("param init success");
             logger.info("param init success");
         }
         String bootstrap = args[0];
