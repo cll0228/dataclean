@@ -1,6 +1,7 @@
 package com.holyrobot.scenicclean.startor;
 
 import com.holyrobot.common.*;
+import com.holyrobot.dao.RobotObjectDao;
 import com.holyrobot.datastandard.DataStandardFunction;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.common.serialization.ByteArrayDeserializer;
@@ -77,7 +78,7 @@ public class ScenicCleanStartor {
                 }
 
                 for (RobotObject obj : list) {
-//                    RobotObjectDao.insertHbase(obj);
+                    RobotObjectDao.insertHbase(obj);
                 }
             }
         });

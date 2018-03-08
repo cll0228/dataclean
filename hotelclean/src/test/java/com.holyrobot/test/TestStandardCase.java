@@ -18,7 +18,7 @@ import java.util.UUID;
  */
 public class TestStandardCase {
 
-    private static String url = "http://192.168.0.170:8081/send";
+    private static String url = "http://192.168.0.149:8081/send";
 
     private static final Logger logger = LoggerFactory.getLogger(TestStandardCase.class);
 

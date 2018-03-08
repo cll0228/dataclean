@@ -57,12 +57,6 @@ public class StandardUtil {
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println(delSpechar("18【.】243【54-}93112"));
-        System.out.println(StandardUtil.save2dec(Double.valueOf(StandardUtil.delSpechar("18【.】243【54-}93112"))).toString());
-    }
-
-
     public static String preStar(String star) {
         try {
             if (StringUtils.isBlank(star)) {
@@ -214,7 +208,7 @@ public class StandardUtil {
         try {
             return Integer.valueOf(gradenum).toString();
         } catch (Exception e) {
-            LOGGER.error("评分个数处理事变，返回0,GradeNum = " + gradenum, e);
+            LOGGER.error("评分个数处理失败，返回0,GradeNum = " + gradenum);
             return "0";
         }
     }

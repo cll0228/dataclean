@@ -1,8 +1,7 @@
-package com.holyrobot.hbase;
+package hbase;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.Cell;
-import org.apache.hadoop.hbase.CellUtil;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.util.Bytes;
@@ -24,7 +23,7 @@ public class HBaseApi {
     static {
         try {
             conf = HBaseConfiguration.create();
-            conf.set("hbase.zookeeper.quorum", "cdh05,cdh06");
+            conf.set("hbase.zookeeper.quorum", "node2,node3,node4");
             conf.set("hbase.zookeeper.property.clientPort", "2181");
             System.setProperty("HADOOP_USER_NAME", "hdfs");
             logger.info("hbase初始化配置结束");
@@ -64,17 +63,18 @@ public class HBaseApi {
         for (Result r : scanner) {
             for (Cell cell : r.rawCells()) {
                 count += r.rawCells().length;
-                System.out.println(Bytes.toString(r.getRow()) +"  " + Bytes.toString(CellUtil.cloneQualifier(cell)) +
-                        "===" + Bytes.toString(CellUtil.cloneValue(cell)) +
-                        "   Time : " + cell.getTimestamp());
+//                System.out.println(Bytes.toString(r.getRow()) +"  " + Bytes.toString(CellUtil.cloneQualifier(cell)) +
+//                        "===" + Bytes.toString(CellUtil.cloneValue(cell)) +
+//                        "   Time : " + cell.getTimestamp());
 
             }
-            System.out.println("================================================================================================");
+//            System.out.println("================================================================================================");
         }
         System.out.println(count);
     }
 
     public static void main(String[] args) throws IOException {
-        scan("HolyRobot:HotelBasicInfo_clean");
+       // scan("HolyRobot:HotelBasicInfo_clean");
+        System.out.println(System.getenv("HADOOP_HOME"));
     }
 }
