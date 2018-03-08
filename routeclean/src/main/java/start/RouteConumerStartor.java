@@ -23,7 +23,7 @@ public class RouteConumerStartor {
 
     public static void main(String[] args) {
         if (args.length == 0) {
-            args = new String[]{"node4:9092,node3:9092", "topic_route", "routeclean", "latest"};
+            args = new String[]{"cdh01:9092,cdh02:9092,cdh04:9092", "topic_route", "routegroup1", "latest"};
             println("param init success");
             logger.info("param init success");
         }
@@ -89,7 +89,7 @@ public class RouteConumerStartor {
         @Override
         public void run() {
             if (receiverData.getType() == 6) {
-                logger.info("TYPE = 6，进入数据清洗");
+                logger.info("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaTYPE = 6，进入数据清洗"+ receiverData.getData().toString());
                 Routeinfo routelinfo = (Routeinfo) receiverData.getData();
                 RouteObjectDao.saveToHbase(receiverData);
                 receiverData.setType(0);
@@ -98,7 +98,7 @@ public class RouteConumerStartor {
                     receiverData.setData(RouteStandard.standardRoute(routelinfo));
                     logger.info("清洗后数据  = " + receiverData.getData().toString());
                 } catch (Exception e) {
-                    logger.error(receiverData.getData().getClass()+ " 数据清洗失败 行程名称 " + routelinfo.getName(), e);
+                    logger.error(receiverData.getData().getClass()+ " 数据清洗失败 行程名称 " + routelinfo.getId(), e);
                 }
             }
             //保存hbase

@@ -36,9 +36,8 @@ public class HBaseJavaAPI {
 	public static Configuration conf = null;
 	static {
 		try {
-			logger.info("=================hbase初始化配置开始======================");
 			conf = HBaseConfiguration.create();
-			conf.set("hbase.zookeeper.quorum","node2,node3,node4");
+			conf.set("hbase.zookeeper.quorum", "cdh04,cdh05,cdh06");
 			conf.set("hbase.zookeeper.property.clientPort", "2181");
 			System.setProperty("HADOOP_USER_NAME", "hdfs");
 			logger.info("hbase初始化配置结束");
