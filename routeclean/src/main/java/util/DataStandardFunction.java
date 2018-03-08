@@ -1,8 +1,8 @@
 package util;
 
 import com.holyrobot.common.ReceiverData;
+import com.holyrobot.common.TripEntity;
 import org.apache.spark.api.java.function.Function;
-import pojo.TripEntity;
 
 import java.util.List;
 

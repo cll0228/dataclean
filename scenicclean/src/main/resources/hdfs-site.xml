@@ -8,7 +8,7 @@
   </property>
   <property>
     <name>dfs.namenode.servicerpc-address</name>
-    <value>hmaster:8022</value>
+    <value>cdh02:8022</value>
   </property>
   <property>
     <name>dfs.https.address</name>

@@ -29,7 +29,7 @@ public class HotelConumerStartor {
 
     public static void main(String[] args) {
         if (args.length == 0) {
-            args = new String[]{"cdh01:9092,chd02:9092,cdh04:9092", "topic_hotel", "test0", "latest"};
+            args = new String[]{"cdh01:9092,chd02:9092,cdh04:9092", "topic_hotel", "test11", "latest"};
             logger.debug("param init success");
         }
         String bootstrap = args[0];
