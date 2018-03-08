@@ -2,6 +2,7 @@ package com.holyrobot.datastandard;
 
 import com.holyrobot.common.RobotObject;
 import com.holyrobot.common.Sceinfo;
+import org.apache.hadoop.hbase.mapred.TableInputFormat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,6 +14,7 @@ import java.io.Serializable;
 public class ScenicDataStandard {
     static Logger logger = LoggerFactory.getLogger(ScenicDataStandard.class);
     public Sceinfo standardData(Sceinfo robotObject){
+
         logger.info("================景点标准化开始================");
         Sceinfo result = (Sceinfo) robotObject;
         longLatStandard(result);

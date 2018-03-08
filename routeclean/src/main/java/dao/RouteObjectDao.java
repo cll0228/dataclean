@@ -1,16 +1,15 @@
 package dao;
 
-import com.holyrobot.common.*;
-import hbase.HBaseApi;
+import com.holyrobot.common.ReceiverData;
+import com.holyrobot.common.Routeinfo;
+import com.holyrobot.common.Routepriceinfo;
+import com.holyrobot.common.TripEntity;
 import hbase.HBaseJavaAPI;
-import hbase.HbaseColumn;
 import net.sf.json.JSONObject;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pojo.TripEntity;
 
-import java.io.IOException;
 import java.lang.reflect.Field;
 import java.util.*;
 
