@@ -208,7 +208,7 @@ public class StandardUtil {
         try {
             return Integer.valueOf(gradenum).toString();
         } catch (Exception e) {
-            LOGGER.error("评分个数处理事变，返回0,GradeNum = " + gradenum, e);
+            LOGGER.error("评分个数处理失败，返回0,GradeNum = " + gradenum);
             return "0";
         }
     }

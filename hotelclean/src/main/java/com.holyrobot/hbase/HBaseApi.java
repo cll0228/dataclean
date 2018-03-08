@@ -75,6 +75,6 @@ public class HBaseApi {
     }
 
     public static void main(String[] args) throws IOException {
-        scan("HolyRobot:RoomBasicInfo_clean");
+        scan("HolyRobot:HotelBasicInfo_clean");
     }
 }
