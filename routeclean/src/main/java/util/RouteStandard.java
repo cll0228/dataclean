@@ -121,8 +121,8 @@ public class RouteStandard {
 
         String featureService = routeinfoDto.getItinerarydetails();
         Document parse = Jsoup.parse(featureService);
-        Elements select = parse.select("div.instance_box ul.instance_list li dl.instance_list_text");// 解析景点用的
-        Elements elements = parse.select("div.instance_list2_box div.instance-travel-xc-gb "); // 解析酒店用的
+        Elements select = parse.select("dl.instance_list_text");// 解析景点用的
+        Elements elements = parse.select("div.instance-travel-xc-gb "); // 解析酒店用的
         Elements ele_ul = elements.select("ul.instance-travel-xc-gb_ul.instance-travel-xc-gb_ul_old");
         // 处理景点
         int size = 0;

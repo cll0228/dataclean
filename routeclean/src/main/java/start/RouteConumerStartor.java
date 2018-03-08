@@ -96,7 +96,7 @@ public class RouteConumerStartor {
                     receiverData.setData(RouteStandard.standardRoute(routelinfo));
                     logger.info("清洗后数据  = " + receiverData.getData().toString());
                 } catch (Exception e) {
-                    logger.error(receiverData.getData().getClass()+ " 数据清洗失败 行程名称 " + routelinfo.getId(), e);
+                    logger.error(receiverData.getData().toString()+ " 数据清洗失败 行程 ");
                 }
             }
             //保存hbase

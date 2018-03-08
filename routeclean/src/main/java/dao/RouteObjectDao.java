@@ -37,7 +37,7 @@ public class RouteObjectDao {
                 map.put("rowKey", rowKey);
                 map.put("entity", tripDetail);
                 JSONObject jsonObject = new JSONObject().fromObject(map);
-                addData("Trip",jsonObject);
+                addData("TripEntity",jsonObject);
             }
 
         }
@@ -50,7 +50,7 @@ public class RouteObjectDao {
                 map.put("rowKey", rowKey);
                 map.put("entity", routeinfo);
                 JSONObject jsonObject = new JSONObject().fromObject(map);
-                addData("RouteInfo",jsonObject);
+                addData("Routeinfo",jsonObject);
 
 
         }
@@ -62,7 +62,7 @@ public class RouteObjectDao {
             map.put("rowKey", rowKey);
             map.put("entity", routePriceDetail);
             JSONObject jsonObject = new JSONObject().fromObject(map);
-            addData("RoutePriceInfo",jsonObject);
+            addData("Routepriceinfo",jsonObject);
         }
 
 
@@ -82,7 +82,7 @@ public class RouteObjectDao {
             JSONObject entity = new JSONObject().fromObject(obj.get("entity").toString());
             //获取实体JSON字段映射
             Map<String,String> map = getEntity(tableName,entity);
-            tableName = NAMESPACE + ":" + tableName;
+            tableName = NAMESPACE + ":" + tableName+"_clean";
             Set<String> keySet = map.keySet();
             Iterator<String> iterator = keySet.iterator();
             String[] column = new String[keySet.size()];
@@ -112,7 +112,7 @@ public class RouteObjectDao {
     public static Map<String,String> getEntity(String tableName,JSONObject obj){
         Map<String,String> map = new HashMap<>();
         try {
-            Class cla = Class.forName("com.holyrobot.common."+tableName+"Entity");
+            Class cla = Class.forName("com.holyrobot.common."+tableName);
 //            Class cla = Class.forName("com.holyrobot.common.RoomBasicInfoEntity");
             //获取类中所有属性
             Field[] fields = cla.getDeclaredFields();

@@ -2,6 +2,7 @@ package hbase;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.Cell;
+import org.apache.hadoop.hbase.CellUtil;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.util.Bytes;
@@ -63,9 +64,9 @@ public class HBaseApi {
         for (Result r : scanner) {
             for (Cell cell : r.rawCells()) {
                 count += r.rawCells().length;
-//                System.out.println(Bytes.toString(r.getRow()) +"  " + Bytes.toString(CellUtil.cloneQualifier(cell)) +
-//                        "===" + Bytes.toString(CellUtil.cloneValue(cell)) +
-//                        "   Time : " + cell.getTimestamp());
+                System.out.println(Bytes.toString(r.getRow()) +"  " + Bytes.toString(CellUtil.cloneQualifier(cell)) +
+                        "===" + Bytes.toString(CellUtil.cloneValue(cell)) +
+                        "   Time : " + cell.getTimestamp());
 
             }
 //            System.out.println("================================================================================================");
@@ -74,6 +75,6 @@ public class HBaseApi {
     }
 
     public static void main(String[] args) throws IOException {
-        scan("HolyRobot:HotelBasicInfo_clean");
+        scan("HolyRobot:TripEntity_clean");
     }
 }
