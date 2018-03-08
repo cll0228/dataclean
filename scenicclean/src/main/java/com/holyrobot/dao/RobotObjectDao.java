@@ -20,13 +20,13 @@ public class RobotObjectDao {
         if(object instanceof Sceinfo){
             Sceinfo scenicData = (Sceinfo)object;
             String rowKey = scenicData.getId() ;
-            insertHbase(object,rowKey,"HolyRobot:SceInfo");
-            ESDocumentManager.insertDoc("scenic","detail",scenicData.getId(),scenicData);
+            insertHbase(object,rowKey,"HolyRobot:SceInfo_clean");
+//            ESDocumentManager.insertDoc("scenic","detail",scenicData.getId(),scenicData);
         }else if(object instanceof Scepriceinfo){
             Scepriceinfo scenicData = (Scepriceinfo)object;
             String rowKey = scenicData.getId();
-            insertHbase(object,rowKey,"HolyRobot:ScePriceInfo");
-            ESDocumentManager.insertDoc("scenicprice","price",scenicData.getId(),scenicData);
+            insertHbase(object,rowKey,"HolyRobot:ScePriceInfo_clean");
+//            ESDocumentManager.insertDoc("scenicprice","price",scenicData.getId(),scenicData);
         }
     }
 

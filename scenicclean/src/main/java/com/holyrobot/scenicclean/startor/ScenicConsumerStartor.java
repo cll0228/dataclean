@@ -57,7 +57,6 @@ public class ScenicConsumerStartor {
                         logger.info("==================处理景点价格结束===================");
                     }else{
                         logger.info("==================处理景点详情开始===================");
-
                         Sceinfo si = (Sceinfo)rd.getData();
                         logger.info("处理前的数据：" + JsonCommon.prepareData(si));
                         ScenicDataStandard dataStandard = new ScenicDataStandard();
