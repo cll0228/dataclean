@@ -1,6 +1,5 @@
 package start;
 
-import com.holyrobot.common.Hotelinfo;
 import com.holyrobot.common.ReceiverData;
 import com.holyrobot.common.Routeinfo;
 import dao.RouteObjectDao;

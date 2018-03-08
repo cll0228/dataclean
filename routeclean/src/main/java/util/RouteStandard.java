@@ -2,6 +2,7 @@ package util;
 
 
 import com.holyrobot.common.Routeinfo;
+import com.holyrobot.common.TripEntity;
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -9,7 +10,6 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import pojo.TripEntity;
 
 import java.util.ArrayList;
 import java.util.List;
