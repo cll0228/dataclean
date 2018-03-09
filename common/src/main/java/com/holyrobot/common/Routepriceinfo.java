@@ -95,4 +95,19 @@ public class Routepriceinfo implements Serializable{
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Routepriceinfo{" +
+                "id='" + id + '\'' +
+                ", routeid='" + routeid + '\'' +
+                ", pricedate='" + pricedate + '\'' +
+                ", dayofweek='" + dayofweek + '\'' +
+                ", lowestprice='" + lowestprice + '\'' +
+                ", createdate=" + createdate +
+                ", creator='" + creator + '\'' +
+                ", creatorid='" + creatorid + '\'' +
+                ", remark='" + remark + '\'' +
+                '}';
+    }
 }

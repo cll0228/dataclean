@@ -2,6 +2,7 @@ package start;
 
 import com.holyrobot.common.ReceiverData;
 import com.holyrobot.common.Routeinfo;
+import com.holyrobot.common.TripEntity;
 import dao.RouteObjectDao;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
@@ -12,8 +13,8 @@ import util.RouteStandard;
 import util.StandardUtil;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Properties;
-
 
 
 public class RouteConumerStartor {
@@ -87,21 +88,28 @@ public class RouteConumerStartor {
         @Override
         public void run() {
             if (receiverData.getType() == 6) {
-                logger.info("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaTYPE = 6，进入数据清洗"+ receiverData.getData().toString());
+                logger.info("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaTYPE = 6，进入数据清洗" + receiverData.getData().toString());
                 Routeinfo routelinfo = (Routeinfo) receiverData.getData();
                 RouteObjectDao.saveToHbase(receiverData);
                 receiverData.setType(0);
                 try {
                     logger.info("清洗前数据 = " + routelinfo.toString());
-                    receiverData.setData(RouteStandard.standardRoute(routelinfo));
-                    logger.info("清洗后数据  = " + receiverData.getData().toString());
+                    List<TripEntity> tripEntities = RouteStandard.standardRoute(routelinfo);
+                    if (null != tripEntities) {
+                        receiverData.setData(tripEntities);
+                        logger.info("清洗成功，清洗后数据  = " + receiverData.getData().toString());
+                    } else {
+                        logger.info("清洗失败，源数据 = " + receiverData.getData().toString());
+                    }
                 } catch (Exception e) {
-                    logger.error(receiverData.getData().toString()+ " 数据清洗失败 行程 ");
+                    logger.error(receiverData.getData().toString() + " 数据清洗失败 行程 ", e);
                 }
             }
             //保存hbase
-            RouteObjectDao.saveToHbase(receiverData);
-            logger.info("保存hhbase成功 Data = " + receiverData.getClass());
+            if (null != receiverData.getData()) {
+                RouteObjectDao.saveToHbase(receiverData);
+                logger.info("保存hhbase成功 Data = " + receiverData.getClass());
+            }
         }
     }
 

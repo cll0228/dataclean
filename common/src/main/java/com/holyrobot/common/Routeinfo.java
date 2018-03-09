@@ -279,4 +279,37 @@ public class Routeinfo implements Serializable{
     public void setTeamtype(String teamtype) {
         this.teamtype = teamtype == null ? null : teamtype.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Routeinfo{" +
+                "id='" + id + '\'' +
+                ", url='" + url + '\'' +
+                ", routetype='" + routetype + '\'' +
+                ", name='" + name + '\'' +
+                ", price='" + price + '\'' +
+                ", itemno='" + itemno + '\'' +
+                ", suppliername='" + suppliername + '\'' +
+                ", departure='" + departure + '\'' +
+                ", destination='" + destination + '\'' +
+                ", grade='" + grade + '\'' +
+                ", gradenum='" + gradenum + '\'' +
+                ", beennum='" + beennum + '\'' +
+                ", whantto='" + whantto + '\'' +
+                ", datasource='" + datasource + '\'' +
+                ", createdate=" + createdate +
+                ", creator='" + creator + '\'' +
+                ", creatorid='" + creatorid + '\'' +
+                ", teamtype='" + teamtype + '\'' +
+                ", productoutline='" + productoutline + '\'' +
+                ", featureservice='" + featureservice + '\'' +
+                ", itineraryoutline='" + itineraryoutline + '\'' +
+                ", productrecommend='" + productrecommend + '\'' +
+                ", reducedprice='" + reducedprice + '\'' +
+                ", productfeature='" + productfeature + '\'' +
+                ", itinerarydetails='" + itinerarydetails + '\'' +
+                ", expense='" + expense + '\'' +
+                ", reserveinfo='" + reserveinfo + '\'' +
+                '}';
+    }
 }
