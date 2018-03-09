@@ -59,6 +59,35 @@ public class HBaseApi {
         }
     }
 
+    public static void delete(String tableName, String rowKey, String family, String qualifier, String timeStampe) {
+        try {
+            //判断是表是否存在
+            HBaseAdmin admin = new HBaseAdmin(conf);
+            if (!admin.tableExists(Bytes.toBytes(tableName))) {
+                System.err.println("the table " + tableName + " is not exist");
+                System.exit(1);
+            }
+            //创建表连接
+            HTable table = new HTable(conf, tableName.valueOf(tableName));
+            //准备删除数据
+            Delete delete = new Delete(Bytes.toBytes(rowKey));
+            if (family != null && qualifier != null) {
+                delete.deleteColumn(Bytes.toBytes(family), Bytes.toBytes(qualifier));
+            } else if (family != null && qualifier == null) {
+                delete.deleteFamily(Bytes.toBytes(family));
+            }
+            //检查时间戳
+            if (timeStampe != null) {
+                delete.setTimestamp(Long.parseLong(timeStampe));
+            }
+            //进行数据删除
+            table.delete(delete);
+            table.close();
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+    }
+
     public static void scan(String tableName) throws IOException {
         HTable table = new HTable(conf, Bytes.toBytes(tableName));
         Scan s = new Scan();
@@ -90,6 +119,7 @@ public class HBaseApi {
     public static void main(String[] args) throws IOException {
 //        scan("HolyRobot:HotelBasicInfo");
         filter("HolyRobot:HotelBasicInfo_clean");
+//        delete("HolyRobot:HotelBasicInfo_clean", "null_null_0224a992-233c-11e8-9d49-680715098273", "info", null, null);
 
 
     }
