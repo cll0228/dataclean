@@ -18,7 +18,7 @@ public class HotelStandard {
 
         //酒店名称 del ,test ,测试
         for (String filter : FilterName.HOTEL_NAME_FILTER) {
-            if (hotel.getName().contains(filter)) {
+            if (StringUtils.isNoneBlank(hotel.getName()) || hotel.getName().contains(filter)) {
                 return null;
             }
         }

@@ -5,10 +5,13 @@ import org.apache.hadoop.hbase.Cell;
 import org.apache.hadoop.hbase.CellUtil;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.*;
+import org.apache.hadoop.hbase.filter.CompareFilter;
+import org.apache.hadoop.hbase.filter.SingleColumnValueFilter;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -62,19 +65,69 @@ public class HBaseApi {
         ResultScanner scanner = table.getScanner(s);
         Integer count = 0;
         for (Result r : scanner) {
+            count++;
             for (Cell cell : r.rawCells()) {
-                count += r.rawCells().length;
-                System.out.println(Bytes.toString(r.getRow()) +"  " + Bytes.toString(CellUtil.cloneQualifier(cell)) +
+                System.out.println(Bytes.toString(r.getRow()) + "  " + Bytes.toString(CellUtil.cloneQualifier(cell)) +
                         "===" + Bytes.toString(CellUtil.cloneValue(cell)) +
                         "   Time : " + cell.getTimestamp());
-
             }
-            System.out.println("================================================================================================");
         }
         System.out.println(count);
+
+//                if ("roomid".equals(Bytes.toString(CellUtil.cloneQualifier(cell)))) {
+//                    if (Bytes.toString(CellUtil.cloneValue(cell)) == null) {
+//                        System.out.println(Bytes.toString(r.getRow()));
+//                    }
+//                }
+
+//                if ("grade".equals(Bytes.toString(CellUtil.cloneQualifier(cell)))) {
+//                    if (Bytes.toString(CellUtil.cloneValue(cell)) == null ||"".equals(Bytes.toString(CellUtil.cloneValue(cell)) == null)) {
+//                        System.out.println(Bytes.toString(r.getRow()));
+//                    }
+//                }
     }
 
     public static void main(String[] args) throws IOException {
-        scan("HolyRobot:HotelBasicInfo_clean");
+//        scan("HolyRobot:HotelBasicInfo");
+        filter("HolyRobot:HotelBasicInfo_clean");
+
+
     }
+
+    public static void insertTestData() throws IOException {
+        List<HbaseColumn> list = new ArrayList<>();
+        HbaseColumn column = new HbaseColumn();
+        column.setFamilyName("info");
+        column.setColName("name");
+        column.setColValue("三亚亚龙湾寰岛海底世界酒店");
+        list.add(column);
+
+        HbaseColumn column1 = new HbaseColumn();
+        column1.setFamilyName("info");
+        column1.setColName("address");
+        column1.setColValue("海南省三亚市亚龙湾国家旅游度假区龙海路2号(位于海底世界景区旁)");
+        list.add(column1);
+
+        String rowkey = "null_null_0224a992-233c-11e8-9d49-680715098273";
+
+        insertRow("HolyRobot:HotelBasicInfo_clean", rowkey, list);
+    }
+
+
+    public static void filter(String tableName) throws IOException {
+        HTable table = new HTable(conf, Bytes.toBytes(tableName));
+        Scan s = new Scan();
+        SingleColumnValueFilter f = new SingleColumnValueFilter(Bytes.toBytes("info"), Bytes.toBytes("id"), CompareFilter.CompareOp.EQUAL, Bytes.toBytes("0224a992-233c-11e8-9d49-680715098273"));
+        s.setFilter(f);
+        ResultScanner scanner = table.getScanner(s);
+        for (Result r : scanner) {
+            for (Cell cell : r.rawCells()) {
+                System.out.println(Bytes.toString(r.getRow()) + "  " + Bytes.toString(CellUtil.cloneQualifier(cell)) +
+                        "===" + Bytes.toString(CellUtil.cloneValue(cell)) +
+                        "   Time : " + cell.getTimestamp());
+            }
+        }
+    }
+
+
 }
