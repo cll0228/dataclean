@@ -93,6 +93,9 @@ public class StandardUtil {
         try {
             if (grade.contains("%")) {
                 String gradeNum = StringUtils.substringBefore(grade, "%");
+                if (gradeNum.contains(".")) {
+                    gradeNum = Double.valueOf(gradeNum).intValue() + "";
+                }
                 return gradeNum;
             }
             if (grade.matches("\\d+(\\.\\d+)?")) {
@@ -112,6 +115,10 @@ public class StandardUtil {
             t.printStackTrace();
             throw t;
         }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Double.valueOf("64.7").intValue());
     }
 
 

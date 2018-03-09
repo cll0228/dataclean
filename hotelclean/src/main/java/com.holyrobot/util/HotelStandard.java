@@ -34,6 +34,8 @@ public class HotelStandard {
                 hotel.setLatitude(StandardUtil.save2dec(Double.valueOf(StandardUtil.delSpechar(hotel.getLatitude()))).toString());
                 hotel.setLongitude(StandardUtil.save2dec(Double.valueOf(StandardUtil.delSpechar(hotel.getLongitude()))).toString());
             } catch (Exception e) {
+                hotel.setLatitude("-999");
+                hotel.setLongitude("-999");
                 logger.error("经纬度标准化失败！，Latitude" + hotel.getLatitude() + " Longitude" + hotel.getLongitude(), e);
             }
         }
