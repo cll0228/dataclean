@@ -192,7 +192,7 @@ public class Hotelinfo implements Serializable {
     public String toString() {
         return "Hotelinfo{" +
                 "id='" + id + '\'' +
-                ", url='" + urlid + '\'' +
+                ", urlid='" + urlid + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", longitude='" + longitude + '\'' +
@@ -210,5 +210,6 @@ public class Hotelinfo implements Serializable {
                 ", remark='" + remark + '\'' +
                 ", introduction='" + introduction + '\'' +
                 '}';
+
     }
 }

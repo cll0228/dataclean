@@ -3,12 +3,12 @@ package com.holyrobot.common;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Sceinfo implements Serializable{
+public class Sceinfo implements Serializable {
     private static final long serialVersionUID = 1L;
 
-	private String id;
+    private String id;
 
-    private String url;
+    private String urlid;
 
     private String name;
 
@@ -41,189 +41,218 @@ public class Sceinfo implements Serializable{
     private String datasource;
 
     private Date createdate;
-    
+
     private String introduction;
 
     private String otherinformation;
-    
+
     private String dataType;
-    
-	public String getDataType() {
-		return dataType;
-	}
 
-	public void setDataType(String dataType) {
-		this.dataType = dataType;
-	}
+    public String getDataType() {
+        return dataType;
+    }
 
-	public Sceinfo() {
-		super();
-	}
+    public void setDataType(String dataType) {
+        this.dataType = dataType;
+    }
 
-	public String getId() {
-		return id;
-	}
+    public Sceinfo() {
+        super();
+    }
 
-	public void setId(String id) {
-		this.id = id;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public String getUrl() {
-		return url;
-	}
+    public void setId(String id) {
+        this.id = id;
+    }
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public String getUrlid() {
+        return urlid;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public void setUrlid(String urlid) {
+        this.urlid = urlid;
+    }
 
-	public String getAddress() {
-		return address;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public void setAddress(String address) {
-		this.address = address;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public String getLongitude() {
-		return longitude;
-	}
+    public String getAddress() {
+        return address;
+    }
 
-	public void setLongitude(String longitude) {
-		this.longitude = longitude;
-	}
+    public void setAddress(String address) {
+        this.address = address;
+    }
 
-	public String getLatitude() {
-		return latitude;
-	}
+    public String getLongitude() {
+        return longitude;
+    }
 
-	public void setLatitude(String latitude) {
-		this.latitude = latitude;
-	}
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
 
-	public String getStarlevel() {
-		return starlevel;
-	}
+    public String getLatitude() {
+        return latitude;
+    }
 
-	public void setStarlevel(String starlevel) {
-		this.starlevel = starlevel;
-	}
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
 
-	public String getType() {
-		return type;
-	}
+    public String getStarlevel() {
+        return starlevel;
+    }
 
-	public void setType(String type) {
-		this.type = type;
-	}
+    public void setStarlevel(String starlevel) {
+        this.starlevel = starlevel;
+    }
 
-	public String getAdvicetime() {
-		return advicetime;
-	}
+    public String getType() {
+        return type;
+    }
 
-	public void setAdvicetime(String advicetime) {
-		this.advicetime = advicetime;
-	}
+    public void setType(String type) {
+        this.type = type;
+    }
 
-	public String getOpentime() {
-		return opentime;
-	}
+    public String getAdvicetime() {
+        return advicetime;
+    }
 
-	public void setOpentime(String opentime) {
-		this.opentime = opentime;
-	}
+    public void setAdvicetime(String advicetime) {
+        this.advicetime = advicetime;
+    }
 
-	public String getServicecommitment() {
-		return servicecommitment;
-	}
+    public String getOpentime() {
+        return opentime;
+    }
 
-	public void setServicecommitment(String servicecommitment) {
-		this.servicecommitment = servicecommitment;
-	}
+    public void setOpentime(String opentime) {
+        this.opentime = opentime;
+    }
 
-	public String getReferprice() {
-		return referprice;
-	}
+    public String getServicecommitment() {
+        return servicecommitment;
+    }
 
-	public void setReferprice(String referprice) {
-		this.referprice = referprice;
-	}
+    public void setServicecommitment(String servicecommitment) {
+        this.servicecommitment = servicecommitment;
+    }
 
-	public String getGrade() {
-		return grade;
-	}
+    public String getReferprice() {
+        return referprice;
+    }
 
-	public void setGrade(String grade) {
-		this.grade = grade;
-	}
+    public void setReferprice(String referprice) {
+        this.referprice = referprice;
+    }
 
-	public String getGradenum() {
-		return gradenum;
-	}
+    public String getGrade() {
+        return grade;
+    }
 
-	public void setGradenum(String gradenum) {
-		this.gradenum = gradenum;
-	}
+    public void setGrade(String grade) {
+        this.grade = grade;
+    }
 
-	public String getBeennum() {
-		return beennum;
-	}
+    public String getGradenum() {
+        return gradenum;
+    }
 
-	public void setBeennum(String beennum) {
-		this.beennum = beennum;
-	}
+    public void setGradenum(String gradenum) {
+        this.gradenum = gradenum;
+    }
 
-	public String getWanttonum() {
-		return wanttonum;
-	}
+    public String getBeennum() {
+        return beennum;
+    }
 
-	public void setWanttonum(String wanttonum) {
-		this.wanttonum = wanttonum;
-	}
+    public void setBeennum(String beennum) {
+        this.beennum = beennum;
+    }
 
-	public String getDatasource() {
-		return datasource;
-	}
+    public String getWanttonum() {
+        return wanttonum;
+    }
 
-	public void setDatasource(String datasource) {
-		this.datasource = datasource;
-	}
+    public void setWanttonum(String wanttonum) {
+        this.wanttonum = wanttonum;
+    }
 
-	public Date getCreatedate() {
-		return createdate;
-	}
+    public String getDatasource() {
+        return datasource;
+    }
 
-	public void setCreatedate(Date createdate) {
-		this.createdate = createdate;
-	}
+    public void setDatasource(String datasource) {
+        this.datasource = datasource;
+    }
+
+    public Date getCreatedate() {
+        return createdate;
+    }
+
+    public void setCreatedate(Date createdate) {
+        this.createdate = createdate;
+    }
 
 
-	public String getIntroduction() {
-		return introduction;
-	}
+    public String getIntroduction() {
+        return introduction;
+    }
 
-	public void setIntroduction(String introduction) {
-		this.introduction = introduction;
-	}
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction;
+    }
 
-	public String getOtherinformation() {
-		return otherinformation;
-	}
+    public String getOtherinformation() {
+        return otherinformation;
+    }
 
-	public void setOtherinformation(String otherinformation) {
-		this.otherinformation = otherinformation;
-	}
+    public void setOtherinformation(String otherinformation) {
+        this.otherinformation = otherinformation;
+    }
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 
-   
+    @Override
+    public String toString() {
+        return "Sceinfo{" +
+                "id='" + id + '\'' +
+                ", urlid='" + urlid + '\'' +
+                ", name='" + name + '\'' +
+                ", address='" + address + '\'' +
+                ", longitude='" + longitude + '\'' +
+                ", latitude='" + latitude + '\'' +
+                ", starlevel='" + starlevel + '\'' +
+                ", type='" + type + '\'' +
+                ", advicetime='" + advicetime + '\'' +
+                ", opentime='" + opentime + '\'' +
+                ", servicecommitment='" + servicecommitment + '\'' +
+                ", referprice='" + referprice + '\'' +
+                ", grade='" + grade + '\'' +
+                ", gradenum='" + gradenum + '\'' +
+                ", beennum='" + beennum + '\'' +
+                ", wanttonum='" + wanttonum + '\'' +
+                ", datasource='" + datasource + '\'' +
+                ", createdate=" + createdate +
+                ", introduction='" + introduction + '\'' +
+                ", otherinformation='" + otherinformation + '\'' +
+                ", dataType='" + dataType + '\'' +
+                '}';
+    }
 }
