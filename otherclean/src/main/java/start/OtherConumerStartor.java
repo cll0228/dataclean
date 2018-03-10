@@ -12,11 +12,15 @@ import util.StandardUtil;
 
 import java.util.Arrays;
 import java.util.Properties;
-
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 
 public class OtherConumerStartor {
     private static final Logger logger = LoggerFactory.getLogger(OtherConumerStartor.class);
+
+    final static ThreadPoolExecutor executor = new ThreadPoolExecutor(100, 150, 5, TimeUnit.SECONDS, new LinkedBlockingDeque<>());
 
 
     public static void main(String[] args) {
@@ -52,7 +56,7 @@ public class OtherConumerStartor {
                     }
                     logger.info("消费者接受消息===== Type == " + rd.getType() + rd.getData().getClass() + " 启动处理");
                     try {
-                        new ProcessObj(rd).start();
+                        executor.execute(new ProcessObj(rd));
                         logger.info("启动线程处理数据 Class = " + rd.getData().getClass());
                     } catch (Exception e) {
                         logger.error("启动线程失败处理数据 Class = " + rd.getData().getClass(), e);
@@ -86,14 +90,14 @@ public class OtherConumerStartor {
         @Override
         public void run() {
             if (receiverData.getType() == 11) {
-                logger.info("TYPE = 11，进入数据清洗"+ receiverData.getData().toString());
+                logger.info("TYPE = 11，进入数据清洗" + receiverData.getData().toString());
                 Commentinfo commoninfo = (Commentinfo) receiverData.getData();
                 try {
                     logger.info("清洗前数据 = " + commoninfo.toString());
-                   // receiverData.setData(OtherStandard.standard(commoninfo));
+                    // receiverData.setData(OtherStandard.standard(commoninfo));
                     logger.info("清洗后数据  = " + receiverData.getData().toString());
                 } catch (Exception e) {
-                    logger.error(receiverData.getData().toString()+ " 数据清洗失败 评论 ");
+                    logger.error(receiverData.getData().toString() + " 数据清洗失败 评论 ");
                 }
             }
             //保存hbase
