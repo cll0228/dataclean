@@ -1,37 +1,34 @@
 package start;
 
+import com.holyrobot.common.Commentinfo;
 import com.holyrobot.common.ReceiverData;
-import com.holyrobot.common.Routeinfo;
-import com.holyrobot.common.TripEntity;
-import dao.RouteObjectDao;
+import dao.OtherObjectDao;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import util.RouteStandard;
 import util.StandardUtil;
 
 import java.util.Arrays;
-import java.util.List;
 import java.util.Properties;
 
 
 
-public class RouteConumerStartor {
-    private static final Logger logger = LoggerFactory.getLogger(RouteConumerStartor.class);
+public class OtherConumerStartor {
+    private static final Logger logger = LoggerFactory.getLogger(OtherConumerStartor.class);
 
 
     public static void main(String[] args) {
         if (args.length == 0) {
-            args = new String[]{"cdh01:9092,cdh02:9092,cdh04:9092", "topic_route", "routegroup1", "latest"};
+            args = new String[]{"cdh01:9092,cdh02:9092,cdh04:9092", "topic_comment,topic_flight,topic_picture,topic_address", "othergroup", "latest"};
             logger.info("param init success");
         }
         String bootstrap = args[0];
         String topic = args[1];
         String group = args[2];
         String offset = args[3];
-
+        String[] topics = topic.split(",");
         Properties props = new Properties();
         props.put("bootstrap.servers", bootstrap);
         props.put("group.id", group);
@@ -43,7 +40,7 @@ public class RouteConumerStartor {
         props.put("value.deserializer", "org.apache.kafka.common.serialization.ByteArrayDeserializer");
         props.put("key.deserializer.encoding", "UTF8");
         KafkaConsumer<String, byte[]> consumer = new KafkaConsumer<>(props);
-        consumer.subscribe(Arrays.asList(topic));
+        consumer.subscribe(Arrays.asList(topics));
         while (true) {
             ConsumerRecords<String, byte[]> records = consumer.poll(Long.MAX_VALUE);
             for (ConsumerRecord<String, byte[]> record : records) {
@@ -88,33 +85,20 @@ public class RouteConumerStartor {
 
         @Override
         public void run() {
-            if (receiverData.getType() == 6) {
-                logger.info("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaTYPE = 6，进入数据清洗"+ receiverData.getData().toString());
-                Routeinfo routelinfo = (Routeinfo) receiverData.getData();
-                RouteObjectDao.saveToHbase(receiverData);
-
+            if (receiverData.getType() == 11) {
+                logger.info("TYPE = 11，进入数据清洗"+ receiverData.getData().toString());
+                Commentinfo commoninfo = (Commentinfo) receiverData.getData();
                 try {
-                    logger.info("清洗前数据 = " + routelinfo.toString());
-                    List<TripEntity> tripEntities = RouteStandard.standardRoute(routelinfo);
-                    if (null != tripEntities) {
-                        receiverData.setType(0);
-                        receiverData.setData(tripEntities);
-
-                        logger.info("清洗成功，清洗后数据  = " + receiverData.getData().toString());
-                        RouteObjectDao.saveToHbase(receiverData);
-                        logger.info("保存hhbase成功 Data = " + receiverData.getClass());
-                    } else {
-                        logger.info("清洗失败，源数据 = " + ((Routeinfo) receiverData.getData()).getUrl());
-                    }
-
+                    logger.info("清洗前数据 = " + commoninfo.toString());
+                   // receiverData.setData(OtherStandard.standard(commoninfo));
+                    logger.info("清洗后数据  = " + receiverData.getData().toString());
                 } catch (Exception e) {
-                    logger.error(receiverData.getData().toString()+ " 数据清洗失败 行程 ");
+                    logger.error(receiverData.getData().toString()+ " 数据清洗失败 评论 ");
                 }
-            }else {
-                //保存hbase
-                RouteObjectDao.saveToHbase(receiverData);
-                logger.info("保存hhbase成功 Data = " + receiverData.getClass());
             }
+            //保存hbase
+            OtherObjectDao.saveToHbase(receiverData);
+            logger.info("保存hhbase成功 Data = " + receiverData.getClass());
         }
     }
 
