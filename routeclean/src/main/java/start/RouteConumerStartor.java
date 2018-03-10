@@ -104,7 +104,7 @@ public class RouteConumerStartor {
                         RouteObjectDao.saveToHbase(receiverData);
                         logger.info("保存hhbase成功 Data = " + receiverData.getClass());
                     } else {
-                        logger.info("清洗失败，源数据 = " + ((Routeinfo) receiverData.getData()).getUrl());
+                        logger.info("清洗失败，源数据 = " + ((Routeinfo) receiverData.getData()).getUrlid());
                     }
 
                 } catch (Exception e) {
