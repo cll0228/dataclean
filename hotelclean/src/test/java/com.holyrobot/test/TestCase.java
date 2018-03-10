@@ -82,7 +82,7 @@ public class TestCase {
         while (rs.next()) {
             Hotelinfo hotel = new Hotelinfo();
             hotel.setId(rs.getString("ID"));
-            hotel.setUrl(rs.getString("UrlID"));
+            hotel.setUrlid(rs.getString("UrlID"));
             hotel.setName(rs.getString("name"));
             hotel.setAddress(rs.getString("address"));
             hotel.setIntroduction(rs.getString("Introduction"));

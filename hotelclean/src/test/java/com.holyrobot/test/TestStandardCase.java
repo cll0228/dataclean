@@ -84,7 +84,7 @@ public class TestStandardCase {
     private static Hotelinfo HotelInfo1() {
         Hotelinfo info = new Hotelinfo();
         info.setId(UUID.randomUUID().toString());
-        info.setUrl(UUID.randomUUID().toString());
+        info.setUrlid(UUID.randomUUID().toString());
         info.setName("三亚建设宾馆测试");
         info.setAddress("天涯区三亚天涯区三亚市市辖区建设街68号");
         info.setLongitude("109.507153");
@@ -112,7 +112,7 @@ public class TestStandardCase {
     private static Hotelinfo HotelInfo2() {
         Hotelinfo info = new Hotelinfo();
         info.setId(UUID.randomUUID().toString());
-        info.setUrl(UUID.randomUUID().toString());
+        info.setUrlid(UUID.randomUUID().toString());
         info.setName("三亚建设宾馆test");
         info.setAddress("天涯区三亚天涯区三亚市市辖区建设街68号");
         info.setLongitude("109.507153");
@@ -140,7 +140,7 @@ public class TestStandardCase {
     private static Hotelinfo HotelInfo3() {
         Hotelinfo info = new Hotelinfo();
         info.setId(UUID.randomUUID().toString());
-        info.setUrl(UUID.randomUUID().toString());
+        info.setUrlid(UUID.randomUUID().toString());
         info.setName("三亚建设宾馆del");
         info.setAddress("天涯区三亚天涯区三亚市市辖区建设街68号");
         info.setLongitude("109.507153");
@@ -171,7 +171,7 @@ public class TestStandardCase {
     private static Hotelinfo HotelInfo4() {
         Hotelinfo info = new Hotelinfo();
         info.setId(UUID.randomUUID().toString());
-        info.setUrl(UUID.randomUUID().toString());
+        info.setUrlid(UUID.randomUUID().toString());
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
         info.setLongitude("121【.453]15-}4[31");
@@ -199,7 +199,7 @@ public class TestStandardCase {
     private static Hotelinfo HotelInfo5() {
         Hotelinfo info = new Hotelinfo();
         info.setId(UUID.randomUUID().toString());
-        info.setUrl(UUID.randomUUID().toString());
+        info.setUrlid(UUID.randomUUID().toString());
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
         info.setLongitude("121【.453]15-}4[31");
@@ -227,7 +227,7 @@ public class TestStandardCase {
     private static Hotelinfo HotelInfo6() {
         Hotelinfo info = new Hotelinfo();
         info.setId(UUID.randomUUID().toString());
-        info.setUrl(UUID.randomUUID().toString());
+        info.setUrlid(UUID.randomUUID().toString());
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
         info.setLongitude("121【.453]15-}4[31");
@@ -255,7 +255,7 @@ public class TestStandardCase {
     private static Hotelinfo HotelInfo7() {
         Hotelinfo info = new Hotelinfo();
         info.setId(UUID.randomUUID().toString());
-        info.setUrl(UUID.randomUUID().toString());
+        info.setUrlid(UUID.randomUUID().toString());
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
         info.setLongitude("121【.453]15-}4[31");
@@ -283,7 +283,7 @@ public class TestStandardCase {
     private static Hotelinfo HotelInfo8() {
         Hotelinfo info = new Hotelinfo();
         info.setId(UUID.randomUUID().toString());
-        info.setUrl(UUID.randomUUID().toString());
+        info.setUrlid(UUID.randomUUID().toString());
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
         info.setLongitude("121【.453]15-}4[31");
@@ -311,7 +311,7 @@ public class TestStandardCase {
     private static Hotelinfo HotelInfo9() {
         Hotelinfo info = new Hotelinfo();
         info.setId(UUID.randomUUID().toString());
-        info.setUrl(UUID.randomUUID().toString());
+        info.setUrlid(UUID.randomUUID().toString());
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
         info.setLongitude("121【.453]15-}4[31");
@@ -339,7 +339,7 @@ public class TestStandardCase {
     private static Hotelinfo HotelInfo10() {
         Hotelinfo info = new Hotelinfo();
         info.setId(UUID.randomUUID().toString());
-        info.setUrl(UUID.randomUUID().toString());
+        info.setUrlid(UUID.randomUUID().toString());
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
         info.setLongitude("121【.453]15-}4[31");
@@ -367,7 +367,7 @@ public class TestStandardCase {
     private static Hotelinfo HotelInfo11() {
         Hotelinfo info = new Hotelinfo();
         info.setId(UUID.randomUUID().toString());
-        info.setUrl(UUID.randomUUID().toString());
+        info.setUrlid(UUID.randomUUID().toString());
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
         info.setLongitude("121【.453]15-}4[31");
@@ -395,7 +395,7 @@ public class TestStandardCase {
     private static Hotelinfo HotelInfo12() {
         Hotelinfo info = new Hotelinfo();
         info.setId(UUID.randomUUID().toString());
-        info.setUrl(UUID.randomUUID().toString());
+        info.setUrlid(UUID.randomUUID().toString());
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
         info.setLongitude("121【.453]15-}4[31");
@@ -423,7 +423,7 @@ public class TestStandardCase {
     private static Hotelinfo HotelInfo13() {
         Hotelinfo info = new Hotelinfo();
         info.setId(UUID.randomUUID().toString());
-        info.setUrl(UUID.randomUUID().toString());
+        info.setUrlid(UUID.randomUUID().toString());
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
         info.setLongitude("121【.453]15-}4[31");
@@ -452,7 +452,7 @@ public class TestStandardCase {
     private static Hotelinfo HotelInfo14() {
         Hotelinfo info = new Hotelinfo();
         info.setId(UUID.randomUUID().toString());
-        info.setUrl(UUID.randomUUID().toString());
+        info.setUrlid(UUID.randomUUID().toString());
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
         info.setLongitude("121【.453]15-}4[31");
@@ -480,7 +480,7 @@ public class TestStandardCase {
     private static Hotelinfo HotelInfo15() {
         Hotelinfo info = new Hotelinfo();
         info.setId(UUID.randomUUID().toString());
-        info.setUrl(UUID.randomUUID().toString());
+        info.setUrlid(UUID.randomUUID().toString());
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
         info.setLongitude("121【.453]15-}4[31");
@@ -508,7 +508,7 @@ public class TestStandardCase {
     private static Hotelinfo HotelInfo16() {
         Hotelinfo info = new Hotelinfo();
         info.setId(UUID.randomUUID().toString());
-        info.setUrl(UUID.randomUUID().toString());
+        info.setUrlid(UUID.randomUUID().toString());
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
         info.setLongitude("121【.453]15-}4[31");
