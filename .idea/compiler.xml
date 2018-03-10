@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="common" />
         <module name="hotelclean" />
+        <module name="otherclean" />
         <module name="routeclean" />
         <module name="scenicclean" />
       </profile>
@@ -16,6 +17,7 @@
       <module name="common" target="1.8" />
       <module name="dataclean" target="1.8" />
       <module name="hotelclean" target="1.8" />
+      <module name="otherclean" target="1.8" />
       <module name="routeclean" target="1.8" />
       <module name="scenicclean" target="1.8" />
     </bytecodeTargetLevel>
