@@ -3,12 +3,12 @@ package com.holyrobot.common;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Routeinfo implements Serializable{
+public class Routeinfo implements Serializable {
     private static final long serialVersionUID = 1L;
 
-	private String id;
+    private String id;
 
-    private String url;
+    private String urlid;
 
     private String routetype;
 
@@ -21,7 +21,7 @@ public class Routeinfo implements Serializable{
     private String suppliername;
 
     private String departure;
-    
+
     private String destination;
 
     private String grade;
@@ -41,9 +41,9 @@ public class Routeinfo implements Serializable{
     private String creatorid;
 
     private String teamtype;
-    
+
     private String productoutline;
-    
+
     private String featureservice;
 
     private String itineraryoutline;
@@ -59,24 +59,24 @@ public class Routeinfo implements Serializable{
     private String expense;
 
     private String reserveinfo;
-    
+
     public String getProductoutline() {
-		return productoutline;
-	}
+        return productoutline;
+    }
 
-	public void setProductoutline(String productoutline) {
-		this.productoutline = productoutline;
-	}
+    public void setProductoutline(String productoutline) {
+        this.productoutline = productoutline;
+    }
 
-	public String getDestination() {
-		return destination;
-	}
+    public String getDestination() {
+        return destination;
+    }
 
-	public void setDestination(String destination) {
-		this.destination = destination;
-	}
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
 
-	public String getId() {
+    public String getId() {
         return id;
     }
 
@@ -84,15 +84,19 @@ public class Routeinfo implements Serializable{
         this.id = id == null ? null : id.trim();
     }
 
-    public String getUrl() {
-		return url;
-	}
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
 
-	public void setUrl(String url) {
-		this.url = url;
-	}
+    public String getUrlid() {
+        return urlid;
+    }
 
-	public String getRoutetype() {
+    public void setUrlid(String urlid) {
+        this.urlid = urlid;
+    }
+
+    public String getRoutetype() {
         return routetype;
     }
 
@@ -165,74 +169,74 @@ public class Routeinfo implements Serializable{
     }
 
     public String getFeatureservice() {
-		return featureservice;
-	}
+        return featureservice;
+    }
 
-	public void setFeatureservice(String featureservice) {
-		this.featureservice = featureservice;
-	}
+    public void setFeatureservice(String featureservice) {
+        this.featureservice = featureservice;
+    }
 
-	public String getItineraryoutline() {
-		return itineraryoutline;
-	}
+    public String getItineraryoutline() {
+        return itineraryoutline;
+    }
 
-	public void setItineraryoutline(String itineraryoutline) {
-		this.itineraryoutline = itineraryoutline;
-	}
+    public void setItineraryoutline(String itineraryoutline) {
+        this.itineraryoutline = itineraryoutline;
+    }
 
-	public String getProductrecommend() {
-		return productrecommend;
-	}
+    public String getProductrecommend() {
+        return productrecommend;
+    }
 
-	public void setProductrecommend(String productrecommend) {
-		this.productrecommend = productrecommend;
-	}
+    public void setProductrecommend(String productrecommend) {
+        this.productrecommend = productrecommend;
+    }
 
-	public String getReducedprice() {
-		return reducedprice;
-	}
+    public String getReducedprice() {
+        return reducedprice;
+    }
 
-	public void setReducedprice(String reducedprice) {
-		this.reducedprice = reducedprice;
-	}
+    public void setReducedprice(String reducedprice) {
+        this.reducedprice = reducedprice;
+    }
 
-	public String getProductfeature() {
-		return productfeature;
-	}
+    public String getProductfeature() {
+        return productfeature;
+    }
 
-	public void setProductfeature(String productfeature) {
-		this.productfeature = productfeature;
-	}
+    public void setProductfeature(String productfeature) {
+        this.productfeature = productfeature;
+    }
 
-	public String getItinerarydetails() {
-		return itinerarydetails;
-	}
+    public String getItinerarydetails() {
+        return itinerarydetails;
+    }
 
-	public void setItinerarydetails(String itinerarydetails) {
-		this.itinerarydetails = itinerarydetails;
-	}
+    public void setItinerarydetails(String itinerarydetails) {
+        this.itinerarydetails = itinerarydetails;
+    }
 
-	public String getExpense() {
-		return expense;
-	}
+    public String getExpense() {
+        return expense;
+    }
 
-	public void setExpense(String expense) {
-		this.expense = expense;
-	}
+    public void setExpense(String expense) {
+        this.expense = expense;
+    }
 
-	public String getReserveinfo() {
-		return reserveinfo;
-	}
+    public String getReserveinfo() {
+        return reserveinfo;
+    }
 
-	public void setReserveinfo(String reserveinfo) {
-		this.reserveinfo = reserveinfo;
-	}
+    public void setReserveinfo(String reserveinfo) {
+        this.reserveinfo = reserveinfo;
+    }
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
 
-	public String getWhantto() {
+    public String getWhantto() {
         return whantto;
     }
 
@@ -280,11 +284,12 @@ public class Routeinfo implements Serializable{
         this.teamtype = teamtype == null ? null : teamtype.trim();
     }
 
+
     @Override
     public String toString() {
         return "Routeinfo{" +
                 "id='" + id + '\'' +
-                ", url='" + url + '\'' +
+                ", urlid='" + urlid + '\'' +
                 ", routetype='" + routetype + '\'' +
                 ", name='" + name + '\'' +
                 ", price='" + price + '\'' +

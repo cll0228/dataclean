@@ -135,18 +135,15 @@
     </dependencies>
 
     <build>
-        <finalName>routeclean-1.0-SNAPSHOT</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <configuration>
-                    <appendAssemblyId>false</appendAssemblyId>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <!-- 此处指定main方法入口的class -->
                             <mainClass>start.RouteConumerStartor</mainClass>
                         </manifest>
                     </archive>
@@ -156,7 +153,7 @@
                         <id>make-assembly</id>
                         <phase>package</phase>
                         <goals>
-                            <goal>assembly</goal>
+                            <goal>single</goal>
                         </goals>
                     </execution>
                 </executions>
@@ -170,17 +167,5 @@
                 </configuration>
             </plugin>
         </plugins>
-
-        <resources>
-            <!-- 这里的resource配置的是需要导入到项目的资源文件夹 -->
-            <resource>
-                <directory>src/main/resources</directory>
-            </resource>
-            <!-- 这里的${profiles.dir}是你上面配置的属性值，用于动态替换，比如打包的时候输入的是-Pdev则这里就是的${profiles.dir}就是dev的值 -->
-            <resource>
-                <directory>src/main/profile/${profiles.dir}</directory>
-            </resource>
-        </resources>
-
     </build>
 </project>

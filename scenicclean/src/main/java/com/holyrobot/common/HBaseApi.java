@@ -23,12 +23,9 @@ public class HBaseApi {
     public static Configuration conf = null;
     static {
         try {
-            logger.info("=================hbase初始化配置开始======================");
             conf = HBaseConfiguration.create();
-            ConfigManager cm = new ConfigManager();
-            conf.set("fs.hdfs.impl",org.apache.hadoop.hdfs.DistributedFileSystem.class.getName());
-            conf.set("hbase.zookeeper.quorum",cm.getConfig(ConfigItem.HBASE_ZOOKEEPER_QUORUM));
-            conf.set("hbase.zookeeper.property.clientPort",  "2181");
+            conf.set("hbase.zookeeper.quorum", "cdh04,cdh05,cdh06");
+            conf.set("hbase.zookeeper.property.clientPort", "2181");
             System.setProperty("HADOOP_USER_NAME", "hdfs");
             logger.info("hbase初始化配置结束");
         } catch (Exception ex) {
