@@ -58,7 +58,7 @@ public class HotelStandard {
     public static void main(String[] args) throws Exception {
         Hotelinfo hotelinfo = new Hotelinfo();
         hotelinfo.setId("b10a44f6-d12f-492e-9b5e-6bd7fe8c 0bc7");
-        hotelinfo.setUrl(null);
+        hotelinfo.setUrlid(null);
         hotelinfo.setName("三亚凯丰大酒店");
         hotelinfo.setAddress("凤凰路159号，近火车站/凤凰机场/三亚湾红树林。 （ 三亚湾）");
         hotelinfo.setLongitude("109.49142168512");
