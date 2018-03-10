@@ -9,7 +9,7 @@ public class Hotelinfo implements Serializable {
 
     private String id;
 
-    private String url;
+    private String urlid;
 
     private String name;
 
@@ -51,12 +51,13 @@ public class Hotelinfo implements Serializable {
         this.id = id == null ? null : id.trim();
     }
 
-    public String getUrl() {
-        return url;
+
+    public String getUrlid() {
+        return urlid;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setUrlid(String urlid) {
+        this.urlid = urlid;
     }
 
     public String getName() {
@@ -191,7 +192,7 @@ public class Hotelinfo implements Serializable {
     public String toString() {
         return "Hotelinfo{" +
                 "id='" + id + '\'' +
-                ", url='" + url + '\'' +
+                ", url='" + urlid + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", longitude='" + longitude + '\'' +

@@ -6,6 +6,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Date;
+
 /**
  * 标准化酒店数据
  */
@@ -67,6 +69,7 @@ public class HotelStandard {
         hotelinfo.setGrade("4.1");
         hotelinfo.setGradenum("479");
         hotelinfo.setBeennum("");
+        hotelinfo.setCreatedate(new Date());
         hotelinfo.setIntroduction("2010年开业  2015年装修  388间房    联系方式　　 　　三亚凯丰大酒店毗邻三亚海航学院，交通便利。 　　三亚凯丰大酒店是一家集客房、餐饮、康乐、会议、商务、购物于一体的豪华酒店。我们致力于满足客户度假和商务需求，突出环保、休闲、时尚、健康以 及舒适的风格。酒店拥有各类客房，房间视野宽阔，碧海蓝天一览无余，内设有宽带上网、卫星电视、国际国内直拨电话、独立淋浴室、四楼花园式游泳池等设施。 　　三亚凯丰大酒店拥有中餐、西餐、咖啡厅、茶艺等各类餐饮场 所，无论您在任何时候来到酒店，都能得到周到的服务，和舒适的享受。酒店还可容纳600余位宾客的多功能会议厅，是举办各种会议的理想场所。'");
 
         Hotelinfo hotelinfo1 = standardHotel(hotelinfo);

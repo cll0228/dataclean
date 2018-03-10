@@ -117,8 +117,8 @@ public class HBaseApi {
     }
 
     public static void main(String[] args) throws IOException {
-//        scan("HolyRobot:HotelBasicInfo");
-        filter("HolyRobot:HotelBasicInfo_clean");
+        scan("HolyRobot:OrderInfo");
+//        filter("HolyRobot:HotelBasicInfo_clean");
 //        delete("HolyRobot:HotelBasicInfo_clean", "null_null_0224a992-233c-11e8-9d49-680715098273", "info", null, null);
 
 

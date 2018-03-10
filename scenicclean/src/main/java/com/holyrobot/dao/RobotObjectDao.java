@@ -1,43 +1,51 @@
 package com.holyrobot.dao;
 
 
-import com.holyrobot.common.*;
-import org.apache.hadoop.hdfs.DistributedFileSystem;
+import com.holyrobot.common.HBaseApi;
+import com.holyrobot.common.HbaseColumn;
+import com.holyrobot.common.Sceinfo;
+import com.holyrobot.common.Scepriceinfo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.Serializable;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 /**
  *
  */
 public class RobotObjectDao {
-    public static void insertHbase(Serializable object) throws Exception{
 
-        if(object instanceof Sceinfo){
-            Sceinfo scenicData = (Sceinfo)object;
-            String rowKey = scenicData.getId() ;
-            insertHbase(object,rowKey,"HolyRobot:SceInfo_clean");
-//            ESDocumentManager.insertDoc("scenic","detail",scenicData.getId(),scenicData);
-        }else if(object instanceof Scepriceinfo){
-            Scepriceinfo scenicData = (Scepriceinfo)object;
+    private static final Logger logger = LoggerFactory.getLogger(RobotObjectDao.class);
+
+    public static void insertHbase(Serializable object) throws Exception {
+
+
+        if (object instanceof Sceinfo) {
+            Sceinfo scenicData = (Sceinfo) object;
             String rowKey = scenicData.getId();
-            insertHbase(object,rowKey,"HolyRobot:ScePriceInfo_clean");
+            insertHbase(object, rowKey, "HolyRobot:SceInfo_clean");
+//            ESDocumentManager.insertDoc("scenic","detail",scenicData.getId(),scenicData);
+        } else if (object instanceof Scepriceinfo) {
+            Scepriceinfo scenicData = (Scepriceinfo) object;
+            String rowKey = scenicData.getId();
+            insertHbase(object, rowKey, "HolyRobot:ScePriceInfo_clean");
 //            ESDocumentManager.insertDoc("scenicprice","price",scenicData.getId(),scenicData);
         }
     }
 
     /**
      * 插入数据库
+     *
      * @param object
      * @param rowKey
      * @param tableName
      * @throws IOException
      */
-    private static void insertHbase(Object object,String rowKey,String tableName) throws IOException {
+    private static void insertHbase(Object object, String rowKey, String tableName) throws IOException {
         List<HbaseColumn> cols = new ArrayList<HbaseColumn>();
         Class cls = object.getClass();
         Field[] fields = cls.getDeclaredFields();
@@ -62,6 +70,7 @@ public class RobotObjectDao {
             }
         }
         HBaseApi.insertRow(tableName, rowKey, cols);
+        logger.info(object.getClass()+"保存hbase 成功");
     }
 
 }
