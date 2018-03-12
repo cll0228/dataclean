@@ -10,6 +10,8 @@ public class Sceinfo implements Serializable {
 
     private String urlid;
 
+    private String adminarea;
+
     private String name;
 
     private String address;
@@ -47,6 +49,14 @@ public class Sceinfo implements Serializable {
     private String otherinformation;
 
     private String dataType;
+
+    public String getAdminarea() {
+        return adminarea;
+    }
+
+    public void setAdminarea(String adminarea) {
+        this.adminarea = adminarea;
+    }
 
     public String getDataType() {
         return dataType;
@@ -234,6 +244,7 @@ public class Sceinfo implements Serializable {
         return "Sceinfo{" +
                 "id='" + id + '\'' +
                 ", urlid='" + urlid + '\'' +
+                ", adminarea='" + adminarea + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
                 ", longitude='" + longitude + '\'' +

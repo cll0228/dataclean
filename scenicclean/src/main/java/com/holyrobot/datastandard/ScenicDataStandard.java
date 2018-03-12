@@ -1,12 +1,8 @@
 package com.holyrobot.datastandard;
 
-import com.holyrobot.common.RobotObject;
 import com.holyrobot.common.Sceinfo;
-import org.apache.hadoop.hbase.mapred.TableInputFormat;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.io.Serializable;
 
 /**
  * 景点数据标准化

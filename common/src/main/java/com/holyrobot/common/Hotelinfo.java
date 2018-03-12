@@ -9,6 +9,8 @@ public class Hotelinfo implements Serializable {
 
     private String id;
 
+    private String adminarea;
+
     private String urlid;
 
     private String name;
@@ -42,6 +44,14 @@ public class Hotelinfo implements Serializable {
     private String remark;
 
     private String introduction;
+
+    public String getAdminarea() {
+        return adminarea;
+    }
+
+    public void setAdminarea(String adminarea) {
+        this.adminarea = adminarea;
+    }
 
     public String getId() {
         return id;
@@ -192,6 +202,7 @@ public class Hotelinfo implements Serializable {
     public String toString() {
         return "Hotelinfo{" +
                 "id='" + id + '\'' +
+                ", adminarea='" + adminarea + '\'' +
                 ", urlid='" + urlid + '\'' +
                 ", name='" + name + '\'' +
                 ", address='" + address + '\'' +
@@ -210,6 +221,5 @@ public class Hotelinfo implements Serializable {
                 ", remark='" + remark + '\'' +
                 ", introduction='" + introduction + '\'' +
                 '}';
-
     }
 }

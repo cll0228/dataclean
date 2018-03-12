@@ -11,6 +11,16 @@ public class Roomprice implements Serializable {
 
     private String hotelid;
 
+    private String adminarea;
+
+    public String getAdminarea() {
+        return adminarea;
+    }
+
+    public void setAdminarea(String adminarea) {
+        this.adminarea = adminarea;
+    }
+
     private String roomid;
 
     private String productname;
@@ -42,6 +52,11 @@ public class Roomprice implements Serializable {
     private String creator;
 
     private String creatorid;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
 
     public String getId() {
         return id;
@@ -192,6 +207,7 @@ public class Roomprice implements Serializable {
         return "Roomprice{" +
                 "id='" + id + '\'' +
                 ", hotelid='" + hotelid + '\'' +
+                ", adminarea='" + adminarea + '\'' +
                 ", roomid='" + roomid + '\'' +
                 ", productname='" + productname + '\'' +
                 ", price='" + price + '\'' +

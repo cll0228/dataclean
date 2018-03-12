@@ -3,13 +3,23 @@ package com.holyrobot.common;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Roombasicinfo implements Serializable{
+public class Roombasicinfo implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     private String id;
 
     private String hotelid;
+
+    private String adminarea;
+
+    public String getAdminarea() {
+        return adminarea;
+    }
+
+    public void setAdminarea(String adminarea) {
+        this.adminarea = adminarea;
+    }
 
     private String roomtype;
 
@@ -34,6 +44,7 @@ public class Roombasicinfo implements Serializable{
     private String creator;
 
     private String creatorid;
+
 
     public String getId() {
         return id;
@@ -152,6 +163,7 @@ public class Roombasicinfo implements Serializable{
         return "Roombasicinfo{" +
                 "id='" + id + '\'' +
                 ", hotelid='" + hotelid + '\'' +
+                ", adminarea='" + adminarea + '\'' +
                 ", roomtype='" + roomtype + '\'' +
                 ", bedtype='" + bedtype + '\'' +
                 ", bedcount='" + bedcount + '\'' +

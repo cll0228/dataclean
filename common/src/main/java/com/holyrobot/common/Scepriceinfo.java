@@ -3,12 +3,14 @@ package com.holyrobot.common;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Scepriceinfo implements Serializable{
+public class Scepriceinfo implements Serializable {
     private static final long serialVersionUID = 1L;
 
-	private String id;
+    private String id;
 
     private String scenicid;
+
+    private String province;
 
     private String urlid;
 
@@ -29,6 +31,18 @@ public class Scepriceinfo implements Serializable{
     private Date createdate;
 
     private String remark;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
+    }
+
+    public String getProvince() {
+        return province;
+    }
+
+    public void setProvince(String province) {
+        this.province = province;
+    }
 
     public String getId() {
         return id;
