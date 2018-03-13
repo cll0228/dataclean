@@ -29,7 +29,7 @@ public class HotelConumerStartor {
 
     public static void main(String[] args) {
         if (args.length == 0) {
-            args = new String[]{"cdh01:9092,cdh:9092,cdh04:9092", "topic_hotel", "test3", "latest"};
+            args = new String[]{"cdh01:9092,cdh02:9092,cdh04:9092", "topic_hotel", "test3", "latest"};
             logger.debug("param init success");
         }
         String bootstrap = args[0];
@@ -118,7 +118,7 @@ public class HotelConumerStartor {
             //保存hbase
             if (null != receiverData && null != receiverData.getData()) {
                 HotelObjectDao.saveToHbase(receiverData);
-                logger.debug("保存hhbase成功 Data=" + receiverData.getData().toString());
+                logger.debug("保存hbase成功 Data=" + receiverData.getData().toString());
             }
         }
     }
