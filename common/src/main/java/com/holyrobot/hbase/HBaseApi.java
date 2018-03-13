@@ -26,8 +26,8 @@ public class HBaseApi {
         try {
             conf = HBaseConfiguration.create();
             ConfigManager cm = new ConfigManager();
-            conf.set("hbase.zookeeper.quorum", cm.getConfig(ConfigItem.HBASE_ZOOKEEPER_QUORUM));
-//            conf.set("hbase.zookeeper.quorum","cdh04,cdh05,cdh06");
+//            conf.set("hbase.zookeeper.quorum", cm.getConfig(ConfigItem.HBASE_ZOOKEEPER_QUORUM));
+            conf.set("hbase.zookeeper.quorum","cdh04,cdh05,cdh06");
             conf.set("hbase.zookeeper.property.clientPort", "2181");
             logger.info("hbase初始化配置结束");
         } catch (Exception e) {
