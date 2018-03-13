@@ -3,157 +3,164 @@ package com.holyrobot.common;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Scepriceinfo implements Serializable {
-    private static final long serialVersionUID = 1L;
+public class Scepriceinfo implements Serializable{
+	 private String id;
 
-    private String id;
+	    private String scenicid;
 
-    private String scenicid;
+	    private String urlid;
 
-    private String adminarea;
+	    private String pricetype;
 
-    private String urlid;
+	    private String tickettype;
 
-    private String pricetype;
+	    private String priceitem;
 
-    private String tickettype;
+	    private String marketingprice;
 
-    private String priceitem;
+	    private String salecondition;
 
-    private String marketingprice;
+	    private String saleprice;
 
-    private String salecondition;
+	    private String discountinfo;
 
-    private String saleprice;
+	    private Date createdate;
 
-    private String discountinfo;
+	    private String creator;
 
-    private Date createdate;
+	    private String creatorid;
 
-    private String remark;
+	    private String adminarea;
+	    
+	    private String favouredpolicy;
 
+	    private String remark;
 
-    public String getAdminarea() {
-        return adminarea;
-    }
+	    public String getFavouredpolicy() {
+	        return favouredpolicy;
+	    }
 
-    public void setAdminarea(String adminarea) {
-        this.adminarea = adminarea;
-    }
+	    public void setFavouredpolicy(String favouredpolicy) {
+	        this.favouredpolicy = favouredpolicy == null ? null : favouredpolicy.trim();
+	    }
 
-    public String getId() {
-        return id;
-    }
+	    public String getRemark() {
+	        return remark;
+	    }
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
-    }
+	    public void setRemark(String remark) {
+	        this.remark = remark == null ? null : remark.trim();
+	    }
 
-    public String getScenicid() {
-        return scenicid;
-    }
+	    public String getId() {
+	        return id;
+	    }
 
-    public void setScenicid(String scenicid) {
-        this.scenicid = scenicid == null ? null : scenicid.trim();
-    }
+	    public void setId(String id) {
+	        this.id = id == null ? null : id.trim();
+	    }
 
-    public String getUrlid() {
-        return urlid;
-    }
+	    public String getScenicid() {
+	        return scenicid;
+	    }
 
-    public void setUrlid(String urlid) {
-        this.urlid = urlid == null ? null : urlid.trim();
-    }
+	    public void setScenicid(String scenicid) {
+	        this.scenicid = scenicid == null ? null : scenicid.trim();
+	    }
 
-    public String getPricetype() {
-        return pricetype;
-    }
+	    public String getUrlid() {
+	        return urlid;
+	    }
 
-    public void setPricetype(String pricetype) {
-        this.pricetype = pricetype == null ? null : pricetype.trim();
-    }
+	    public void setUrlid(String urlid) {
+	        this.urlid = urlid == null ? null : urlid.trim();
+	    }
 
-    public String getTickettype() {
-        return tickettype;
-    }
+	    public String getPricetype() {
+	        return pricetype;
+	    }
 
-    public void setTickettype(String tickettype) {
-        this.tickettype = tickettype == null ? null : tickettype.trim();
-    }
+	    public void setPricetype(String pricetype) {
+	        this.pricetype = pricetype == null ? null : pricetype.trim();
+	    }
 
-    public String getPriceitem() {
-        return priceitem;
-    }
+	    public String getTickettype() {
+	        return tickettype;
+	    }
 
-    public void setPriceitem(String priceitem) {
-        this.priceitem = priceitem == null ? null : priceitem.trim();
-    }
+	    public void setTickettype(String tickettype) {
+	        this.tickettype = tickettype == null ? null : tickettype.trim();
+	    }
 
-    public String getMarketingprice() {
-        return marketingprice;
-    }
+	    public String getPriceitem() {
+	        return priceitem;
+	    }
 
-    public void setMarketingprice(String marketingprice) {
-        this.marketingprice = marketingprice == null ? null : marketingprice.trim();
-    }
+	    public void setPriceitem(String priceitem) {
+	        this.priceitem = priceitem == null ? null : priceitem.trim();
+	    }
 
-    public String getSalecondition() {
-        return salecondition;
-    }
+	    public String getMarketingprice() {
+	        return marketingprice;
+	    }
 
-    public void setSalecondition(String salecondition) {
-        this.salecondition = salecondition == null ? null : salecondition.trim();
-    }
+	    public void setMarketingprice(String marketingprice) {
+	        this.marketingprice = marketingprice == null ? null : marketingprice.trim();
+	    }
 
-    public String getSaleprice() {
-        return saleprice;
-    }
+	    public String getSalecondition() {
+	        return salecondition;
+	    }
 
-    public void setSaleprice(String saleprice) {
-        this.saleprice = saleprice == null ? null : saleprice.trim();
-    }
+	    public void setSalecondition(String salecondition) {
+	        this.salecondition = salecondition == null ? null : salecondition.trim();
+	    }
 
-    public String getDiscountinfo() {
-        return discountinfo;
-    }
+	    public String getSaleprice() {
+	        return saleprice;
+	    }
 
-    public void setDiscountinfo(String discountinfo) {
-        this.discountinfo = discountinfo == null ? null : discountinfo.trim();
-    }
+	    public void setSaleprice(String saleprice) {
+	        this.saleprice = saleprice == null ? null : saleprice.trim();
+	    }
 
-    public Date getCreatedate() {
-        return createdate;
-    }
+	    public String getDiscountinfo() {
+	        return discountinfo;
+	    }
 
-    public void setCreatedate(Date createdate) {
-        this.createdate = createdate;
-    }
+	    public void setDiscountinfo(String discountinfo) {
+	        this.discountinfo = discountinfo == null ? null : discountinfo.trim();
+	    }
 
+	    public Date getCreatedate() {
+	        return createdate;
+	    }
 
-    public String getRemark() {
-        return remark;
-    }
+	    public void setCreatedate(Date createdate) {
+	        this.createdate = createdate;
+	    }
 
-    public void setRemark(String remark) {
-        this.remark = remark == null ? null : remark.trim();
-    }
+	    public String getCreator() {
+	        return creator;
+	    }
 
-    @Override
-    public String toString() {
-        return "Scepriceinfo{" +
-                "id='" + id + '\'' +
-                ", scenicid='" + scenicid + '\'' +
-                ", adminarea='" + adminarea + '\'' +
-                ", urlid='" + urlid + '\'' +
-                ", pricetype='" + pricetype + '\'' +
-                ", tickettype='" + tickettype + '\'' +
-                ", priceitem='" + priceitem + '\'' +
-                ", marketingprice='" + marketingprice + '\'' +
-                ", salecondition='" + salecondition + '\'' +
-                ", saleprice='" + saleprice + '\'' +
-                ", discountinfo='" + discountinfo + '\'' +
-                ", createdate=" + createdate +
-                ", remark='" + remark + '\'' +
-                '}';
-    }
+	    public void setCreator(String creator) {
+	        this.creator = creator == null ? null : creator.trim();
+	    }
+
+	    public String getCreatorid() {
+	        return creatorid;
+	    }
+
+	    public void setCreatorid(String creatorid) {
+	        this.creatorid = creatorid == null ? null : creatorid.trim();
+	    }
+
+	    public String getAdminarea() {
+	        return adminarea;
+	    }
+
+	    public void setAdminarea(String adminarea) {
+	        this.adminarea = adminarea == null ? null : adminarea.trim();
+	    }
 }

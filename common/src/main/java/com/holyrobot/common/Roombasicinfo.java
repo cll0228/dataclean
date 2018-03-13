@@ -3,23 +3,12 @@ package com.holyrobot.common;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Roombasicinfo implements Serializable {
-
+public class Roombasicinfo implements Serializable{
     private static final long serialVersionUID = 1L;
 
     private String id;
 
     private String hotelid;
-
-    private String adminarea;
-
-    public String getAdminarea() {
-        return adminarea;
-    }
-
-    public void setAdminarea(String adminarea) {
-        this.adminarea = adminarea;
-    }
 
     private String roomtype;
 
@@ -45,6 +34,9 @@ public class Roombasicinfo implements Serializable {
 
     private String creatorid;
 
+    private String adminarea;
+
+    private String remark;
 
     public String getId() {
         return id;
@@ -158,24 +150,19 @@ public class Roombasicinfo implements Serializable {
         this.creatorid = creatorid == null ? null : creatorid.trim();
     }
 
-    @Override
-    public String toString() {
-        return "Roombasicinfo{" +
-                "id='" + id + '\'' +
-                ", hotelid='" + hotelid + '\'' +
-                ", adminarea='" + adminarea + '\'' +
-                ", roomtype='" + roomtype + '\'' +
-                ", bedtype='" + bedtype + '\'' +
-                ", bedcount='" + bedcount + '\'' +
-                ", isaddbed='" + isaddbed + '\'' +
-                ", bedsize='" + bedsize + '\'' +
-                ", price='" + price + '\'' +
-                ", iswifi='" + iswifi + '\'' +
-                ", floor='" + floor + '\'' +
-                ", peoplecount='" + peoplecount + '\'' +
-                ", createdate=" + createdate +
-                ", creator='" + creator + '\'' +
-                ", creatorid='" + creatorid + '\'' +
-                '}';
+    public String getAdminarea() {
+        return adminarea;
+    }
+
+    public void setAdminarea(String adminarea) {
+        this.adminarea = adminarea == null ? null : adminarea.trim();
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
     }
 }

@@ -3,13 +3,10 @@ package com.holyrobot.common;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Hotelinfo implements Serializable {
-
+public class Hotelinfo implements Serializable{
     private static final long serialVersionUID = 1L;
 
     private String id;
-
-    private String adminarea;
 
     private String urlid;
 
@@ -41,16 +38,26 @@ public class Hotelinfo implements Serializable {
 
     private String creatorid;
 
-    private String remark;
-
+    private String adminarea;
+    
     private String introduction;
 
-    public String getAdminarea() {
-        return adminarea;
+    private String remark;
+
+    public String getIntroduction() {
+        return introduction;
     }
 
-    public void setAdminarea(String adminarea) {
-        this.adminarea = adminarea;
+    public void setIntroduction(String introduction) {
+        this.introduction = introduction == null ? null : introduction.trim();
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
     }
 
     public String getId() {
@@ -61,13 +68,12 @@ public class Hotelinfo implements Serializable {
         this.id = id == null ? null : id.trim();
     }
 
-
     public String getUrlid() {
         return urlid;
     }
 
     public void setUrlid(String urlid) {
-        this.urlid = urlid;
+        this.urlid = urlid == null ? null : urlid.trim();
     }
 
     public String getName() {
@@ -182,44 +188,25 @@ public class Hotelinfo implements Serializable {
         this.creatorid = creatorid == null ? null : creatorid.trim();
     }
 
-    public String getRemark() {
-        return remark;
+    public String getAdminarea() {
+        return adminarea;
     }
 
-    public void setRemark(String remark) {
-        this.remark = remark == null ? null : remark.trim();
+    public void setAdminarea(String adminarea) {
+        this.adminarea = adminarea == null ? null : adminarea.trim();
     }
 
-    public String getIntroduction() {
-        return introduction;
-    }
-
-    public void setIntroduction(String introduction) {
-        this.introduction = introduction == null ? null : introduction.trim();
-    }
-
-    @Override
-    public String toString() {
-        return "Hotelinfo{" +
-                "id='" + id + '\'' +
-                ", adminarea='" + adminarea + '\'' +
-                ", urlid='" + urlid + '\'' +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", longitude='" + longitude + '\'' +
-                ", latitude='" + latitude + '\'' +
-                ", star='" + star + '\'' +
-                ", price='" + price + '\'' +
-                ", datasource='" + datasource + '\'' +
-                ", grade='" + grade + '\'' +
-                ", gradenum='" + gradenum + '\'' +
-                ", beennum='" + beennum + '\'' +
-                ", whantto='" + whantto + '\'' +
-                ", createdate=" + createdate +
-                ", creator='" + creator + '\'' +
-                ", creatorid='" + creatorid + '\'' +
-                ", remark='" + remark + '\'' +
-                ", introduction='" + introduction + '\'' +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "Hotelinfo [id=" + id + ", urlid=" + urlid + ", name=" + name + ", address=" + address + ", longitude="
+				+ longitude + ", latitude=" + latitude + ", star=" + star + ", price=" + price + ", datasource="
+				+ datasource + ", grade=" + grade + ", gradenum=" + gradenum + ", beennum=" + beennum + ", whantto="
+				+ whantto + ", createdate=" + createdate + ", creator=" + creator + ", creatorid=" + creatorid
+				+ ", adminarea=" + adminarea + ", introduction=" + introduction + ", remark=" + remark + "]";
+	}
+    
+    
+    
+    
+    
 }

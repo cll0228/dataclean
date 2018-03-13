@@ -6,7 +6,7 @@ import java.util.Date;
 public class Flightpriceinfo implements Serializable{
     private static final long serialVersionUID = 1L;
 
-	private String id;
+    private String id;
 
     private String flightid;
 
@@ -22,6 +22,10 @@ public class Flightpriceinfo implements Serializable{
 
     private String discount;
 
+    private String begincity;
+
+    private String endcity;
+
     private String constructionfee;
 
     private String oilfee;
@@ -35,6 +39,8 @@ public class Flightpriceinfo implements Serializable{
     private String creator;
 
     private String creatorid;
+
+    private String remark;
 
     public String getId() {
         return id;
@@ -100,6 +106,22 @@ public class Flightpriceinfo implements Serializable{
         this.discount = discount == null ? null : discount.trim();
     }
 
+    public String getBegincity() {
+        return begincity;
+    }
+
+    public void setBegincity(String begincity) {
+        this.begincity = begincity == null ? null : begincity.trim();
+    }
+
+    public String getEndcity() {
+        return endcity;
+    }
+
+    public void setEndcity(String endcity) {
+        this.endcity = endcity == null ? null : endcity.trim();
+    }
+
     public String getConstructionfee() {
         return constructionfee;
     }
@@ -154,5 +176,13 @@ public class Flightpriceinfo implements Serializable{
 
     public void setCreatorid(String creatorid) {
         this.creatorid = creatorid == null ? null : creatorid.trim();
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
     }
 }
