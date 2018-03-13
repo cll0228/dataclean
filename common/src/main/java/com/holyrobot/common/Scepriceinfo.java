@@ -10,7 +10,7 @@ public class Scepriceinfo implements Serializable {
 
     private String scenicid;
 
-    private String province;
+    private String adminarea;
 
     private String urlid;
 
@@ -32,16 +32,13 @@ public class Scepriceinfo implements Serializable {
 
     private String remark;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+
+    public String getAdminarea() {
+        return adminarea;
     }
 
-    public String getProvince() {
-        return province;
-    }
-
-    public void setProvince(String province) {
-        this.province = province;
+    public void setAdminarea(String adminarea) {
+        this.adminarea = adminarea;
     }
 
     public String getId() {
@@ -139,5 +136,24 @@ public class Scepriceinfo implements Serializable {
 
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "Scepriceinfo{" +
+                "id='" + id + '\'' +
+                ", scenicid='" + scenicid + '\'' +
+                ", adminarea='" + adminarea + '\'' +
+                ", urlid='" + urlid + '\'' +
+                ", pricetype='" + pricetype + '\'' +
+                ", tickettype='" + tickettype + '\'' +
+                ", priceitem='" + priceitem + '\'' +
+                ", marketingprice='" + marketingprice + '\'' +
+                ", salecondition='" + salecondition + '\'' +
+                ", saleprice='" + saleprice + '\'' +
+                ", discountinfo='" + discountinfo + '\'' +
+                ", createdate=" + createdate +
+                ", remark='" + remark + '\'' +
+                '}';
     }
 }

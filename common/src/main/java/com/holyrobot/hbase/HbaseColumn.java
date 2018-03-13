@@ -1,4 +1,4 @@
-package com.holyrobot.common;
+package com.holyrobot.hbase;
 
 /**
  * hbase列实体 test

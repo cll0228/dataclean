@@ -20,6 +20,16 @@ public class ReceiverData implements Serializable {
      */
     private Object data;
 
+    private Integer flag;
+
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
+    }
+
     public Integer getType() {
         return type;
     }

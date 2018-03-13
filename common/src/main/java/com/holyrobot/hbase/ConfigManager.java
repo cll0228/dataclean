@@ -1,4 +1,4 @@
-package com.holyrobot.common;
+package com.holyrobot.hbase;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

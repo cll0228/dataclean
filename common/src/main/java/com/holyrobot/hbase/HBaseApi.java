@@ -1,10 +1,10 @@
-package com.holyrobot.common;
+package com.holyrobot.hbase;
 
 import org.apache.hadoop.conf.Configuration;
+import org.apache.hadoop.hbase.Cell;
+import org.apache.hadoop.hbase.CellUtil;
 import org.apache.hadoop.hbase.HBaseConfiguration;
-import org.apache.hadoop.hbase.client.HBaseAdmin;
-import org.apache.hadoop.hbase.client.HTable;
-import org.apache.hadoop.hbase.client.Put;
+import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,31 +21,20 @@ public class HBaseApi {
 
     // 声明静态配置
     public static Configuration conf = null;
+
     static {
         try {
             conf = HBaseConfiguration.create();
-            conf.set("hbase.zookeeper.quorum", "cdh04,cdh05,cdh06");
+            ConfigManager cm = new ConfigManager();
+            conf.set("hbase.zookeeper.quorum", cm.getConfig(ConfigItem.HBASE_ZOOKEEPER_QUORUM));
+//            conf.set("hbase.zookeeper.quorum","cdh04,cdh05,cdh06");
             conf.set("hbase.zookeeper.property.clientPort", "2181");
-            System.setProperty("HADOOP_USER_NAME", "hdfs");
             logger.info("hbase初始化配置结束");
-        } catch (Exception ex) {
-            logger.info("==========hbase初始化配置失败:" + ex.getMessage() + "=======================");
-        }
-
-        // conf.set("hbase.zookeeper.quorum", "s1:2181");
-    }
-
-    public static void run() {
-        try {
-            logger.info("=============hbase初始化运行开始====================");
-            HBaseAdmin admin = new HBaseAdmin(conf);
-
-            logger.info("=============hbase初始化运行结束====================");
         } catch (Exception e) {
-            logger.info("hbase初始化运行失败:" + e.getMessage());
+            logger.error("====hbase初始化配置失败:" + e);
         }
-    }
 
+    }
 
 
     public static void insertRow(String tableName, String rowKey, List<HbaseColumn> datas) throws IOException {
@@ -67,5 +56,28 @@ public class HBaseApi {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void scan(String tableName) throws IOException {
+        HTable table = new HTable(conf, Bytes.toBytes(tableName));
+        Scan s = new Scan();
+        ResultScanner scanner = table.getScanner(s);
+        Integer count = 0;
+        for (Result r : scanner) {
+            count++;
+            for (Cell cell : r.rawCells()) {
+                System.out.println(Bytes.toString(r.getRow()) + "  " + Bytes.toString(CellUtil.cloneQualifier(cell)) +
+                        "===" + Bytes.toString(CellUtil.cloneValue(cell)) +
+                        "   Time : " + cell.getTimestamp());
+            }
+            System.out.println("========================================");
+        }
+        System.out.println(count);
+    }
+
+    public static void main(String[] args) throws IOException {
+        scan("HolyRobot:HotelBasicInfo_clean");
+
+
     }
 }
