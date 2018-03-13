@@ -11,13 +11,10 @@
 
     <artifactId>hotelclean</artifactId>
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
         <encoding>UTF-8</encoding>
         <scala.version>2.11.6</scala.version>
         <spark.version>2.2.0</spark.version>
         <hadoop.version>2.7.0</hadoop.version>
-        <es.version>5.6.0</es.version>
         <hbase.version>1.3.0</hbase.version>
     </properties>
     <dependencies>
@@ -74,18 +71,6 @@
             <artifactId>hbase-client</artifactId>
             <version>1.3.0</version>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/org.elasticsearch/elasticsearch -->
-        <dependency>
-            <groupId>org.elasticsearch</groupId>
-            <artifactId>elasticsearch</artifactId>
-            <version>${es.version}</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.elasticsearch.client/transport -->
-        <dependency>
-            <groupId>org.elasticsearch.client</groupId>
-            <artifactId>transport</artifactId>
-            <version>${es.version}</version>
-        </dependency>
         <dependency>
             <groupId>com.holyrobot</groupId>
             <artifactId>common</artifactId>
@@ -110,11 +95,6 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpcore</artifactId>
             <version>4.4.1</version>
-        </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>fastjson</artifactId>
-            <version>1.2.37</version>
         </dependency>
         <dependency>
             <groupId>mysql</groupId>

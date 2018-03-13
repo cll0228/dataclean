@@ -18,7 +18,7 @@ import java.util.UUID;
  */
 public class TestStandardCase {
 
-    private static String url = "http://192.168.0.149:8081/send";
+    private static String url = "http://192.168.0.230:8081/send";
 
     private static final Logger logger = LoggerFactory.getLogger(TestStandardCase.class);
 
@@ -26,6 +26,7 @@ public class TestStandardCase {
     public void test() {
         ReceiverData data = new ReceiverData();
         data.setType(1);
+        data.setFlag(1);
         //生成酒店对象
         data.setData(HotelInfo1());
         TestCase.httpPostWithJson(JSON.toJSONString(data), url);

@@ -30,21 +30,21 @@ public class HotelObjectDao {
         if (obj.getType() == 1) {
             Hotelinfo hotelDetail = (Hotelinfo) obj.getData();
             tableName = "HolyRobot:HotelBasicInfo_clean";
-            String rowKey = hotelDetail.getName() + "_" + hotelDetail.getAddress() + "_" + hotelDetail.getId();
+            String rowKey = hotelDetail.getAdminarea() + "_" + hotelDetail.getId();
             hotelObjToHbaseSchema(obj, rowKey, tableName, Hotelinfo.class);
         }
 
         if (obj.getType() == 2) {
             Roomprice priceData = (Roomprice) obj.getData();
             tableName = "HolyRobot:RoomPrice_clean";
-            String rowKey = priceData.getRoomid() + "_" + priceData.getId();
+            String rowKey = priceData.getAdminarea() + "_" + priceData.getId();
             hotelObjToHbaseSchema(obj, rowKey, tableName, Roomprice.class);
         }
 
         if (obj.getType() == 3) {
             Roombasicinfo hotelRoomData = (Roombasicinfo) obj.getData();
             tableName = "HolyRobot:RoomBasicInfo_clean";
-            String rowKey = hotelRoomData.getRoomtype() + "_" + hotelRoomData.getId();
+            String rowKey = hotelRoomData.getAdminarea() + "_" + hotelRoomData.getId();
             hotelObjToHbaseSchema(obj, rowKey, tableName, Roombasicinfo.class);
         }
 
