@@ -44,7 +44,7 @@ public class TestStandardCase {
         s.setOpentime("全天开放");
         s.setOtherinformation("免费开放");
         s.setGrade("92.0");
-        s.setGradenum("570");
+        s.setGradenum("571");
         s.setBeennum("1501");
         s.setWanttonum("6");
         s.setDatasource("ctrip");
