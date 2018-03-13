@@ -1,6 +1,9 @@
 package com.holyrobot.scenicclean.startor;
 
-import com.holyrobot.common.*;
+import com.holyrobot.hbase.ConfigManager;
+import com.holyrobot.common.Object2Array;
+import com.holyrobot.common.ReceiverData;
+import com.holyrobot.common.RobotObject;
 import com.holyrobot.dao.RobotObjectDao;
 import com.holyrobot.datastandard.DataStandardFunction;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
@@ -10,7 +13,6 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.function.Function;
 import org.apache.spark.api.java.function.VoidFunction2;
-import org.apache.spark.sql.SparkSession;
 import org.apache.spark.streaming.Duration;
 import org.apache.spark.streaming.Time;
 import org.apache.spark.streaming.api.java.JavaDStream;
@@ -29,15 +31,9 @@ public class ScenicCleanStartor {
 
     public static void main(String[] args) throws Exception {
         ConfigManager cm = new ConfigManager();
-        SparkConf conf = new SparkConf().setAppName("realtime");
-        String appEnv = cm.getConfig(ConfigItem.APP_ENV);
-        if (appEnv.equals("dev")) {
-            conf.setMaster("local");
-        }
+        SparkConf conf = new SparkConf().setAppName("realtime").setMaster("local");
         JavaStreamingContext javaStreamingContext = new JavaStreamingContext(conf, new Duration(3000));
         Map<String, Object> kafkaParams = new HashMap<>();
-        String kafkaServer = cm.getConfig(ConfigItem.KAFKA_SERVER);
-        logger.info("Kafka server is:" + cm.getConfig(kafkaServer));
         kafkaParams.put("bootstrap.servers", "node3:9092,node4:9092,node5:9092");
         kafkaParams.put("key.deserializer", StringDeserializer.class);
         kafkaParams.put("value.deserializer", ByteArrayDeserializer.class);

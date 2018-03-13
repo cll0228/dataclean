@@ -1,10 +1,10 @@
 package com.holyrobot.dao;
 
 
-import com.holyrobot.common.HBaseApi;
-import com.holyrobot.common.HbaseColumn;
 import com.holyrobot.common.Sceinfo;
 import com.holyrobot.common.Scepriceinfo;
+import com.holyrobot.hbase.HBaseApi;
+import com.holyrobot.hbase.HbaseColumn;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -22,18 +22,14 @@ public class RobotObjectDao {
     private static final Logger logger = LoggerFactory.getLogger(RobotObjectDao.class);
 
     public static void insertHbase(Serializable object) throws Exception {
-
-
         if (object instanceof Sceinfo) {
             Sceinfo scenicData = (Sceinfo) object;
-            String rowKey = scenicData.getId();
+            String rowKey = scenicData.getAdminarea() + "_" + scenicData.getId();
             insertHbase(object, rowKey, "HolyRobot:SceInfo_clean");
-//            ESDocumentManager.insertDoc("scenic","detail",scenicData.getId(),scenicData);
         } else if (object instanceof Scepriceinfo) {
             Scepriceinfo scenicData = (Scepriceinfo) object;
-            String rowKey = scenicData.getId();
+            String rowKey = scenicData.getAdminarea() + "_" + scenicData.getId();
             insertHbase(object, rowKey, "HolyRobot:ScePriceInfo_clean");
-//            ESDocumentManager.insertDoc("scenicprice","price",scenicData.getId(),scenicData);
         }
     }
 
@@ -70,7 +66,7 @@ public class RobotObjectDao {
             }
         }
         HBaseApi.insertRow(tableName, rowKey, cols);
-        logger.info(object.getClass()+"保存hbase 成功");
+        logger.info(object.getClass() + "保存hbase 成功");
     }
 
 }
