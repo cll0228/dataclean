@@ -37,7 +37,7 @@ public class ScenicConsumerStartor {
         props.put("enable.auto.commit", "true");  //自动commit
         props.put("auto.commit.interval.ms", "1000"); //定时commit的周期
         props.put("session.timeout.ms", "30000"); //consumer活性超时时间
-        props.put("auto.offset.reset",offset);
+        props.put("auto.offset.reset", offset);
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.ByteArrayDeserializer");
         KafkaConsumer<String, byte[]> consumer = new KafkaConsumer<>(props);
@@ -68,9 +68,8 @@ public class ScenicConsumerStartor {
                         RobotObjectDao.insertHbase(si);
                         logger.info("==================处理景点详情结束===================");
                     }
-                    ;
                 } catch (Exception e) {
-                    logger.error(e.getMessage() + ":" + e.getStackTrace());
+                    logger.error("发生异常，", e);
                 }
             }
         }
