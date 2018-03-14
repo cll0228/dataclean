@@ -11,7 +11,9 @@ import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.lang.reflect.Field;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,6 +22,8 @@ import java.util.List;
 public class HotelObjectDao {
 
     private static final Logger logger = LoggerFactory.getLogger(HotelObjectDao.class);
+
+    private static SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
     public static void saveToHbase(ReceiverData obj) {
         if (null == obj || null == obj.getType() || null == obj.getData()) {
@@ -62,7 +66,11 @@ public class HotelObjectDao {
                 HbaseColumn col = new HbaseColumn();
                 col.setColName(field.getName());
                 col.setFamilyName("info");
-                col.setColValue(field.get(receiverData.getData()) == null ? "" : field.get(receiverData.getData()).toString());
+                if ("createdate".equals(field.getName())) {
+                    col.setColValue(fm.format(new Date(field.get(receiverData.getData()).toString())));
+                } else {
+                    col.setColValue(field.get(receiverData.getData()) == null ? "" : field.get(receiverData.getData()).toString());
+                }
                 cols.add(col);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -71,8 +79,7 @@ public class HotelObjectDao {
         try {
             HBaseApi.insertRow(tableName, rowKey, cols);
         } catch (IOException e) {
-            logger.error(rowKey + tableName + " 保存hbase失败");
-            e.printStackTrace();
+            logger.error(rowKey + tableName + " 保存hbase失败",e);
         }
     }
 
