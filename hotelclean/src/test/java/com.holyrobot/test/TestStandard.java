@@ -15,22 +15,22 @@ public class TestStandard {
     @Test
     public void test() throws Exception {
         //生成酒店对象
-        HotelStandard.standardHotel(HotelInfo1());
-        HotelStandard.standardHotel(HotelInfo2());
-        HotelStandard.standardHotel(HotelInfo3());
-        HotelStandard.standardHotel(HotelInfo4());
-        HotelStandard.standardHotel(HotelInfo5());
-        HotelStandard.standardHotel(HotelInfo6());
-        HotelStandard.standardHotel(HotelInfo7());
-        HotelStandard.standardHotel(HotelInfo8());
-        HotelStandard.standardHotel(HotelInfo9());
-        HotelStandard.standardHotel(HotelInfo10());
-        HotelStandard.standardHotel(HotelInfo11());
-        HotelStandard.standardHotel(HotelInfo12());
-        HotelStandard.standardHotel(HotelInfo13());
-        HotelStandard.standardHotel(HotelInfo14());
-        HotelStandard.standardHotel(HotelInfo15());
-        HotelStandard.standardHotel(HotelInfo16());
+        System.out.println(HotelStandard.standardHotel(HotelInfo1()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo2()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo3()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo4()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo5()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo6()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo7()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo8()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo9()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo10()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo11()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo12()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo13()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo14()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo15()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo16()));
 
     }
 
