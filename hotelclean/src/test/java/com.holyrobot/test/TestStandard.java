@@ -13,7 +13,7 @@ import java.util.UUID;
  */
 public class TestStandard {
     @Test
-    private void test() throws Exception {
+    public void test() throws Exception {
         //生成酒店对象
         HotelStandard.standardHotel(HotelInfo1());
         HotelStandard.standardHotel(HotelInfo2());
