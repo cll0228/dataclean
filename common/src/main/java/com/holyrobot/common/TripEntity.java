@@ -19,7 +19,7 @@ public class TripEntity {
 
     private String datasource;
 
-    private String url;
+    private String urlid;
     
     
 
@@ -27,7 +27,7 @@ public class TripEntity {
 	public String toString() {
 		return "TripEntity [id=" + id  + ", hotel=" + hotel +  ", rouid=" + rouid + ", departure=" + departure + ", destination=" + destination
 				+ ", price=" + price + ", time=" + time + ", spot=" + spot + ", datasource="
-				+ datasource + ", url=" + url + "]";
+				+ datasource + ", urlid=" + urlid + "]";
 	}
 
 	public Integer getId() {
@@ -102,11 +102,11 @@ public class TripEntity {
         this.datasource = datasource == null ? null : datasource.trim();
     }
 
-    public String getUrl() {
-        return url;
+    public String getUrlid() {
+        return urlid;
     }
 
-    public void setUrl(String url) {
-        this.url = url == null ? null : url.trim();
+    public void setUrlid(String urlid) {
+        this.urlid = urlid;
     }
 }
