@@ -48,16 +48,11 @@ public class RobotObjectDao {
         for (Field field : fields) {
             field.setAccessible(true);
             try {
-                if (field.getName().equals("rowKey")) {
+                if (field.getName().equals("rowKey") || field.getName().equals("creator") || field.getName().equals("creatorid") || field.getName().equals("serialVersionUID")) {
                     continue;
                 }
                 HbaseColumn col = new HbaseColumn();
-                if (field.getName().equals("urlid")) {
-                    //todo如何转化为url，看后期数据
-                    col.setColName("Url");
-                } else {
-                    col.setColName(field.getName());
-                }
+                col.setColName(field.getName());
                 col.setFamilyName("info");
                 col.setColValue(field.get(object) == null ? "" : field.get(object).toString());
                 cols.add(col);
