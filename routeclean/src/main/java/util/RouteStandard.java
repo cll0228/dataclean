@@ -77,7 +77,7 @@ public class RouteStandard {
                 tripEntity.setDestination(routeinfoDto.getDestination());
                 tripEntity.setHotel(hotel);
                 tripEntity.setRouid(routeinfoDto.getId());
-                tripEntity.setUrl(routeinfoDto.getUrlid());
+                tripEntity.setUrlid(routeinfoDto.getUrlid());
                 tripEntity.setTime(time);
                 tripEntity.setPrice(routeinfoDto.getPrice());
                 tripEntity.setSpot(spot);
@@ -115,7 +115,7 @@ public class RouteStandard {
                     tripEntity.setDestination(routeinfoDto.getDestination());
                     tripEntity.setHotel(hotel);
                     tripEntity.setRouid(routeinfoDto.getId());
-                    tripEntity.setUrl(routeinfoDto.getUrlid());
+                    tripEntity.setUrlid(routeinfoDto.getUrlid());
                     tripEntity.setTime(time);
                     tripEntity.setPrice(routeinfoDto.getPrice());
                     tripEntity.setSpot(spot);
@@ -167,7 +167,7 @@ public class RouteStandard {
                         tripEntity.setDestination(routeinfoDto.getDestination());
                         tripEntity.setPrice(routeinfoDto.getPrice());
                         tripEntity.setRouid(routeinfoDto.getId());
-                        tripEntity.setUrl(routeinfoDto.getUrlid());
+                        tripEntity.setUrlid(routeinfoDto.getUrlid());
                         tripEntities.add(tripEntity);
                         size++;
                     }
@@ -323,7 +323,7 @@ public class RouteStandard {
                 tripEntity.setDestination(routeinfoDto.getDestination());
                 tripEntity.setHotel(hotel);
                 tripEntity.setRouid(routeinfoDto.getId());
-                tripEntity.setUrl(routeinfoDto.getUrlid());
+                tripEntity.setUrlid(routeinfoDto.getUrlid());
                 tripEntity.setTime(time);
                 tripEntity.setPrice(routeinfoDto.getPrice());
                 tripEntity.setSpot(spot);
@@ -358,7 +358,7 @@ public class RouteStandard {
                 tripEntity.setDestination(routeinfoDto.getDestination());
                 tripEntity.setHotel(hotel);
                 tripEntity.setRouid(routeinfoDto.getId());
-                tripEntity.setUrl(routeinfoDto.getUrlid());
+                tripEntity.setUrlid(routeinfoDto.getUrlid());
                 tripEntity.setTime(time);
                 tripEntity.setPrice(routeinfoDto.getPrice());
                 tripEntity.setSpot(spot);
