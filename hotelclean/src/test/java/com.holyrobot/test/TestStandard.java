@@ -1,80 +1,37 @@
 package com.holyrobot.test;
 
-import com.alibaba.fastjson.JSON;
 import com.holyrobot.common.Hotelinfo;
-import com.holyrobot.common.ReceiverData;
+import com.holyrobot.util.HotelStandard;
 import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
 /**
- * Created by cuill on 2018/3/2.
- * 测试用例，创建酒店对象 发送到kafka
- * test
+ * Created by cuill on 2018/3/14.
  */
-public class TestStandardCase {
-
-    private static String url = "http://192.168.0.230:8081/send";
-
-    private static final Logger logger = LoggerFactory.getLogger(TestStandardCase.class);
-
-//    @Test
-    public void test() {
-        ReceiverData data = new ReceiverData();
-        data.setType(1);
-        data.setFlag(1);
+public class TestStandard {
+    @Test
+    public void test() throws Exception {
         //生成酒店对象
-        data.setData(HotelInfo1());
-        TestCase.httpPostWithJson(JSON.toJSONString(data), url);
+        System.out.println(HotelStandard.standardHotel(HotelInfo1()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo2()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo3()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo4()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo5()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo6()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo7()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo8()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo9()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo10()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo11()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo12()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo13()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo14()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo15()));
+        System.out.println(HotelStandard.standardHotel(HotelInfo16()));
 
-        data.setData(HotelInfo2());
-        TestCase.httpPostWithJson(JSON.toJSONString(data), url);
-
-        data.setData(HotelInfo3());
-        TestCase.httpPostWithJson(JSON.toJSONString(data), url);
-
-        data.setData(HotelInfo4());
-        TestCase.httpPostWithJson(JSON.toJSONString(data), url);
-
-        data.setData(HotelInfo5());
-        TestCase.httpPostWithJson(JSON.toJSONString(data), url);
-
-        data.setData(HotelInfo6());
-        TestCase.httpPostWithJson(JSON.toJSONString(data), url);
-
-        data.setData(HotelInfo7());
-        TestCase.httpPostWithJson(JSON.toJSONString(data), url);
-
-        data.setData(HotelInfo8());
-        TestCase.httpPostWithJson(JSON.toJSONString(data), url);
-
-        data.setData(HotelInfo9());
-        TestCase.httpPostWithJson(JSON.toJSONString(data), url);
-
-        data.setData(HotelInfo10());
-        TestCase.httpPostWithJson(JSON.toJSONString(data), url);
-
-        data.setData(HotelInfo11());
-        TestCase.httpPostWithJson(JSON.toJSONString(data), url);
-
-        data.setData(HotelInfo12());
-        TestCase.httpPostWithJson(JSON.toJSONString(data), url);
-
-        data.setData(HotelInfo13());
-        TestCase.httpPostWithJson(JSON.toJSONString(data), url);
-
-        data.setData(HotelInfo14());
-        TestCase.httpPostWithJson(JSON.toJSONString(data), url);
-
-        data.setData(HotelInfo15());
-        TestCase.httpPostWithJson(JSON.toJSONString(data), url);
-
-        data.setData(HotelInfo16());
-        TestCase.httpPostWithJson(JSON.toJSONString(data), url);
     }
 
     /**
