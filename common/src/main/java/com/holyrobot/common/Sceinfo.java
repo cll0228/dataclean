@@ -275,6 +275,37 @@ public class Sceinfo implements Serializable{
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-    
-    
+
+	@Override
+	public String toString() {
+		return "Sceinfo{" +
+				"id='" + id + '\'' +
+				", urlid='" + urlid + '\'' +
+				", name='" + name + '\'' +
+				", type='" + type + '\'' +
+				", address='" + address + '\'' +
+				", longitude='" + longitude + '\'' +
+				", latitude='" + latitude + '\'' +
+				", starlevel='" + starlevel + '\'' +
+				", advicetime='" + advicetime + '\'' +
+				", opentime='" + opentime + '\'' +
+				", servicecommitment='" + servicecommitment + '\'' +
+				", referprice='" + referprice + '\'' +
+				", grade='" + grade + '\'' +
+				", gradenum='" + gradenum + '\'' +
+				", beennum='" + beennum + '\'' +
+				", wanttonum='" + wanttonum + '\'' +
+				", datatype='" + datatype + '\'' +
+				", datasource='" + datasource + '\'' +
+				", createdate=" + createdate +
+				", creator='" + creator + '\'' +
+				", creatorid='" + creatorid + '\'' +
+				", adminarea='" + adminarea + '\'' +
+				", introduction='" + introduction + '\'' +
+				", otherinformation='" + otherinformation + '\'' +
+				", ticketinformation='" + ticketinformation + '\'' +
+				", favouredpolicy='" + favouredpolicy + '\'' +
+				", remark='" + remark + '\'' +
+				'}';
+	}
 }

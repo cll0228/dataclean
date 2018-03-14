@@ -11,7 +11,9 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.io.Serializable;
 import java.lang.reflect.Field;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,6 +22,8 @@ import java.util.List;
 public class RobotObjectDao {
 
     private static final Logger logger = LoggerFactory.getLogger(RobotObjectDao.class);
+
+    private static SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
     public static void insertHbase(Serializable object) throws Exception {
         if (object instanceof Sceinfo) {
@@ -54,14 +58,22 @@ public class RobotObjectDao {
                 HbaseColumn col = new HbaseColumn();
                 col.setColName(field.getName());
                 col.setFamilyName("info");
-                col.setColValue(field.get(object) == null ? "" : field.get(object).toString());
+                if ("createdate".equals(field.getName())) {
+                    col.setColValue(fm.format(new Date(field.get(object).toString())));
+                } else {
+                    col.setColValue(field.get(object) == null ? "" : field.get(object).toString());
+                }
                 cols.add(col);
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
-        HBaseApi.insertRow(tableName, rowKey, cols);
-        logger.info(object.getClass() + "保存hbase 成功");
+        try {
+            HBaseApi.insertRow(tableName, rowKey, cols);
+            logger.info("保存hbase成功，class=" + object.getClass());
+        } catch (IOException e) {
+            logger.error(rowKey + tableName + " 保存hbase失败", e);
+        }
     }
 
 }
