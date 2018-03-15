@@ -30,7 +30,7 @@ public class TripEntity {
 				+ datasource + ", urlid=" + urlid + "]";
 	}
 
-	public String getId() {
+    public String getId() {
         return id;
     }
 
