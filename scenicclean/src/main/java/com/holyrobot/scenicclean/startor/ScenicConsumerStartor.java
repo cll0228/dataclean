@@ -23,7 +23,7 @@ public class ScenicConsumerStartor {
 
     public static void main(String[] args) {
         if (args.length < 4) {
-            args = new String[]{"cdh01:9092,chd02:9092,cdh04:9092", "topic_scenic", "test2", "latest"};
+            args = new String[]{"cdh01:9092,cdh02:9092,cdh04:9092", "topic_scenic", "test2", "latest"};
             logger.debug("param init success");
         }
         String bootstrap = args[0];
@@ -49,7 +49,7 @@ public class ScenicConsumerStartor {
 
                     byte[] bytes = record.value();
                     ReceiverData rd = (ReceiverData) Object2Array.byteArrayToObject(bytes);
-                    if (rd.getType() == 4) {
+                    if (null != rd && rd.getType() == 4) {
                         logger.info("==================处理景点价格开始===================");
                         Scepriceinfo scepriceinfo = (Scepriceinfo) rd.getData();
                         logger.info("处理前的数据：" + JsonCommon.prepareData(scepriceinfo));
