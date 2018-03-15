@@ -1,7 +1,7 @@
 package com.holyrobot.common;
 
 public class TripEntity {
-    private Integer id;
+    private String id;
 
     private String rouid;
 
@@ -30,11 +30,11 @@ public class TripEntity {
 				+ datasource + ", urlid=" + urlid + "]";
 	}
 
-	public Integer getId() {
+	public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
