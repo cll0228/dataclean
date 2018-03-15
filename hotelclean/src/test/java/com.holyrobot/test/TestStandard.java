@@ -14,23 +14,26 @@ import java.util.UUID;
 public class TestStandard {
     @Test
     public void test() throws Exception {
+
+        HotelStandard standard = new HotelStandard();
+
         //生成酒店对象
-        System.out.println(HotelStandard.standardHotel(HotelInfo1()));
-        System.out.println(HotelStandard.standardHotel(HotelInfo2()));
-        System.out.println(HotelStandard.standardHotel(HotelInfo3()));
-        System.out.println(HotelStandard.standardHotel(HotelInfo4()));
-        System.out.println(HotelStandard.standardHotel(HotelInfo5()));
-        System.out.println(HotelStandard.standardHotel(HotelInfo6()));
-        System.out.println(HotelStandard.standardHotel(HotelInfo7()));
-        System.out.println(HotelStandard.standardHotel(HotelInfo8()));
-        System.out.println(HotelStandard.standardHotel(HotelInfo9()));
-        System.out.println(HotelStandard.standardHotel(HotelInfo10()));
-        System.out.println(HotelStandard.standardHotel(HotelInfo11()));
-        System.out.println(HotelStandard.standardHotel(HotelInfo12()));
-        System.out.println(HotelStandard.standardHotel(HotelInfo13()));
-        System.out.println(HotelStandard.standardHotel(HotelInfo14()));
-        System.out.println(HotelStandard.standardHotel(HotelInfo15()));
-        System.out.println(HotelStandard.standardHotel(HotelInfo16()));
+        System.out.println(standard.standardHotel(HotelInfo1()));
+        System.out.println(standard.standardHotel(HotelInfo2()));
+        System.out.println(standard.standardHotel(HotelInfo3()));
+        System.out.println(standard.standardHotel(HotelInfo4()));
+        System.out.println(standard.standardHotel(HotelInfo5()));
+        System.out.println(standard.standardHotel(HotelInfo6()));
+        System.out.println(standard.standardHotel(HotelInfo7()));
+        System.out.println(standard.standardHotel(HotelInfo8()));
+        System.out.println(standard.standardHotel(HotelInfo9()));
+        System.out.println(standard.standardHotel(HotelInfo10()));
+        System.out.println(standard.standardHotel(HotelInfo11()));
+        System.out.println(standard.standardHotel(HotelInfo12()));
+        System.out.println(standard.standardHotel(HotelInfo13()));
+        System.out.println(standard.standardHotel(HotelInfo14()));
+        System.out.println(standard.standardHotel(HotelInfo15()));
+        System.out.println(standard.standardHotel(HotelInfo16()));
 
     }
 
