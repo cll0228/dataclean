@@ -164,7 +164,7 @@ public class RouteStandard {
                         tripEntity.setTime(time);
                         tripEntity.setDatasource(routeinfoDto.getDatasource());
                         String departure = routeinfoDto.getDeparture().replace("出发", "");
-                        String[] arr =  departure.split("（ ");
+                        String[] arr =  departure.split("（");
                         if(arr.length>1) {
                             departure = arr[0];
                         }
