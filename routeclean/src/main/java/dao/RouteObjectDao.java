@@ -32,6 +32,7 @@ public class RouteObjectDao {
             List<TripEntity> triplist = (List<TripEntity>) obj.getData();
             for(TripEntity tripDetail :triplist){
                 String id = UUID.randomUUID().toString().replaceAll("-", "");
+                tripDetail.setId(id);
                 String rowKey = tripDetail.getDestination()+id;
                 Map map = new HashMap<>();
 

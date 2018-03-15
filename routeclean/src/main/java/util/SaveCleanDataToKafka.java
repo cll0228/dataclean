@@ -14,7 +14,7 @@ public class SaveCleanDataToKafka {
     static {
         //初始化kafka的配置
         Properties properties = new Properties();
-        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "node5:9092");//broker 集群地址
+        properties.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "cdh01:9092,cdh02:9092");//broker 集群地址
         properties.put(ProducerConfig.CLIENT_ID_CONFIG, "MsgProducer");//自定义客户端id
         properties.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, org.apache.kafka.common.serialization.StringSerializer.class);//key 序列号方式
         properties.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, org.apache.kafka.common.serialization.ByteArraySerializer.class);//value 序列化方式
