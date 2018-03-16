@@ -125,6 +125,8 @@ public class HotelConumerStartor {
                 logger.debug("保存hbase成功 Data=" + receiverData.getData().toString());
             }
         }
+
+
     }
 
 }
