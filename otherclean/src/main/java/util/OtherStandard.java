@@ -19,62 +19,62 @@ import java.util.List;
  * 初步解析评论数据
  */
 public class OtherStandard {
-    public static Commentinfo  standardComment(Object obj) throws Exception{
-        Commentinfo commentinfo = (Commentinfo)obj;
-        if(null!= commentinfo){
-            switch (commentinfo.getDatasource()){
-                case "Lvmama" :
-                    if(commentinfo.getType()==1){
+    public static Commentinfo standardComment(Object obj) throws Exception {
+        Commentinfo commentinfo = (Commentinfo) obj;
+        if (null != commentinfo) {
+            switch (commentinfo.getDatasource()) {
+                case "Lvmama":
+                    if (commentinfo.getType()==1) {
                         commentinfo = lvmamaScenicCommentinfoParse(commentinfo);
                         break;
-                    }else if(commentinfo.getType()==2){
+                    } else if (commentinfo.getType() == 2) {
                         commentinfo = lvmamaHotelCommentinfoParse(commentinfo);
                         break;
-                    }else {
+                    } else {
                         commentinfo = lvmamaRouteCommentinfoParse(commentinfo);
                         break;
                     }
                 case "Ctrip":
-                    if(commentinfo.getType()==1){
+                    if (commentinfo.getType() == 1) {
                         commentinfo = ctripScenicCommentinfoParse(commentinfo);
                         break;
-                    }else if(commentinfo.getType()==2){
+                    } else if (commentinfo.getType() == 2) {
                         commentinfo = ctripHotelCommentinfoParse(commentinfo);
                         break;
-                    }else {
+                    } else {
                         commentinfo = ctripRouteCommentinfoParse(commentinfo);
                         break;
                     }
                 case "Tuniu":
-                    if(commentinfo.getType()==1){
+                    if (commentinfo.getType() == 1) {
                         commentinfo = tuniuScenicCommentinfoParse(commentinfo);
                         break;
-                    }else if(commentinfo.getType()==2){
+                    } else if (commentinfo.getType() == 2) {
                         commentinfo = tuniuHotelCommentinfoParse(commentinfo);
                         break;
-                    }else {
+                    } else {
                         commentinfo = tuniuRouteCommentinfoParse(commentinfo);
                         break;
                     }
                 case "Tongcheng":
-                    if(commentinfo.getType()==1){
+                    if (commentinfo.getType() == 1) {
                         commentinfo = tongchengScenicCommentinfoParse(commentinfo);
                         break;
-                    }else if(commentinfo.getType()==2){
+                    } else if (commentinfo.getType() == 2) {
                         commentinfo = tongchengHotelCommentinfoParse(commentinfo);
                         break;
-                    }else {
+                    } else {
                         commentinfo = tongchengRouteCommentinfoParse(commentinfo);
                         break;
                     }
-                case "Qunaer" :
-                    if(commentinfo.getType()==1){
+                case "Qunaer":
+                    if (commentinfo.getType() == 1) {
                         commentinfo = qunaerScenicCommentinfoParse(commentinfo);
                         break;
-                    }else if(commentinfo.getType()==2){
+                    } else if (commentinfo.getType() == 2) {
                         commentinfo = qunaerHotelCommentinfoParse(commentinfo);
                         break;
-                    }else {
+                    } else {
                         commentinfo = qunaerRouteCommentinfoParse(commentinfo);
                         break;
                     }
@@ -84,18 +84,26 @@ public class OtherStandard {
         return commentinfo;
     }
 
-    public static Commentinfo  standard(Object obj) throws Exception {
-        Commentinfo commoninfo = (Commentinfo)obj;
-        if(null!=commoninfo){
+    public static Commentinfo standard(Object obj) throws Exception {
+        Commentinfo commoninfo = (Commentinfo) obj;
+        if (null != commoninfo) {
             List<TripEntity> tripEntityList = new ArrayList<>();
-            switch(commoninfo.getDatasource()){
-                case "Lvmama" : commoninfo =lvmamaTripRoute(commoninfo) ;break;
-                case "Ctrip" : commoninfo =ctripTripRoute(commoninfo) ;break;
-                case "Tongcheng" :
-                    commoninfo =praseTongCheng(commoninfo)  ;break;
-                case "Tuniu" : commoninfo =praseTuniuRoute(commoninfo) ;break;
-                case "Qunaer" :
-                    commoninfo =qunaerRoutePrase(commoninfo)  ;break;
+            switch (commoninfo.getDatasource()) {
+                case "Lvmama":
+                    commoninfo = lvmamaTripRoute(commoninfo);
+                    break;
+                case "Ctrip":
+                    commoninfo = ctripTripRoute(commoninfo);
+                    break;
+                case "Tongcheng":
+                    commoninfo = praseTongCheng(commoninfo);
+                    break;
+                case "Tuniu":
+                    commoninfo = praseTuniuRoute(commoninfo);
+                    break;
+                case "Qunaer":
+                    commoninfo = qunaerRoutePrase(commoninfo);
+                    break;
             }
             return commoninfo;
         }
@@ -109,7 +117,7 @@ public class OtherStandard {
      * @date 2017年12月5日 下午4:31:16
      * @action ctripTripRoute
      */
-    public static Commentinfo ctripTripRoute( Commentinfo commoninfo) {
+    public static Commentinfo ctripTripRoute(Commentinfo commoninfo) {
 
         return commoninfo;
     }
@@ -121,7 +129,7 @@ public class OtherStandard {
      * @date 2017年12月4日 上午11:09:52
      * @action praseTuniuRoute
      */
-    public static Commentinfo praseTuniuRoute( Commentinfo commoninfo) {
+    public static Commentinfo praseTuniuRoute(Commentinfo commoninfo) {
 
         return commoninfo;
     }
@@ -133,23 +141,20 @@ public class OtherStandard {
      * @date 2017年12月5日 下午4:26:38
      * @action lvmamaTripRoute
      */
-    public static Commentinfo lvmamaTripRoute( Commentinfo commoninfo) {
-
-
+    public static Commentinfo lvmamaTripRoute(Commentinfo commoninfo) {
         return commoninfo;
-
 
 
     }
 
     /**
+     * @return void
      * @Description 去哪儿行程解析
      * @author 周陈
      * @date 2017年12月13日 下午4:36:58
      * @action qunaerRoutePrase
-     * @return void
      */
-    public static Commentinfo qunaerRoutePrase( Commentinfo commoninfo) {
+    public static Commentinfo qunaerRoutePrase(Commentinfo commoninfo) {
 
         return commoninfo;
     }
@@ -159,10 +164,11 @@ public class OtherStandard {
      * @author 周相儒
      * @date 2017年12月6日 上午9:57:13
      */
-    public static Commentinfo praseTongCheng( Commentinfo commoninfo) {
+    public static Commentinfo praseTongCheng(Commentinfo commoninfo) {
 
         return commoninfo;
     }
+
     /*
      * @description 驴妈妈景点和门票评论解析
      * @author 谢大磊
@@ -171,10 +177,10 @@ public class OtherStandard {
      * @return com.holyrobot.common.Commentinfo
      * @param [commentinfo]
      */
-    public static Commentinfo  lvmamaScenicCommentinfoParse (Commentinfo commentinfo){
+    public static Commentinfo lvmamaScenicCommentinfoParse(Commentinfo commentinfo) {
         String content = commentinfo.getContent();
-        if(StringUtils.isNotBlank(content)){
-            if(content.startsWith("{")){
+        if (StringUtils.isNotBlank(content)) {
+            if (content.startsWith("{")) {
                 //解析景点评论
                 JSONObject json = new JSONObject(content);
                 //评论内容
@@ -185,7 +191,7 @@ public class OtherStandard {
                 commentinfo.setCommentdate(createDate);
                 commentinfo.setDatasource("Lvmama");
 
-            }else{
+            } else {
                 //解析门票评论
                 Document document = Jsoup.parse(content);
                 Elements elements = document.select("body >  div.ufeed-info > p.ufeed-score > span.ufeed-item");
@@ -201,6 +207,7 @@ public class OtherStandard {
         }
         return commentinfo;
     }
+
     /*
      * @description 驴妈妈酒店评论解析
      * @author 谢大磊
@@ -209,9 +216,9 @@ public class OtherStandard {
      * @return com.holyrobot.common.Commentinfo
      * @param [commentinfo]
      */
-    public static  Commentinfo lvmamaHotelCommentinfoParse(Commentinfo  commentinfo){
+    public static Commentinfo lvmamaHotelCommentinfoParse(Commentinfo commentinfo) {
         String content = commentinfo.getContent();
-        if(StringUtils.isNotBlank(content)){
+        if (StringUtils.isNotBlank(content)) {
             Document document = Jsoup.parse(content);
             Elements elements = document.select("body > div > div.ufeed-info > p ");
             String text = elements.text();
@@ -226,6 +233,7 @@ public class OtherStandard {
         }
         return commentinfo;
     }
+
     /*
      * @description 驴妈妈行程评论解析
      * @author 谢大磊
@@ -234,18 +242,19 @@ public class OtherStandard {
      * @return com.holyrobot.common.Commentinfo
      * @param [commentinfo]
      */
-    public static Commentinfo lvmamaRouteCommentinfoParse(Commentinfo commentinfo){
+    public static Commentinfo lvmamaRouteCommentinfoParse(Commentinfo commentinfo) {
         String content = commentinfo.getContent();
         Document document = Jsoup.parse(content);
         //评论内容
         content = document.select("div.comment-li>div.ufeed-content").text();
         //评分
-        String score =  document.select("div.comment-li>div.ufeed-info>p.ufeed-score>span.ufeed-item").text();
+        String score = document.select("div.comment-li>div.ufeed-info>p.ufeed-score>span.ufeed-item").text();
         //封装
         commentinfo.setContent(content);
         commentinfo.setScore(score);
         return commentinfo;
     }
+
     /*
      * @description 携程景点和门票评论解析
      * @author 谢大磊
@@ -254,19 +263,19 @@ public class OtherStandard {
      * @return com.holyrobot.common.Commentinfo
      * @param [commentinfo]
      */
-    public static Commentinfo ctripScenicCommentinfoParse(Commentinfo commentinfo){
+    public static Commentinfo ctripScenicCommentinfoParse(Commentinfo commentinfo) {
         String content = commentinfo.getContent();
-        if(StringUtils.isNotBlank(content)){
-            if(content.startsWith("{")){
+        if (StringUtils.isNotBlank(content)) {
+            if (content.startsWith("{")) {
                 //解析门票评论
-                JSONObject  jsonObject =  new JSONObject(content);
+                JSONObject jsonObject = new JSONObject(content);
                 //评论内容
-                content =  jsonObject.getString("con");
+                content = jsonObject.getString("con");
                 //评分
-                String score =  String.valueOf(jsonObject.getInt("grade"));
+                String score = String.valueOf(jsonObject.getInt("grade"));
                 commentinfo.setContent(content);
                 commentinfo.setScore(score);
-            }else{
+            } else {
                 //解析景点评论
                 Document document = Jsoup.parse(content);
                 Elements select = document.select("ul");
@@ -285,6 +294,7 @@ public class OtherStandard {
         }
         return commentinfo;
     }
+
     /*
      * @description 携程酒店评论解析
      * @author 谢大磊
@@ -293,15 +303,15 @@ public class OtherStandard {
      * @return com.holyrobot.common.Commentinfo
      * @param [commentinfo]
      */
-    public static Commentinfo ctripHotelCommentinfoParse(Commentinfo commentinfo){
+    public static Commentinfo ctripHotelCommentinfoParse(Commentinfo commentinfo) {
         String content = commentinfo.getContent();
-        if(StringUtils.isNotBlank(content)){
+        if (StringUtils.isNotBlank(content)) {
             Document doc = Jsoup.parse(content);
             // 分数
             String score = doc.select("div.comment_main p.comment_title span.small_c").attr("data-value");
 
             // 内容
-             content = doc.select("div.comment_main > div.comment_txt > div.J_commentDetail").text();
+            content = doc.select("div.comment_main > div.comment_txt > div.J_commentDetail").text();
             // 评论时间
             String time = doc.select("div.comment_main > div > div.comment_bar > p.comment_bar_info > span.time")
                     .text();
@@ -312,8 +322,9 @@ public class OtherStandard {
             commentinfo.setScore(score);
             commentinfo.setCommentdate(time);
         }
-        return  commentinfo;
+        return commentinfo;
     }
+
     /*
      * @description 携程行程评论解析
      * @author 谢大磊
@@ -322,7 +333,7 @@ public class OtherStandard {
      * @return com.holyrobot.common.Commentinfo
      * @param [commentinfo]
      */
-    public static Commentinfo  ctripRouteCommentinfoParse(Commentinfo  commentinfo){
+    public static Commentinfo ctripRouteCommentinfoParse(Commentinfo commentinfo) {
         String content = commentinfo.getContent();
         if (StringUtils.isNotBlank(content)) {
             JSONObject jsonObject = new JSONObject(content);
@@ -331,6 +342,7 @@ public class OtherStandard {
         }
         return commentinfo;
     }
+
     /*
      * @description 途牛景点和门票解析
      * @author 谢大磊
@@ -339,16 +351,16 @@ public class OtherStandard {
      * @return com.holyrobot.common.Commentinfo
      * @param [commentinfo]
      */
-    public static Commentinfo tuniuScenicCommentinfoParse(Commentinfo commentinfo){
+    public static Commentinfo tuniuScenicCommentinfoParse(Commentinfo commentinfo) {
         String content = commentinfo.getContent();
-        if(StringUtils.isNotBlank(content)){
-            if(content.startsWith("{")){
+        if (StringUtils.isNotBlank(content)) {
+            if (content.startsWith("{")) {
                 //门票评论解析
                 JSONObject jsonObject = new JSONObject(content);
                 //评论内容
                 content = jsonObject.getJSONObject("compTextContent").getString("dataSvalue");
                 commentinfo.setContent(content);
-            }else{
+            } else {
                 Document document = Jsoup.parse(content);
                 //评论内容
                 content = document.select("div.detail>div.content").text();
@@ -360,6 +372,7 @@ public class OtherStandard {
         }
         return commentinfo;
     }
+
     /*
      * @description 途牛酒店评论解析
      * @author 谢大磊
@@ -368,15 +381,16 @@ public class OtherStandard {
      * @return com.holyrobot.common.Commentinfo
      * @param [commentinfo]
      */
-    public static Commentinfo tuniuHotelCommentinfoParse(Commentinfo commentinfo){
+    public static Commentinfo tuniuHotelCommentinfoParse(Commentinfo commentinfo) {
         String content = commentinfo.getContent();
-        if(StringUtils.isNotBlank(content)){
+        if (StringUtils.isNotBlank(content)) {
             Document document = Jsoup.parse(content);
-            content= document.select("div.u5.clearfix>div.a2>div.b2>p.commt_data").text();
+            content = document.select("div.u5.clearfix>div.a2>div.b2>p.commt_data").text();
             commentinfo.setContent(content);
         }
         return commentinfo;
     }
+
     /*
      * @description 途牛行程评论解析
      * @author 谢大磊
@@ -385,9 +399,9 @@ public class OtherStandard {
      * @return com.holyrobot.common.Commentinfo
      * @param [commentinfo]
      */
-    public static Commentinfo tuniuRouteCommentinfoParse(Commentinfo commentinfo){
+    public static Commentinfo tuniuRouteCommentinfoParse(Commentinfo commentinfo) {
         String content = commentinfo.getContent();
-        if(StringUtils.isNotBlank(content)){
+        if (StringUtils.isNotBlank(content)) {
             JSONObject jsonObject = new JSONObject(content);
             //评论内容
             content = jsonObject.getString("content");
@@ -395,6 +409,7 @@ public class OtherStandard {
         }
         return commentinfo;
     }
+
     /*
      * @description 同程景点门票评论解析
      * @author 谢大磊
@@ -403,10 +418,10 @@ public class OtherStandard {
      * @return com.holyrobot.common.Commentinfo
      * @param [commentinfo]
      */
-    public static  Commentinfo  tongchengScenicCommentinfoParse(Commentinfo commentinfo){
+    public static Commentinfo tongchengScenicCommentinfoParse(Commentinfo commentinfo) {
         String content = commentinfo.getContent();
         JSONObject jsonObject = null;
-        if(StringUtils.isNotBlank(content)&&content.startsWith("{")){
+        if (StringUtils.isNotBlank(content) && content.startsWith("{")) {
             jsonObject = new JSONObject(content);
             //解析出评论内容
             content = jsonObject.getString("dpContent");
@@ -415,8 +430,9 @@ public class OtherStandard {
             commentinfo.setContent(content);
             commentinfo.setCommentdate(commentDate);
         }
-        return  commentinfo;
+        return commentinfo;
     }
+
     /*
      * @description 同程酒店评论解析
      * @author 谢大磊
@@ -425,9 +441,10 @@ public class OtherStandard {
      * @return com.holyrobot.common.Commentinfo
      * @param [commentinfo]
      */
-    public static  Commentinfo tongchengHotelCommentinfoParse(Commentinfo commentinfo){
+    public static Commentinfo tongchengHotelCommentinfoParse(Commentinfo commentinfo) {
         return commentinfo;
     }
+
     /*
      * @description 同程行程评论解析
      * @author 谢大磊
@@ -436,9 +453,10 @@ public class OtherStandard {
      * @return com.holyrobot.common.Commentinfo
      * @param [commentinfo]
      */
-    public  static Commentinfo tongchengRouteCommentinfoParse(Commentinfo commentinfo){
+    public static Commentinfo tongchengRouteCommentinfoParse(Commentinfo commentinfo) {
         return commentinfo;
     }
+
     /*
      * @description 去哪儿景点和门票评论解析
      * @author 谢大磊
@@ -447,31 +465,32 @@ public class OtherStandard {
      * @return com.holyrobot.common.Commentinfo
      * @param [commentinfo]
      */
-    public static  Commentinfo qunaerScenicCommentinfoParse(Commentinfo commentinfo){
+    public static Commentinfo qunaerScenicCommentinfoParse(Commentinfo commentinfo) {
         String content = commentinfo.getContent();
-        if(StringUtils.isNotBlank(content)){
-            if(content.startsWith("{")){
+        if (StringUtils.isNotBlank(content)) {
+            if (content.startsWith("{")) {
                 //解析门票评论
-                JSONObject json =  new JSONObject(content);
+                JSONObject json = new JSONObject(content);
                 //评论内容
                 content = json.getString("content");
                 //评分
                 String score = String.valueOf(json.getInt("score"));
                 //评论时间
-                String commentDate =  json.getString("date");
+                String commentDate = json.getString("date");
                 //封装
                 commentinfo.setCommentdate(commentDate);
                 commentinfo.setScore(score);
                 commentinfo.setContent(content);
-            }else{
+            } else {
                 //解析景点评论
                 Document document = Jsoup.parse(content);
                 content = document.select("div.e_comment_content>p.first").text();
                 commentinfo.setContent(content);
             }
         }
-        return  commentinfo;
+        return commentinfo;
     }
+
     /*
      * @description 去哪儿酒店评论解析
      * @author 谢大磊
@@ -480,9 +499,9 @@ public class OtherStandard {
      * @return com.holyrobot.common.Commentinfo
      * @param [commentinfo]
      */
-    public static Commentinfo  qunaerHotelCommentinfoParse(Commentinfo commentinfo){
+    public static Commentinfo qunaerHotelCommentinfoParse(Commentinfo commentinfo) {
         String content = commentinfo.getContent();
-        if(StringUtils.isNotBlank(content)){
+        if (StringUtils.isNotBlank(content)) {
             JSONObject jsonObject = new JSONObject(content);
             content = jsonObject.getString("content");
             commentinfo.setContent(content);
@@ -490,6 +509,7 @@ public class OtherStandard {
         return commentinfo;
 
     }
+
     /*
      * @description 去哪儿行程评论解析
      * @author 谢大磊
@@ -498,9 +518,9 @@ public class OtherStandard {
      * @return com.holyrobot.common.Commentinfo
      * @param [commentinfo]
      */
-    public  static Commentinfo qunaerRouteCommentinfoParse(Commentinfo commentinfo){
+    public static Commentinfo qunaerRouteCommentinfoParse(Commentinfo commentinfo) {
         String content = commentinfo.getContent();
-        if(StringUtils.isNotBlank(content)){
+        if (StringUtils.isNotBlank(content)) {
             JSONObject json = new JSONObject(content);
             //评论内容
             content = json.get("content").toString();
