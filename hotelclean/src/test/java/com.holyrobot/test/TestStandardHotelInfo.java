@@ -19,7 +19,7 @@ import static org.mockito.Mockito.when;
 /**
  * Created by cuill on 2018/3/14.
  */
-public class TestStandard {
+public class TestStandardHotelInfo {
 
     private ConsumerRecord<String, byte[]> record;
 
@@ -161,8 +161,8 @@ public class TestStandard {
      */
     private static Hotelinfo HotelInfo1() {
         Hotelinfo info = new Hotelinfo();
-        info.setId(UUID.randomUUID().toString());
-        info.setUrlid(UUID.randomUUID().toString());
+        info.setId("002641ac-2886-4445-b31d-e7f180846ae4");
+        info.setUrlid("http://hotel.tuniu.com/detail/1744810490");
         info.setAdminarea("中国,海南");
         info.setName("三亚建设宾馆测试");
         info.setAddress("天涯区三亚天涯区三亚市市辖区建设街68号");
@@ -183,6 +183,7 @@ public class TestStandard {
         return info;
     }
 
+
     /**
      * 生成酒店对象，名称包含 test
      *
@@ -190,8 +191,8 @@ public class TestStandard {
      */
     private static Hotelinfo HotelInfo2() {
         Hotelinfo info = new Hotelinfo();
-        info.setId(UUID.randomUUID().toString());
-        info.setUrlid(UUID.randomUUID().toString());
+        info.setId("002641ac-2886-4445-b31d-e7f180846ae4");
+        info.setUrlid("http://hotel.tuniu.com/detail/1744810490");
         info.setAdminarea("中国,海南");
         info.setName("三亚建设宾馆test");
         info.setAddress("天涯区三亚天涯区三亚市市辖区建设街68号");
@@ -219,9 +220,9 @@ public class TestStandard {
      */
     private static Hotelinfo HotelInfo3() {
         Hotelinfo info = new Hotelinfo();
-        info.setId(UUID.randomUUID().toString());
+        info.setId("002641ac-2886-4445-b31d-e7f180846ae4");
         info.setAdminarea("中国,海南");
-        info.setUrlid(UUID.randomUUID().toString());
+        info.setUrlid("http://hotel.tuniu.com/detail/1744810490");
         info.setName("三亚建设宾馆del");
         info.setAddress("天涯区三亚天涯区三亚市市辖区建设街68号");
         info.setLongitude("109.507153");
@@ -251,8 +252,8 @@ public class TestStandard {
      */
     private static Hotelinfo HotelInfo4() {
         Hotelinfo info = new Hotelinfo();
-        info.setId(UUID.randomUUID().toString());
-        info.setUrlid(UUID.randomUUID().toString());
+        info.setId("002641ac-2886-4445-b31d-e7f180846ae4");
+        info.setUrlid("http://hotel.tuniu.com/detail/1744810490");
         info.setAdminarea("中国,海南");
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
@@ -280,8 +281,8 @@ public class TestStandard {
      */
     private static Hotelinfo HotelInfo5() {
         Hotelinfo info = new Hotelinfo();
-        info.setId(UUID.randomUUID().toString());
-        info.setUrlid(UUID.randomUUID().toString());
+        info.setId("002641ac-2886-4445-b31d-e7f180846ae4");
+        info.setUrlid("http://hotel.tuniu.com/detail/1744810490");
         info.setAdminarea("中国,海南");
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
@@ -309,8 +310,8 @@ public class TestStandard {
      */
     private static Hotelinfo HotelInfo6() {
         Hotelinfo info = new Hotelinfo();
-        info.setId(UUID.randomUUID().toString());
-        info.setUrlid(UUID.randomUUID().toString());
+        info.setId("002641ac-2886-4445-b31d-e7f180846ae4");
+        info.setUrlid("http://hotel.tuniu.com/detail/1744810490");
         info.setAdminarea("中国,海南");
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
@@ -338,8 +339,8 @@ public class TestStandard {
      */
     private static Hotelinfo HotelInfo7() {
         Hotelinfo info = new Hotelinfo();
-        info.setId(UUID.randomUUID().toString());
-        info.setUrlid(UUID.randomUUID().toString());
+        info.setId("002641ac-2886-4445-b31d-e7f180846ae4");
+        info.setUrlid("http://hotel.tuniu.com/detail/1744810490");
         info.setName("三[亚-建]设)宾馆(");
         info.setAdminarea("中国,海南");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
@@ -367,8 +368,8 @@ public class TestStandard {
      */
     private static Hotelinfo HotelInfo8() {
         Hotelinfo info = new Hotelinfo();
-        info.setId(UUID.randomUUID().toString());
-        info.setUrlid(UUID.randomUUID().toString());
+        info.setId("002641ac-2886-4445-b31d-e7f180846ae4");
+        info.setUrlid("http://hotel.tuniu.com/detail/1744810490");
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
         info.setAdminarea("中国,海南");
@@ -396,8 +397,8 @@ public class TestStandard {
      */
     private static Hotelinfo HotelInfo9() {
         Hotelinfo info = new Hotelinfo();
-        info.setId(UUID.randomUUID().toString());
-        info.setUrlid(UUID.randomUUID().toString());
+        info.setId("002641ac-2886-4445-b31d-e7f180846ae4");
+        info.setUrlid("http://hotel.tuniu.com/detail/1744810490");
         info.setAdminarea("中国,海南");
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
@@ -425,8 +426,8 @@ public class TestStandard {
      */
     private static Hotelinfo HotelInfo10() {
         Hotelinfo info = new Hotelinfo();
-        info.setId(UUID.randomUUID().toString());
-        info.setUrlid(UUID.randomUUID().toString());
+        info.setId("002641ac-2886-4445-b31d-e7f180846ae4");
+        info.setUrlid("http://hotel.tuniu.com/detail/1744810490");
         info.setAdminarea("中国,海南");
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
@@ -454,8 +455,8 @@ public class TestStandard {
      */
     private static Hotelinfo HotelInfo11() {
         Hotelinfo info = new Hotelinfo();
-        info.setId(UUID.randomUUID().toString());
-        info.setUrlid(UUID.randomUUID().toString());
+        info.setId("002641ac-2886-4445-b31d-e7f180846ae4");
+        info.setUrlid("http://hotel.tuniu.com/detail/1744810490");
         info.setAdminarea("中国,海南");
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
@@ -483,8 +484,8 @@ public class TestStandard {
      */
     private static Hotelinfo HotelInfo12() {
         Hotelinfo info = new Hotelinfo();
-        info.setId(UUID.randomUUID().toString());
-        info.setUrlid(UUID.randomUUID().toString());
+        info.setId("002641ac-2886-4445-b31d-e7f180846ae4");
+        info.setUrlid("http://hotel.tuniu.com/detail/1744810490");
         info.setAdminarea("中国,海南");
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
@@ -512,8 +513,8 @@ public class TestStandard {
      */
     private static Hotelinfo HotelInfo13() {
         Hotelinfo info = new Hotelinfo();
-        info.setId(UUID.randomUUID().toString());
-        info.setUrlid(UUID.randomUUID().toString());
+        info.setId("002641ac-2886-4445-b31d-e7f180846ae4");
+        info.setUrlid("http://hotel.tuniu.com/detail/1744810490");
         info.setAdminarea("中国,海南");
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
@@ -542,8 +543,8 @@ public class TestStandard {
      */
     private static Hotelinfo HotelInfo14() {
         Hotelinfo info = new Hotelinfo();
-        info.setId(UUID.randomUUID().toString());
-        info.setUrlid(UUID.randomUUID().toString());
+        info.setId("002641ac-2886-4445-b31d-e7f180846ae4");
+        info.setUrlid("http://hotel.tuniu.com/detail/1744810490");
         info.setAdminarea("中国,海南");
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
@@ -571,8 +572,8 @@ public class TestStandard {
      */
     private static Hotelinfo HotelInfo15() {
         Hotelinfo info = new Hotelinfo();
-        info.setId(UUID.randomUUID().toString());
-        info.setUrlid(UUID.randomUUID().toString());
+        info.setId("002641ac-2886-4445-b31d-e7f180846ae4");
+        info.setUrlid("http://hotel.tuniu.com/detail/1744810490");
         info.setAdminarea("中国,海南");
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
@@ -600,8 +601,8 @@ public class TestStandard {
      */
     private static Hotelinfo HotelInfo16() {
         Hotelinfo info = new Hotelinfo();
-        info.setId(UUID.randomUUID().toString());
-        info.setUrlid(UUID.randomUUID().toString());
+        info.setId("002641ac-2886-4445-b31d-e7f180846ae4");
+        info.setUrlid("http://hotel.tuniu.com/detail/1744810490");
         info.setAdminarea("中国,海南");
         info.setName("三[亚-建]设)宾馆(");
         info.setAddress("天涯区三亚天涯区[三亚](市市)-辖区建设街-68号");
