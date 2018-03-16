@@ -3,11 +3,11 @@ package com.holyrobot.test;
 import com.alibaba.fastjson.JSON;
 import com.holyrobot.common.Hotelinfo;
 import com.holyrobot.common.ReceiverData;
+import com.holyrobot.start.HotelConumerStartor;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.UUID;
 
@@ -20,9 +20,7 @@ public class TestStandardCase {
 
     private static String url = "http://192.168.0.230:8081/send";
 
-    private static final Logger logger = LoggerFactory.getLogger(TestStandardCase.class);
-
-//    @Test
+    @Test
     public void test() {
         ReceiverData data = new ReceiverData();
         data.setType(1);
@@ -100,7 +98,7 @@ public class TestStandardCase {
         info.setCreatedate(new Date());
         info.setCreator("tyl");
         info.setCreatorid("tyl13564205515");
-        info.setRemark(null);
+        info.setRemark("测试用例数据");
         info.setIntroduction("上海佳和上居酒店位于上海市浦东新区妙境路（川环南路路口），地处川沙中心地段，地理位置优越，交通便利，步行约5分钟可至绿地购物广场及家乐福。");
         return info;
     }
@@ -128,7 +126,7 @@ public class TestStandardCase {
         info.setCreatedate(new Date());
         info.setCreator("tyl");
         info.setCreatorid("tyl13564205515");
-        info.setRemark(null);
+        info.setRemark("测试用例数据");
         info.setIntroduction("上海佳和上居酒店位于上海市浦东新区妙境路（川环南路路口），地处川沙中心地段，地理位置优越，交通便利，步行约5分钟可至绿地购物广场及家乐福。");
         return info;
     }
@@ -156,7 +154,7 @@ public class TestStandardCase {
         info.setCreatedate(new Date());
         info.setCreator("tyl");
         info.setCreatorid("tyl13564205515");
-        info.setRemark(null);
+        info.setRemark("测试用例数据");
         info.setIntroduction("上海佳和上居酒店位于上海市浦东新区妙境路（川环南路路口），地处川沙中心地段，地理位置优越，交通便利，步行约5分钟可至绿地购物广场及家乐福。");
         return info;
     }
@@ -187,7 +185,7 @@ public class TestStandardCase {
         info.setCreatedate(new Date());
         info.setCreator("tyl");
         info.setCreatorid("tyl13564205515");
-        info.setRemark(null);
+        info.setRemark("测试用例数据");
         info.setIntroduction("上海佳和上居酒店位于上海市浦东新区妙境路（川环南路路口），地处川沙中心地段，地理位置优越，交通便利，步行约5分钟可至绿地购物广场及家乐福。");
         return info;
     }
@@ -215,7 +213,7 @@ public class TestStandardCase {
         info.setCreatedate(new Date());
         info.setCreator("tyl");
         info.setCreatorid("tyl13564205515");
-        info.setRemark(null);
+        info.setRemark("测试用例数据");
         info.setIntroduction("上海佳和上居酒店位于上海市浦东新区妙境路（川环南路路口），地处川沙中心地段，地理位置优越，交通便利，步行约5分钟可至绿地购物广场及家乐福。");
         return info;
     }
@@ -243,7 +241,7 @@ public class TestStandardCase {
         info.setCreatedate(new Date());
         info.setCreator("tyl");
         info.setCreatorid("tyl13564205515");
-        info.setRemark(null);
+        info.setRemark("测试用例数据");
         info.setIntroduction("上海佳和上居酒店位于上海市浦东新区妙境路（川环南路路口），地处川沙中心地段，地理位置优越，交通便利，步行约5分钟可至绿地购物广场及家乐福。");
         return info;
     }
@@ -271,7 +269,7 @@ public class TestStandardCase {
         info.setCreatedate(new Date());
         info.setCreator("tyl");
         info.setCreatorid("tyl13564205515");
-        info.setRemark(null);
+        info.setRemark("测试用例数据");
         info.setIntroduction("上海佳和上居酒店位于上海市浦东新区妙境路（川环南路路口），地处川沙中心地段，地理位置优越，交通便利，步行约5分钟可至绿地购物广场及家乐福。");
         return info;
     }
@@ -299,7 +297,7 @@ public class TestStandardCase {
         info.setCreatedate(new Date());
         info.setCreator("tyl");
         info.setCreatorid("tyl13564205515");
-        info.setRemark(null);
+        info.setRemark("测试用例数据");
         info.setIntroduction("上海佳和上居酒店位于上海市浦东新区妙境路（川环南路路口），地处川沙中心地段，地理位置优越，交通便利，步行约5分钟可至绿地购物广场及家乐福。");
         return info;
     }
@@ -327,7 +325,7 @@ public class TestStandardCase {
         info.setCreatedate(new Date());
         info.setCreator("tyl");
         info.setCreatorid("tyl13564205515");
-        info.setRemark(null);
+        info.setRemark("测试用例数据");
         info.setIntroduction("上海佳和上居酒店位于上海市浦东新区妙境路（川环南路路口），地处川沙中心地段，地理位置优越，交通便利，步行约5分钟可至绿地购物广场及家乐福。");
         return info;
     }
@@ -355,7 +353,7 @@ public class TestStandardCase {
         info.setCreatedate(new Date());
         info.setCreator("tyl");
         info.setCreatorid("tyl13564205515");
-        info.setRemark(null);
+        info.setRemark("测试用例数据");
         info.setIntroduction("上海佳和上居酒店位于上海市浦东新区妙境路（川环南路路口），地处川沙中心地段，地理位置优越，交通便利，步行约5分钟可至绿地购物广场及家乐福。");
         return info;
     }
@@ -383,7 +381,7 @@ public class TestStandardCase {
         info.setCreatedate(new Date());
         info.setCreator("tyl");
         info.setCreatorid("tyl13564205515");
-        info.setRemark(null);
+        info.setRemark("测试用例数据");
         info.setIntroduction("上海佳和上居酒店位于上海市浦东新区妙境路（川环南路路口），地处川沙中心地段，地理位置优越，交通便利，步行约5分钟可至绿地购物广场及家乐福。");
         return info;
     }
@@ -411,7 +409,7 @@ public class TestStandardCase {
         info.setCreatedate(new Date());
         info.setCreator("tyl");
         info.setCreatorid("tyl13564205515");
-        info.setRemark(null);
+        info.setRemark("测试用例数据");
         info.setIntroduction("上海佳和上居酒店位于上海市浦东新区妙境路（川环南路路口），地处川沙中心地段，地理位置优越，交通便利，步行约5分钟可至绿地购物广场及家乐福。");
         return info;
     }
@@ -439,7 +437,7 @@ public class TestStandardCase {
         info.setCreatedate(new Date());
         info.setCreator("tyl");
         info.setCreatorid("tyl13564205515");
-        info.setRemark(null);
+        info.setRemark("测试用例数据");
         info.setIntroduction("上海佳和上居酒店位于上海市浦东新区妙境路（川环南路路口），地处川沙中心地段，地理位置优越，交通便利，步行约5分钟可至绿地购物广场及家乐福。");
         return info;
     }
@@ -468,7 +466,7 @@ public class TestStandardCase {
         info.setCreatedate(new Date());
         info.setCreator("tyl");
         info.setCreatorid("tyl13564205515");
-        info.setRemark(null);
+        info.setRemark("测试用例数据");
         info.setIntroduction("上海佳和上居酒店位于上海市浦东新区妙境路（川环南路路口），地处川沙中心地段，地理位置优越，交通便利，步行约5分钟可至绿地购物广场及家乐福。");
         return info;
     }
@@ -496,7 +494,7 @@ public class TestStandardCase {
         info.setCreatedate(new Date());
         info.setCreator("tyl");
         info.setCreatorid("tyl13564205515");
-        info.setRemark(null);
+        info.setRemark("测试用例数据");
         info.setIntroduction("上海佳和上居酒店位于上海市浦东新区妙境路（川环南路路口），地处川沙中心地段，地理位置优越，交通便利，步行约5分钟可至绿地购物广场及家乐福。");
         return info;
     }
@@ -524,10 +522,9 @@ public class TestStandardCase {
         info.setCreatedate(new Date());
         info.setCreator("tyl");
         info.setCreatorid("tyl13564205515");
-        info.setRemark(null);
+        info.setRemark("测试用例数据");
         info.setIntroduction("上海佳和上居酒店位于上海市浦东新区妙境路（川环南路路口），地处川沙中心地段，地理位置优越，交通便利，步行约5分钟可至绿地购物广场及家乐福。");
         return info;
     }
 
-    static SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 }

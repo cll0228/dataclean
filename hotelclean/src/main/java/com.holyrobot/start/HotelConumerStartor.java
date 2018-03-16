@@ -56,18 +56,7 @@ public class HotelConumerStartor {
             ConsumerRecords<String, byte[]> records = consumer.poll(Long.MAX_VALUE);
             for (ConsumerRecord<String, byte[]> record : records) {
                 try {
-                    byte[] bytes = record.value();
-                    ReceiverData rd = (ReceiverData) StandardUtil.byteArrayToObject(bytes);
-                    if (null == rd || null == rd.getType() || null == rd.getData()) {
-                        continue;
-                    }
-                    logger.debug("消费者接受消息,type==" + rd.getType() + rd.getData().getClass() + " 启动处理");
-                    try {
-                        executor.execute(new ProcessObj(rd));
-                        logger.debug("启动线程处理数据 Class = " + rd.getData().getClass());
-                    } catch (Exception e) {
-                        logger.error("启动线程失败处理数据 Class = " + rd.getData().getClass(), e);
-                    }
+                    execBytes(record.value());
                 } catch (Exception e) {
                     e.printStackTrace();
                     logger.error("consumer error", e);
@@ -75,6 +64,21 @@ public class HotelConumerStartor {
             }
         }
     }
+
+    public static void execBytes(byte[] bytes) {
+        ReceiverData rd = (ReceiverData) StandardUtil.byteArrayToObject(bytes);
+        if (null == rd || null == rd.getType() || null == rd.getData()) {
+            return;
+        }
+        logger.debug("消费者接受消息,type==" + rd.getType() + rd.getData().getClass() + " 启动处理");
+        try {
+            executor.execute(new ProcessObj(rd));
+            logger.debug("启动线程处理数据 Class = " + rd.getData().getClass());
+        } catch (Exception e) {
+            logger.error("启动线程失败处理数据 Class = " + rd.getData().getClass(), e);
+        }
+    }
+
 
     public static class ProcessObj extends Thread {
         private static final Logger logger = LoggerFactory.getLogger(ProcessObj.class);

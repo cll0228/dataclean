@@ -89,26 +89,23 @@ public class StandardUtil {
             if (grade.matches("\\d+(\\.\\d+)?")) {
                 Double aDouble = Double.valueOf(grade);
                 if (aDouble > 5) {
-                    return aDouble.intValue() + "";
+                    Double a = aDouble * 10;
+                    return a.intValue() + "";
                 } else if (aDouble <= 5 && aDouble > 0) {
                     Double v = aDouble * 20;
                     return v.intValue() + "";
                 } else {
                     return "0";
                 }
+            } else {
+                return "0";
             }
-            return null;
         } catch (Throwable t) {
             System.err.println(grade);
             t.printStackTrace();
             throw t;
         }
     }
-
-    public static void main(String[] args) {
-        System.out.println(Double.valueOf("64.7").intValue());
-    }
-
 
     public static String captureName(String name) {
         try {
