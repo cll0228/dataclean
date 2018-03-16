@@ -8,6 +8,7 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import util.OtherStandard;
 import util.StandardUtil;
 
 import java.util.Arrays;
@@ -94,7 +95,7 @@ public class OtherConumerStartor {
                 Commentinfo commoninfo = (Commentinfo) receiverData.getData();
                 try {
                     logger.info("清洗前数据 = " + commoninfo.toString());
-                    // receiverData.setData(OtherStandard.standard(commoninfo));
+                     receiverData.setData(OtherStandard.standardComment(commoninfo));
                     logger.info("清洗后数据  = " + receiverData.getData().toString());
                 } catch (Exception e) {
                     logger.error(receiverData.getData().toString() + " 数据清洗失败 评论 ");
