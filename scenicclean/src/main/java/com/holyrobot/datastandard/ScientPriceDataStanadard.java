@@ -6,6 +6,6 @@ package com.holyrobot.datastandard;
 public class ScientPriceDataStanadard implements ScenicDataFieldStandard {
     @Override
     public String standardData(String originalData) {
-        return originalData.replace("￥","");
+        return originalData.replace("￥","").replaceAll("¥","");
     }
 }

@@ -3,16 +3,16 @@ package com.holyrobot.common;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Sceinfo implements Serializable {
+public class Sceinfo implements Serializable{
     private static final long serialVersionUID = 1L;
 
     private String id;
 
     private String urlid;
 
-    private String adminarea;
-
     private String name;
+
+    private String type;
 
     private String address;
 
@@ -21,8 +21,6 @@ public class Sceinfo implements Serializable {
     private String latitude;
 
     private String starlevel;
-
-    private String type;
 
     private String advicetime;
 
@@ -40,230 +38,274 @@ public class Sceinfo implements Serializable {
 
     private String wanttonum;
 
+    private String datatype;
+
     private String datasource;
 
     private Date createdate;
 
+    private String creator;
+
+    private String creatorid;
+
+    private String adminarea;
+    
     private String introduction;
 
     private String otherinformation;
 
-    private String dataType;
+    private String ticketinformation;
 
-    public String getAdminarea() {
-        return adminarea;
-    }
+    private String favouredpolicy;
 
-    public void setAdminarea(String adminarea) {
-        this.adminarea = adminarea;
-    }
+    private String remark;
 
-    public String getDataType() {
-        return dataType;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setDataType(String dataType) {
-        this.dataType = dataType;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public Sceinfo() {
-        super();
-    }
+	public String getUrlid() {
+		return urlid;
+	}
 
-    public String getId() {
-        return id;
-    }
+	public void setUrlid(String urlid) {
+		this.urlid = urlid;
+	}
 
-    public void setId(String id) {
-        this.id = id;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String getUrlid() {
-        return urlid;
-    }
+	public String getType() {
+		return type;
+	}
 
-    public void setUrlid(String urlid) {
-        this.urlid = urlid;
-    }
+	public void setType(String type) {
+		this.type = type;
+	}
 
-    public String getName() {
-        return name;
-    }
+	public String getAddress() {
+		return address;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setAddress(String address) {
+		this.address = address;
+	}
 
-    public String getAddress() {
-        return address;
-    }
+	public String getLongitude() {
+		return longitude;
+	}
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
 
-    public String getLongitude() {
-        return longitude;
-    }
+	public String getLatitude() {
+		return latitude;
+	}
 
-    public void setLongitude(String longitude) {
-        this.longitude = longitude;
-    }
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
 
-    public String getLatitude() {
-        return latitude;
-    }
+	public String getStarlevel() {
+		return starlevel;
+	}
 
-    public void setLatitude(String latitude) {
-        this.latitude = latitude;
-    }
+	public void setStarlevel(String starlevel) {
+		this.starlevel = starlevel;
+	}
 
-    public String getStarlevel() {
-        return starlevel;
-    }
+	public String getAdvicetime() {
+		return advicetime;
+	}
 
-    public void setStarlevel(String starlevel) {
-        this.starlevel = starlevel;
-    }
+	public void setAdvicetime(String advicetime) {
+		this.advicetime = advicetime;
+	}
 
-    public String getType() {
-        return type;
-    }
+	public String getOpentime() {
+		return opentime;
+	}
 
-    public void setType(String type) {
-        this.type = type;
-    }
+	public void setOpentime(String opentime) {
+		this.opentime = opentime;
+	}
 
-    public String getAdvicetime() {
-        return advicetime;
-    }
+	public String getServicecommitment() {
+		return servicecommitment;
+	}
 
-    public void setAdvicetime(String advicetime) {
-        this.advicetime = advicetime;
-    }
+	public void setServicecommitment(String servicecommitment) {
+		this.servicecommitment = servicecommitment;
+	}
 
-    public String getOpentime() {
-        return opentime;
-    }
+	public String getReferprice() {
+		return referprice;
+	}
 
-    public void setOpentime(String opentime) {
-        this.opentime = opentime;
-    }
+	public void setReferprice(String referprice) {
+		this.referprice = referprice;
+	}
 
-    public String getServicecommitment() {
-        return servicecommitment;
-    }
+	public String getGrade() {
+		return grade;
+	}
 
-    public void setServicecommitment(String servicecommitment) {
-        this.servicecommitment = servicecommitment;
-    }
+	public void setGrade(String grade) {
+		this.grade = grade;
+	}
 
-    public String getReferprice() {
-        return referprice;
-    }
+	public String getGradenum() {
+		return gradenum;
+	}
 
-    public void setReferprice(String referprice) {
-        this.referprice = referprice;
-    }
+	public void setGradenum(String gradenum) {
+		this.gradenum = gradenum;
+	}
 
-    public String getGrade() {
-        return grade;
-    }
+	public String getBeennum() {
+		return beennum;
+	}
 
-    public void setGrade(String grade) {
-        this.grade = grade;
-    }
+	public void setBeennum(String beennum) {
+		this.beennum = beennum;
+	}
 
-    public String getGradenum() {
-        return gradenum;
-    }
+	public String getWanttonum() {
+		return wanttonum;
+	}
 
-    public void setGradenum(String gradenum) {
-        this.gradenum = gradenum;
-    }
+	public void setWanttonum(String wanttonum) {
+		this.wanttonum = wanttonum;
+	}
 
-    public String getBeennum() {
-        return beennum;
-    }
+	public String getDatatype() {
+		return datatype;
+	}
 
-    public void setBeennum(String beennum) {
-        this.beennum = beennum;
-    }
+	public void setDatatype(String datatype) {
+		this.datatype = datatype;
+	}
 
-    public String getWanttonum() {
-        return wanttonum;
-    }
+	public String getDatasource() {
+		return datasource;
+	}
 
-    public void setWanttonum(String wanttonum) {
-        this.wanttonum = wanttonum;
-    }
+	public void setDatasource(String datasource) {
+		this.datasource = datasource;
+	}
 
-    public String getDatasource() {
-        return datasource;
-    }
+	public Date getCreatedate() {
+		return createdate;
+	}
 
-    public void setDatasource(String datasource) {
-        this.datasource = datasource;
-    }
+	public void setCreatedate(Date createdate) {
+		this.createdate = createdate;
+	}
 
-    public Date getCreatedate() {
-        return createdate;
-    }
+	public String getCreator() {
+		return creator;
+	}
 
-    public void setCreatedate(Date createdate) {
-        this.createdate = createdate;
-    }
+	public void setCreator(String creator) {
+		this.creator = creator;
+	}
 
+	public String getCreatorid() {
+		return creatorid;
+	}
 
-    public String getIntroduction() {
-        return introduction;
-    }
+	public void setCreatorid(String creatorid) {
+		this.creatorid = creatorid;
+	}
 
-    public void setIntroduction(String introduction) {
-        this.introduction = introduction;
-    }
+	public String getAdminarea() {
+		return adminarea;
+	}
 
-    public String getOtherinformation() {
-        return otherinformation;
-    }
+	public void setAdminarea(String adminarea) {
+		this.adminarea = adminarea;
+	}
 
-    public void setOtherinformation(String otherinformation) {
-        this.otherinformation = otherinformation;
-    }
+	public String getIntroduction() {
+		return introduction;
+	}
 
-    public static long getSerialversionuid() {
-        return serialVersionUID;
-    }
+	public void setIntroduction(String introduction) {
+		this.introduction = introduction;
+	}
 
-    @Override
-    public String toString() {
-        return "Sceinfo{" +
-                "id='" + id + '\'' +
-                ", urlid='" + urlid + '\'' +
-                ", adminarea='" + adminarea + '\'' +
-                ", name='" + name + '\'' +
-                ", address='" + address + '\'' +
-                ", longitude='" + longitude + '\'' +
-                ", latitude='" + latitude + '\'' +
-                ", starlevel='" + starlevel + '\'' +
-                ", type='" + type + '\'' +
-                ", advicetime='" + advicetime + '\'' +
-                ", opentime='" + opentime + '\'' +
-                ", servicecommitment='" + servicecommitment + '\'' +
-                ", referprice='" + referprice + '\'' +
-                ", grade='" + grade + '\'' +
-                ", gradenum='" + gradenum + '\'' +
-                ", beennum='" + beennum + '\'' +
-                ", wanttonum='" + wanttonum + '\'' +
-                ", datasource='" + datasource + '\'' +
-                ", createdate=" + createdate +
-                ", introduction='" + introduction + '\'' +
-                ", otherinformation='" + otherinformation + '\'' +
-                ", dataType='" + dataType + '\'' +
-                '}';
-    }
+	public String getOtherinformation() {
+		return otherinformation;
+	}
+
+	public void setOtherinformation(String otherinformation) {
+		this.otherinformation = otherinformation;
+	}
+
+	public String getTicketinformation() {
+		return ticketinformation;
+	}
+
+	public void setTicketinformation(String ticketinformation) {
+		this.ticketinformation = ticketinformation;
+	}
+
+	public String getFavouredpolicy() {
+		return favouredpolicy;
+	}
+
+	public void setFavouredpolicy(String favouredpolicy) {
+		this.favouredpolicy = favouredpolicy;
+	}
+
+	public String getRemark() {
+		return remark;
+	}
+
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
+
+	@Override
+	public String toString() {
+		return "Sceinfo{" +
+				"id='" + id + '\'' +
+				", urlid='" + urlid + '\'' +
+				", name='" + name + '\'' +
+				", type='" + type + '\'' +
+				", address='" + address + '\'' +
+				", longitude='" + longitude + '\'' +
+				", latitude='" + latitude + '\'' +
+				", starlevel='" + starlevel + '\'' +
+				", advicetime='" + advicetime + '\'' +
+				", opentime='" + opentime + '\'' +
+				", servicecommitment='" + servicecommitment + '\'' +
+				", referprice='" + referprice + '\'' +
+				", grade='" + grade + '\'' +
+				", gradenum='" + gradenum + '\'' +
+				", beennum='" + beennum + '\'' +
+				", wanttonum='" + wanttonum + '\'' +
+				", datatype='" + datatype + '\'' +
+				", datasource='" + datasource + '\'' +
+				", createdate=" + createdate +
+				", creator='" + creator + '\'' +
+				", creatorid='" + creatorid + '\'' +
+				", adminarea='" + adminarea + '\'' +
+				", introduction='" + introduction + '\'' +
+				", otherinformation='" + otherinformation + '\'' +
+				", ticketinformation='" + ticketinformation + '\'' +
+				", favouredpolicy='" + favouredpolicy + '\'' +
+				", remark='" + remark + '\'' +
+				'}';
+	}
 }

@@ -27,6 +27,8 @@ public class Addressinfo implements Serializable{
     private String creator;
 
     private String creatorid;
+    
+    private String remark;
 
     public String getId() {
         return id;
@@ -115,4 +117,23 @@ public class Addressinfo implements Serializable{
     public void setCreatorid(String creatorid) {
         this.creatorid = creatorid;
     }
+    
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
+    }
+
+	@Override
+	public String toString() {
+		return "Addressinfo [id=" + id + ", infoid=" + infoid + ", type=" + type + ", country=" + country
+				+ ", province=" + province + ", city=" + city + ", zone=" + zone + ", detailaddress=" + detailaddress
+				+ ", createdate=" + createdate + ", creator=" + creator + ", creatorid=" + creatorid + ", remark="
+				+ remark + "]";
+	}
+
+	
+    
 }

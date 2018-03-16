@@ -77,7 +77,7 @@ public class RouteStandard {
                 tripEntity.setDestination(routeinfoDto.getDestination());
                 tripEntity.setHotel(hotel);
                 tripEntity.setRouid(routeinfoDto.getId());
-                tripEntity.setUrl(routeinfoDto.getUrlid());
+                tripEntity.setUrlid(routeinfoDto.getUrlid());
                 tripEntity.setTime(time);
                 tripEntity.setPrice(routeinfoDto.getPrice());
                 tripEntity.setSpot(spot);
@@ -115,7 +115,7 @@ public class RouteStandard {
                     tripEntity.setDestination(routeinfoDto.getDestination());
                     tripEntity.setHotel(hotel);
                     tripEntity.setRouid(routeinfoDto.getId());
-                    tripEntity.setUrl(routeinfoDto.getUrlid());
+                    tripEntity.setUrlid(routeinfoDto.getUrlid());
                     tripEntity.setTime(time);
                     tripEntity.setPrice(routeinfoDto.getPrice());
                     tripEntity.setSpot(spot);
@@ -163,11 +163,16 @@ public class RouteStandard {
                         tripEntity.setSpot(spot);
                         tripEntity.setTime(time);
                         tripEntity.setDatasource(routeinfoDto.getDatasource());
-                        tripEntity.setDeparture(routeinfoDto.getDeparture().replace("出发", ""));
+                        String departure = routeinfoDto.getDeparture().replace("出发", "");
+                        String[] arr =  departure.split("（");
+                        if(arr.length>1) {
+                            departure = arr[0];
+                        }
+                        tripEntity.setDeparture(departure);
                         tripEntity.setDestination(routeinfoDto.getDestination());
                         tripEntity.setPrice(routeinfoDto.getPrice());
                         tripEntity.setRouid(routeinfoDto.getId());
-                        tripEntity.setUrl(routeinfoDto.getUrlid());
+                        tripEntity.setUrlid(routeinfoDto.getUrlid());
                         tripEntities.add(tripEntity);
                         size++;
                     }
@@ -323,7 +328,7 @@ public class RouteStandard {
                 tripEntity.setDestination(routeinfoDto.getDestination());
                 tripEntity.setHotel(hotel);
                 tripEntity.setRouid(routeinfoDto.getId());
-                tripEntity.setUrl(routeinfoDto.getUrlid());
+                tripEntity.setUrlid(routeinfoDto.getUrlid());
                 tripEntity.setTime(time);
                 tripEntity.setPrice(routeinfoDto.getPrice());
                 tripEntity.setSpot(spot);
@@ -358,7 +363,7 @@ public class RouteStandard {
                 tripEntity.setDestination(routeinfoDto.getDestination());
                 tripEntity.setHotel(hotel);
                 tripEntity.setRouid(routeinfoDto.getId());
-                tripEntity.setUrl(routeinfoDto.getUrlid());
+                tripEntity.setUrlid(routeinfoDto.getUrlid());
                 tripEntity.setTime(time);
                 tripEntity.setPrice(routeinfoDto.getPrice());
                 tripEntity.setSpot(spot);

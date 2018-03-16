@@ -11,18 +11,6 @@ public class StandardUtil {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(StandardUtil.class);
 
-    public static Object byte2Obj(Object obj) {
-        byte[] bytes = (byte[]) obj;
-        Object readObject = null;
-        try (ByteArrayInputStream in = new ByteArrayInputStream(bytes);
-             ObjectInputStream inputStream = new ObjectInputStream(in)) {
-            readObject = inputStream.readObject();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return readObject;
-    }
-
     public static Double save2dec(Double f) {
         try {
             BigDecimal b = new BigDecimal(f);

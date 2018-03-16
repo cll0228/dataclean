@@ -7,7 +7,7 @@ public class Commentinfo implements Serializable{
 	
     private static final long serialVersionUID = 1L;
 
-	private String id;
+    private String id;
 
     private String infoid;
 
@@ -23,20 +23,32 @@ public class Commentinfo implements Serializable{
 
     private String creatorid;
 
-    private String content;
-    
     private String datasource;
+
+    private String adminarea;
+    
+    private String content;
+
+    private String remark;
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
+    }
     
 
-    public String getDatasource() {
-		return datasource;
-	}
-
-	public void setDatasource(String datasource) {
-		this.datasource = datasource;
-	}
-
-	public String getId() {
+    public String getId() {
         return id;
     }
 
@@ -100,11 +112,20 @@ public class Commentinfo implements Serializable{
         this.creatorid = creatorid == null ? null : creatorid.trim();
     }
 
-    public String getContent() {
-        return content;
+    public String getDatasource() {
+        return datasource;
     }
 
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
+    public void setDatasource(String datasource) {
+        this.datasource = datasource == null ? null : datasource.trim();
     }
+
+    public String getAdminarea() {
+        return adminarea;
+    }
+
+    public void setAdminarea(String adminarea) {
+        this.adminarea = adminarea == null ? null : adminarea.trim();
+    }
+    
 }

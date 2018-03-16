@@ -6,15 +6,15 @@ import java.util.Date;
 public class Pictureinfo implements Serializable{
     private static final long serialVersionUID = 1L;
 
-	private String id;
+    private String id;
 
     private String infoid;
+
+    private Integer type;
 
     private String imgurl;
 
     private Integer sort;
-
-    private Integer type;
 
     private String imgaddress;
 
@@ -25,6 +25,10 @@ public class Pictureinfo implements Serializable{
     private String creator;
 
     private String creatorid;
+
+    private String adminarea;
+
+    private String remark;
 
     public String getId() {
         return id;
@@ -42,6 +46,14 @@ public class Pictureinfo implements Serializable{
         this.infoid = infoid == null ? null : infoid.trim();
     }
 
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
     public String getImgurl() {
         return imgurl;
     }
@@ -56,14 +68,6 @@ public class Pictureinfo implements Serializable{
 
     public void setSort(Integer sort) {
         this.sort = sort;
-    }
-
-    public Integer getType() {
-        return type;
-    }
-
-    public void setType(Integer type) {
-        this.type = type;
     }
 
     public String getImgaddress() {
@@ -105,4 +109,31 @@ public class Pictureinfo implements Serializable{
     public void setCreatorid(String creatorid) {
         this.creatorid = creatorid == null ? null : creatorid.trim();
     }
+
+    public String getAdminarea() {
+        return adminarea;
+    }
+
+    public void setAdminarea(String adminarea) {
+        this.adminarea = adminarea == null ? null : adminarea.trim();
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
+    }
+
+	@Override
+	public String toString() {
+		return "Pictureinfo [id=" + id + ", infoid=" + infoid + ", type=" + type + ", imgurl=" + imgurl + ", sort="
+				+ sort + ", imgaddress=" + imgaddress + ", download=" + download + ", createdate=" + createdate
+				+ ", creator=" + creator + ", creatorid=" + creatorid + ", adminarea=" + adminarea + ", remark="
+				+ remark + "]";
+	}
+    
+    
+    
 }

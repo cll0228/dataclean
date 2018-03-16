@@ -16,30 +16,35 @@
         <module>otherclean</module>
     </modules>
     <profiles>
-        <!--本地开发环境-->
         <profile>
             <id>dev</id>
-            <properties>
-                <profiles.active>dev</profiles.active>
-            </properties>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
+            <properties>
+                <common.hbase.zookeeper.quorum>cdh04,cdh05,cdh06</common.hbase.zookeeper.quorum>
+            </properties>
         </profile>
-        <!--测试环境-->
         <profile>
             <id>test</id>
             <properties>
-                <profiles.active>test</profiles.active>
+                <common.hbase.zookeeper.quorum>cdh04,cdh05,cdh06</common.hbase.zookeeper.quorum>
             </properties>
         </profile>
-        <!--生产环境-->
         <profile>
             <id>pro</id>
             <properties>
-                <profiles.active>pro</profiles.active>
+                <common.hbase.zookeeper.quorum>cdh04,cdh05,cdh06</common.hbase.zookeeper.quorum>
             </properties>
         </profile>
     </profiles>
+    <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+            </resource>
+        </resources>
+    </build>
 
 </project>

@@ -4,13 +4,12 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Scepriceinfo implements Serializable {
+
     private static final long serialVersionUID = 1L;
 
     private String id;
 
     private String scenicid;
-
-    private String province;
 
     private String urlid;
 
@@ -30,18 +29,30 @@ public class Scepriceinfo implements Serializable {
 
     private Date createdate;
 
+    private String creator;
+
+    private String creatorid;
+
+    private String adminarea;
+
+    private String favouredpolicy;
+
     private String remark;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
+    public String getFavouredpolicy() {
+        return favouredpolicy;
     }
 
-    public String getProvince() {
-        return province;
+    public void setFavouredpolicy(String favouredpolicy) {
+        this.favouredpolicy = favouredpolicy == null ? null : favouredpolicy.trim();
     }
 
-    public void setProvince(String province) {
-        this.province = province;
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
     }
 
     public String getId() {
@@ -132,12 +143,27 @@ public class Scepriceinfo implements Serializable {
         this.createdate = createdate;
     }
 
-
-    public String getRemark() {
-        return remark;
+    public String getCreator() {
+        return creator;
     }
 
-    public void setRemark(String remark) {
-        this.remark = remark == null ? null : remark.trim();
+    public void setCreator(String creator) {
+        this.creator = creator == null ? null : creator.trim();
+    }
+
+    public String getCreatorid() {
+        return creatorid;
+    }
+
+    public void setCreatorid(String creatorid) {
+        this.creatorid = creatorid == null ? null : creatorid.trim();
+    }
+
+    public String getAdminarea() {
+        return adminarea;
+    }
+
+    public void setAdminarea(String adminarea) {
+        this.adminarea = adminarea == null ? null : adminarea.trim();
     }
 }

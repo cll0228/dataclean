@@ -6,7 +6,7 @@ import java.util.Date;
 public class Routepriceinfo implements Serializable{
     private static final long serialVersionUID = 1L;
 
-	private String id;
+    private String id;
 
     private String routeid;
 
@@ -21,6 +21,8 @@ public class Routepriceinfo implements Serializable{
     private String creator;
 
     private String creatorid;
+
+    private String destination;
 
     private String remark;
 
@@ -88,26 +90,19 @@ public class Routepriceinfo implements Serializable{
         this.creatorid = creatorid == null ? null : creatorid.trim();
     }
 
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination == null ? null : destination.trim();
+    }
+
     public String getRemark() {
         return remark;
     }
 
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
-    }
-
-    @Override
-    public String toString() {
-        return "Routepriceinfo{" +
-                "id='" + id + '\'' +
-                ", routeid='" + routeid + '\'' +
-                ", pricedate='" + pricedate + '\'' +
-                ", dayofweek='" + dayofweek + '\'' +
-                ", lowestprice='" + lowestprice + '\'' +
-                ", createdate=" + createdate +
-                ", creator='" + creator + '\'' +
-                ", creatorid='" + creatorid + '\'' +
-                ", remark='" + remark + '\'' +
-                '}';
     }
 }

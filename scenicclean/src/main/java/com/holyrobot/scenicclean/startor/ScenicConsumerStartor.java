@@ -23,7 +23,7 @@ public class ScenicConsumerStartor {
 
     public static void main(String[] args) {
         if (args.length < 4) {
-            args = new String[]{"cdh01:9092,chd02:9092,cdh04:9092", "topic_scenic", "test2", "latest"};
+            args = new String[]{"cdh01:9092,cdh02:9092,cdh04:9092", "topic_scenic", "test2", "latest"};
             logger.debug("param init success");
         }
         String bootstrap = args[0];
@@ -37,7 +37,7 @@ public class ScenicConsumerStartor {
         props.put("enable.auto.commit", "true");  //自动commit
         props.put("auto.commit.interval.ms", "1000"); //定时commit的周期
         props.put("session.timeout.ms", "30000"); //consumer活性超时时间
-        props.put("auto.offset.reset",offset);
+        props.put("auto.offset.reset", offset);
         props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.put("value.deserializer", "org.apache.kafka.common.serialization.ByteArrayDeserializer");
         KafkaConsumer<String, byte[]> consumer = new KafkaConsumer<>(props);
@@ -49,7 +49,7 @@ public class ScenicConsumerStartor {
 
                     byte[] bytes = record.value();
                     ReceiverData rd = (ReceiverData) Object2Array.byteArrayToObject(bytes);
-                    if (rd.getType() == 4) {
+                    if (null != rd && rd.getType() == 4) {
                         logger.info("==================处理景点价格开始===================");
                         Scepriceinfo scepriceinfo = (Scepriceinfo) rd.getData();
                         logger.info("处理前的数据：" + JsonCommon.prepareData(scepriceinfo));
@@ -68,9 +68,8 @@ public class ScenicConsumerStartor {
                         RobotObjectDao.insertHbase(si);
                         logger.info("==================处理景点详情结束===================");
                     }
-                    ;
                 } catch (Exception e) {
-                    logger.error(e.getMessage() + ":" + e.getStackTrace());
+                    logger.error("发生异常，", e);
                 }
             }
         }

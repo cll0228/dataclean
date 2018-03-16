@@ -3,16 +3,16 @@ package com.holyrobot.common;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Routeinfo implements Serializable {
+public class Routeinfo implements Serializable{
     private static final long serialVersionUID = 1L;
 
     private String id;
 
     private String urlid;
 
-    private String routetype;
-
     private String name;
+
+    private String routetype;
 
     private String price;
 
@@ -20,9 +20,9 @@ public class Routeinfo implements Serializable {
 
     private String suppliername;
 
-    private String departure;
-
     private String destination;
+
+    private String departure;
 
     private String grade;
 
@@ -41,9 +41,7 @@ public class Routeinfo implements Serializable {
     private String creatorid;
 
     private String teamtype;
-
-    private String productoutline;
-
+    
     private String featureservice;
 
     private String itineraryoutline;
@@ -54,26 +52,94 @@ public class Routeinfo implements Serializable {
 
     private String productfeature;
 
+    private String productoutline;
+
     private String itinerarydetails;
 
     private String expense;
 
     private String reserveinfo;
 
+    private String remark;
+
+    public String getFeatureservice() {
+        return featureservice;
+    }
+
+    public void setFeatureservice(String featureservice) {
+        this.featureservice = featureservice == null ? null : featureservice.trim();
+    }
+
+    public String getItineraryoutline() {
+        return itineraryoutline;
+    }
+
+    public void setItineraryoutline(String itineraryoutline) {
+        this.itineraryoutline = itineraryoutline == null ? null : itineraryoutline.trim();
+    }
+
+    public String getProductrecommend() {
+        return productrecommend;
+    }
+
+    public void setProductrecommend(String productrecommend) {
+        this.productrecommend = productrecommend == null ? null : productrecommend.trim();
+    }
+
+    public String getReducedprice() {
+        return reducedprice;
+    }
+
+    public void setReducedprice(String reducedprice) {
+        this.reducedprice = reducedprice == null ? null : reducedprice.trim();
+    }
+
+    public String getProductfeature() {
+        return productfeature;
+    }
+
+    public void setProductfeature(String productfeature) {
+        this.productfeature = productfeature == null ? null : productfeature.trim();
+    }
+
     public String getProductoutline() {
         return productoutline;
     }
 
     public void setProductoutline(String productoutline) {
-        this.productoutline = productoutline;
+        this.productoutline = productoutline == null ? null : productoutline.trim();
     }
 
-    public String getDestination() {
-        return destination;
+    public String getItinerarydetails() {
+        return itinerarydetails;
     }
 
-    public void setDestination(String destination) {
-        this.destination = destination;
+    public void setItinerarydetails(String itinerarydetails) {
+        this.itinerarydetails = itinerarydetails == null ? null : itinerarydetails.trim();
+    }
+
+    public String getExpense() {
+        return expense;
+    }
+
+    public void setExpense(String expense) {
+        this.expense = expense == null ? null : expense.trim();
+    }
+
+    public String getReserveinfo() {
+        return reserveinfo;
+    }
+
+    public void setReserveinfo(String reserveinfo) {
+        this.reserveinfo = reserveinfo == null ? null : reserveinfo.trim();
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
     }
 
     public String getId() {
@@ -84,24 +150,12 @@ public class Routeinfo implements Serializable {
         this.id = id == null ? null : id.trim();
     }
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
-
     public String getUrlid() {
         return urlid;
     }
 
     public void setUrlid(String urlid) {
-        this.urlid = urlid;
-    }
-
-    public String getRoutetype() {
-        return routetype;
-    }
-
-    public void setRoutetype(String routetype) {
-        this.routetype = routetype == null ? null : routetype.trim();
+        this.urlid = urlid == null ? null : urlid.trim();
     }
 
     public String getName() {
@@ -110,6 +164,14 @@ public class Routeinfo implements Serializable {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public String getRoutetype() {
+        return routetype;
+    }
+
+    public void setRoutetype(String routetype) {
+        this.routetype = routetype == null ? null : routetype.trim();
     }
 
     public String getPrice() {
@@ -134,6 +196,14 @@ public class Routeinfo implements Serializable {
 
     public void setSuppliername(String suppliername) {
         this.suppliername = suppliername == null ? null : suppliername.trim();
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination == null ? null : destination.trim();
     }
 
     public String getDeparture() {
@@ -166,74 +236,6 @@ public class Routeinfo implements Serializable {
 
     public void setBeennum(String beennum) {
         this.beennum = beennum == null ? null : beennum.trim();
-    }
-
-    public String getFeatureservice() {
-        return featureservice;
-    }
-
-    public void setFeatureservice(String featureservice) {
-        this.featureservice = featureservice;
-    }
-
-    public String getItineraryoutline() {
-        return itineraryoutline;
-    }
-
-    public void setItineraryoutline(String itineraryoutline) {
-        this.itineraryoutline = itineraryoutline;
-    }
-
-    public String getProductrecommend() {
-        return productrecommend;
-    }
-
-    public void setProductrecommend(String productrecommend) {
-        this.productrecommend = productrecommend;
-    }
-
-    public String getReducedprice() {
-        return reducedprice;
-    }
-
-    public void setReducedprice(String reducedprice) {
-        this.reducedprice = reducedprice;
-    }
-
-    public String getProductfeature() {
-        return productfeature;
-    }
-
-    public void setProductfeature(String productfeature) {
-        this.productfeature = productfeature;
-    }
-
-    public String getItinerarydetails() {
-        return itinerarydetails;
-    }
-
-    public void setItinerarydetails(String itinerarydetails) {
-        this.itinerarydetails = itinerarydetails;
-    }
-
-    public String getExpense() {
-        return expense;
-    }
-
-    public void setExpense(String expense) {
-        this.expense = expense;
-    }
-
-    public String getReserveinfo() {
-        return reserveinfo;
-    }
-
-    public void setReserveinfo(String reserveinfo) {
-        this.reserveinfo = reserveinfo;
-    }
-
-    public static long getSerialversionuid() {
-        return serialVersionUID;
     }
 
     public String getWhantto() {
@@ -284,37 +286,20 @@ public class Routeinfo implements Serializable {
         this.teamtype = teamtype == null ? null : teamtype.trim();
     }
 
-
-    @Override
-    public String toString() {
-        return "Routeinfo{" +
-                "id='" + id + '\'' +
-                ", urlid='" + urlid + '\'' +
-                ", routetype='" + routetype + '\'' +
-                ", name='" + name + '\'' +
-                ", price='" + price + '\'' +
-                ", itemno='" + itemno + '\'' +
-                ", suppliername='" + suppliername + '\'' +
-                ", departure='" + departure + '\'' +
-                ", destination='" + destination + '\'' +
-                ", grade='" + grade + '\'' +
-                ", gradenum='" + gradenum + '\'' +
-                ", beennum='" + beennum + '\'' +
-                ", whantto='" + whantto + '\'' +
-                ", datasource='" + datasource + '\'' +
-                ", createdate=" + createdate +
-                ", creator='" + creator + '\'' +
-                ", creatorid='" + creatorid + '\'' +
-                ", teamtype='" + teamtype + '\'' +
-                ", productoutline='" + productoutline + '\'' +
-                ", featureservice='" + featureservice + '\'' +
-                ", itineraryoutline='" + itineraryoutline + '\'' +
-                ", productrecommend='" + productrecommend + '\'' +
-                ", reducedprice='" + reducedprice + '\'' +
-                ", productfeature='" + productfeature + '\'' +
-                ", itinerarydetails='" + itinerarydetails + '\'' +
-                ", expense='" + expense + '\'' +
-                ", reserveinfo='" + reserveinfo + '\'' +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return "Routeinfo [id=" + id + ", urlid=" + urlid + ", name=" + name + ", routetype=" + routetype + ", price="
+				+ price + ", itemno=" + itemno + ", suppliername=" + suppliername + ", destination=" + destination
+				+ ", departure=" + departure + ", grade=" + grade + ", gradenum=" + gradenum + ", beennum=" + beennum
+				+ ", whantto=" + whantto + ", datasource=" + datasource + ", createdate=" + createdate + ", creator="
+				+ creator + ", creatorid=" + creatorid + ", teamtype=" + teamtype + ", featureservice=" + featureservice
+				+ ", itineraryoutline=" + itineraryoutline + ", productrecommend=" + productrecommend
+				+ ", reducedprice=" + reducedprice + ", productfeature=" + productfeature + ", productoutline="
+				+ productoutline + ", itinerarydetails=" + itinerarydetails + ", expense=" + expense + ", reserveinfo="
+				+ reserveinfo + ", remark=" + remark + "]";
+	}
+    
+    
+    
+    
 }

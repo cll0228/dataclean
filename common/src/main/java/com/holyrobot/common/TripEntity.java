@@ -1,7 +1,7 @@
 package com.holyrobot.common;
 
 public class TripEntity {
-    private Integer id;
+    private String id;
 
     private String rouid;
 
@@ -19,7 +19,7 @@ public class TripEntity {
 
     private String datasource;
 
-    private String url;
+    private String urlid;
     
     
 
@@ -27,14 +27,14 @@ public class TripEntity {
 	public String toString() {
 		return "TripEntity [id=" + id  + ", hotel=" + hotel +  ", rouid=" + rouid + ", departure=" + departure + ", destination=" + destination
 				+ ", price=" + price + ", time=" + time + ", spot=" + spot + ", datasource="
-				+ datasource + ", url=" + url + "]";
+				+ datasource + ", urlid=" + urlid + "]";
 	}
 
-	public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -102,11 +102,11 @@ public class TripEntity {
         this.datasource = datasource == null ? null : datasource.trim();
     }
 
-    public String getUrl() {
-        return url;
+    public String getUrlid() {
+        return urlid;
     }
 
-    public void setUrl(String url) {
-        this.url = url == null ? null : url.trim();
+    public void setUrlid(String urlid) {
+        this.urlid = urlid;
     }
 }

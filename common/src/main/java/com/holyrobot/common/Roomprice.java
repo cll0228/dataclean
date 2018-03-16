@@ -3,23 +3,12 @@ package com.holyrobot.common;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Roomprice implements Serializable {
-
+public class Roomprice implements Serializable{
     private static final long serialVersionUID = 1L;
 
     private String id;
 
     private String hotelid;
-
-    private String adminarea;
-
-    public String getAdminarea() {
-        return adminarea;
-    }
-
-    public void setAdminarea(String adminarea) {
-        this.adminarea = adminarea;
-    }
 
     private String roomid;
 
@@ -53,10 +42,9 @@ public class Roomprice implements Serializable {
 
     private String creatorid;
 
-    public static long getSerialVersionUID() {
-        return serialVersionUID;
-    }
+    private String adminarea;
 
+    private String remark;
 
     public String getId() {
         return id;
@@ -202,28 +190,19 @@ public class Roomprice implements Serializable {
         this.creatorid = creatorid == null ? null : creatorid.trim();
     }
 
-    @Override
-    public String toString() {
-        return "Roomprice{" +
-                "id='" + id + '\'' +
-                ", hotelid='" + hotelid + '\'' +
-                ", adminarea='" + adminarea + '\'' +
-                ", roomid='" + roomid + '\'' +
-                ", productname='" + productname + '\'' +
-                ", price='" + price + '\'' +
-                ", date='" + date + '\'' +
-                ", availablenum='" + availablenum + '\'' +
-                ", isbooking='" + isbooking + '\'' +
-                ", appliyby='" + appliyby + '\'' +
-                ", ishasbreakfast='" + ishasbreakfast + '\'' +
-                ", iswindow='" + iswindow + '\'' +
-                ", iscancled='" + iscancled + '\'' +
-                ", iswifi='" + iswifi + '\'' +
-                ", paymethod='" + paymethod + '\'' +
-                ", isdomesticguest='" + isdomesticguest + '\'' +
-                ", createdate=" + createdate +
-                ", creator='" + creator + '\'' +
-                ", creatorid='" + creatorid + '\'' +
-                '}';
+    public String getAdminarea() {
+        return adminarea;
+    }
+
+    public void setAdminarea(String adminarea) {
+        this.adminarea = adminarea == null ? null : adminarea.trim();
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
     }
 }
