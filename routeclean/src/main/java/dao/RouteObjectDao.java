@@ -33,7 +33,7 @@ public class RouteObjectDao {
             for(TripEntity tripDetail :triplist){
                 String id = UUID.randomUUID().toString().replaceAll("-", "");
                 tripDetail.setId(id);
-                String rowKey = tripDetail.getDestination()+id;
+                String rowKey = tripDetail.getDestination()+"_"+id;
                 Map map = new HashMap<>();
 
                 map.put("rowKey", rowKey);
@@ -46,7 +46,7 @@ public class RouteObjectDao {
 
         if (obj.getType() == 6) {
             Routeinfo routeinfo = (Routeinfo) obj.getData();
-                String rowKey = routeinfo.getDestination()+routeinfo.getId();
+                String rowKey = routeinfo.getDestination()+"_"+routeinfo.getId();
                 Map map = new HashMap<>();
 
                 map.put("rowKey", rowKey);
@@ -60,7 +60,7 @@ public class RouteObjectDao {
         if (obj.getType() == 7) {
             Routepriceinfo routePriceDetail = (Routepriceinfo) obj.getData();
             Map map = new HashMap<>();
-            String rowKey = routePriceDetail.getDestination()+routePriceDetail.getId();
+            String rowKey = routePriceDetail.getDestination()+"_"+routePriceDetail.getId();
             map.put("rowKey", rowKey);
             map.put("entity", routePriceDetail);
             JSONObject jsonObject = new JSONObject().fromObject(map);
