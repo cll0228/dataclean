@@ -3,11 +3,14 @@ package dao;
 import com.holyrobot.common.*;
 import hbase.HBaseJavaAPI;
 import net.sf.json.JSONObject;
+import net.sf.json.JsonConfig;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import util.DateJsonValueProcessor;
 
 import java.lang.reflect.Field;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -64,13 +67,15 @@ public class OtherObjectDao {
 
         if (obj.getType() == 11) {
             Commentinfo commoninfo = (Commentinfo) obj.getData();
-                String rowKey = commoninfo.getId();
-                Map map = new HashMap<>();
+            String rowKey = commoninfo.getId();
+            Map map = new HashMap<>();
 
-                map.put("rowKey", rowKey);
-                map.put("entity", commoninfo);
-                JSONObject jsonObject = new JSONObject().fromObject(map);
-                addData("Commentinfo",jsonObject);
+            map.put("rowKey", rowKey);
+            map.put("entity", commoninfo);
+            JsonConfig jsonConfig = new JsonConfig();
+            jsonConfig.registerJsonValueProcessor(java.util.Date.class, new DateJsonValueProcessor("yyyy-MM-dd HH:mm:ss"));
+            JSONObject jsonObject = JSONObject.fromObject(map,jsonConfig);
+            addData("Commentinfo",jsonObject);
 
 
         }
