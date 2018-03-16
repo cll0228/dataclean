@@ -3,10 +3,6 @@ package com.holyrobot.test;
 import com.alibaba.fastjson.JSON;
 import com.holyrobot.common.Hotelinfo;
 import com.holyrobot.common.ReceiverData;
-import com.holyrobot.start.HotelConumerStartor;
-import org.junit.Test;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.Date;
 import java.util.UUID;
@@ -20,7 +16,7 @@ public class TestStandardCase {
 
     private static String url = "http://192.168.0.230:8081/send";
 
-    @Test
+    //    @Test
     public void test() {
         ReceiverData data = new ReceiverData();
         data.setType(1);
@@ -82,8 +78,8 @@ public class TestStandardCase {
      */
     private static Hotelinfo HotelInfo1() {
         Hotelinfo info = new Hotelinfo();
-        info.setId(UUID.randomUUID().toString());
-        info.setUrlid(UUID.randomUUID().toString());
+        info.setId("002641ac-2886-4445-b31d-e7f180846ae4");
+        info.setUrlid("http://hotel.tuniu.com/detail/1744810490");
         info.setName("三亚建设宾馆测试");
         info.setAddress("天涯区三亚天涯区三亚市市辖区建设街68号");
         info.setLongitude("109.507153");
