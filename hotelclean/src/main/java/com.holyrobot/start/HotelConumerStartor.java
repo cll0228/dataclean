@@ -30,7 +30,7 @@ public class HotelConumerStartor {
     public static void main(String[] args) {
         if (args.length == 0) {
             args = new String[]{"cdh01:9092,cdh02:9092,cdh04:9092", "topic_hotel", "test3", "latest"};
-            logger.debug("param init success");
+            System.out.println("param init success");
         }
         String bootstrap = args[0];
         String topic = args[1];
@@ -70,10 +70,10 @@ public class HotelConumerStartor {
         if (null == rd || null == rd.getType() || null == rd.getData()) {
             return;
         }
-        logger.debug("消费者接受消息,type==" + rd.getType() + rd.getData().getClass() + " 启动处理");
+        System.out.println("消费者接受消息,type==" + rd.getType() + rd.getData().getClass() + " 启动处理");
         try {
             executor.execute(new ProcessObj(rd));
-            logger.debug("启动线程处理数据 Class = " + rd.getData().getClass());
+            System.out.println("启动线程处理数据 Class = " + rd.getData().getClass());
         } catch (Exception e) {
             logger.error("启动线程失败处理数据 Class = " + rd.getData().getClass(), e);
         }
@@ -100,18 +100,18 @@ public class HotelConumerStartor {
 
         @Override
         public void run() {
-            logger.debug("线程==name" + Thread.currentThread().getName() + "执行清洗操作");
+            System.out.println("线程==name" + Thread.currentThread().getName() + "执行清洗操作");
             if (receiverData.getType() == 1) {
-                logger.debug("type=1，进入数据清洗");
+                System.out.println("type=1，进入数据清洗");
                 Hotelinfo hotelinfo = (Hotelinfo) receiverData.getData();
                 try {
-                    logger.debug("标准化前数据 hotelInfo = " + hotelinfo.toString());
+                    System.out.println("标准化前数据 hotelInfo = " + hotelinfo.toString());
                     Hotelinfo standedHotel = HotelStandard.standardHotel(hotelinfo);
                     if (null != standedHotel) {
                         receiverData.setData(standedHotel);
-                        logger.debug("酒店数据标准化成功，标准化后数据hotelInfo=" + receiverData.getData().toString());
+                        System.out.println("酒店数据标准化成功，标准化后数据hotelInfo=" + receiverData.getData().toString());
                     } else {
-                        logger.debug("酒店数据异常返回 null hotelInfo = " + hotelinfo.toString());
+                        System.out.println("酒店数据异常返回 null hotelInfo = " + hotelinfo.toString());
                         receiverData.setData(null);
                         return;
                     }
@@ -122,7 +122,7 @@ public class HotelConumerStartor {
             //保存hbase
             if (null != receiverData && null != receiverData.getData()) {
                 HotelObjectDao.saveToHbase(receiverData);
-                logger.debug("保存hbase成功 Data=" + receiverData.getData().toString());
+                System.out.println("保存hbase成功 Data=" + receiverData.getData().toString());
             }
         }
     }
