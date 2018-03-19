@@ -17,7 +17,7 @@ import java.util.Date;
  */
 public class TestStandardCase {
 
-    private static String url = "http://192.168.0.230:8081/send";
+    private static String url = "http://192.168.0.60:8081/send";
 
     private static final Logger logger = LoggerFactory.getLogger(TestStandardCase.class);
 
@@ -26,6 +26,7 @@ public class TestStandardCase {
         ReceiverData data = new ReceiverData();
         data.setType(5);
         data.setFlag(1);
+
         //生成酒店对象
         data.setData(sceinfo());
         TestCase.httpPostWithJson(JSON.toJSONString(data), url);
@@ -48,6 +49,8 @@ public class TestStandardCase {
         s.setBeennum("1501");
         s.setWanttonum("6");
         s.setDatasource("ctrip");
+        s.setCreator("cuill");
+        s.setRemark("测试用例数据");
         s.setCreatedate(new Date());
         s.setAdminarea("中国,海南");
         return s;
