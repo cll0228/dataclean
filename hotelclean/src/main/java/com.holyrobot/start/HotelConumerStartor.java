@@ -23,7 +23,6 @@ import java.util.concurrent.TimeUnit;
  */
 public class HotelConumerStartor {
 
-
     private static final Logger logger = LoggerFactory.getLogger(HotelConumerStartor.class);
 
     final static ThreadPoolExecutor executor = new ThreadPoolExecutor(100, 150, 5, TimeUnit.SECONDS, new LinkedBlockingDeque<>());
