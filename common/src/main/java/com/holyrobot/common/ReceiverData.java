@@ -22,6 +22,16 @@ public class ReceiverData implements Serializable {
 
     private Integer flag;
 
+    private String version;
+
+    public String getVersion() {
+        return version;
+    }
+
+    public void setVersion(String version) {
+        this.version = version;
+    }
+
     public Integer getFlag() {
         return flag;
     }

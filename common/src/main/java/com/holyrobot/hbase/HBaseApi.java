@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -66,7 +67,7 @@ public class HBaseApi {
         for (Result r : scanner) {
             count++;
             for (Cell cell : r.rawCells()) {
-                System.out.print(Bytes.toString(CellUtil.cloneQualifier(cell)) +
+                System.out.println(Bytes.toString(r.getRow()) + ":" + Bytes.toString(CellUtil.cloneQualifier(cell)) +
                         "===" + Bytes.toString(CellUtil.cloneValue(cell)) +
                         "   Time : " + cell.getTimestamp());
             }
@@ -75,8 +76,45 @@ public class HBaseApi {
         System.out.println(count);
     }
 
+    /**
+     * 根据 rowkey删除一条记录
+     *
+     * @param tablename
+     * @param rowkey
+     */
+    public static void deleteRow(String tablename, String rowkey) {
+        try {
+            HTable table = new HTable(conf, tablename);
+            List list = new ArrayList();
+            Delete d1 = new Delete(rowkey.getBytes());
+            list.add(d1);
+
+            table.delete(list);
+            System.out.println("删除行成功!");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static void queryByValue(String tableName) throws IOException {
+        HTable table = new HTable(conf, Bytes.toBytes(tableName));
+        Scan s = new Scan();
+        ResultScanner scanner = table.getScanner(s);
+        Integer count = 0;
+        for (Result r : scanner) {
+            for (Cell cell : r.rawCells()) {
+                if ("Ctrip".equals(Bytes.toString(CellUtil.cloneValue(cell)))) {
+                    String rowKey = Bytes.toString(r.getRow());
+                    deleteRow(tableName, rowKey);
+                    break;
+                }
+            }
+        }
+    }
+
     public static void main(String[] args) throws IOException {
-        scan("HolyRobot:HotelBasicInfo_clean");
+        queryByValue("HolyRobot:ScePriceInfo_clean");
 
 
     }
