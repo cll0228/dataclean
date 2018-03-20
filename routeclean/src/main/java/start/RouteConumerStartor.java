@@ -15,11 +15,16 @@ import util.StandardUtil;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
-
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 
 public class RouteConumerStartor {
+
     private static final Logger logger = LoggerFactory.getLogger(RouteConumerStartor.class);
+
+    final static ThreadPoolExecutor executor = new ThreadPoolExecutor(20, 30, 5, TimeUnit.SECONDS, new LinkedBlockingDeque<>());
 
 
     public static void main(String[] args) {
@@ -55,7 +60,7 @@ public class RouteConumerStartor {
                     }
                     logger.info("消费者接受消息===== Type == " + rd.getType() + rd.getData().getClass() + " 启动处理");
                     try {
-                        new ProcessObj(rd).start();
+                        executor.execute(new ProcessObj(rd));
                         logger.info("启动线程处理数据 Class = " + rd.getData().getClass());
                     } catch (Exception e) {
                         logger.error("启动线程失败处理数据 Class = " + rd.getData().getClass(), e);
@@ -89,7 +94,7 @@ public class RouteConumerStartor {
         @Override
         public void run() {
             if (receiverData.getType() == 6) {
-                logger.info("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaTYPE = 6，进入数据清洗"+ receiverData.getData().toString());
+                logger.info("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaTYPE = 6，进入数据清洗" + receiverData.getData().toString());
                 Routeinfo routelinfo = (Routeinfo) receiverData.getData();
                 RouteObjectDao.saveToHbase(receiverData);
 
@@ -108,9 +113,9 @@ public class RouteConumerStartor {
                     }
 
                 } catch (Exception e) {
-                    logger.error(receiverData.getData().toString()+ " 数据清洗失败 行程 ");
+                    logger.error(receiverData.getData().toString() + " 数据清洗失败 行程 ");
                 }
-            }else {
+            } else {
                 //保存hbase
                 RouteObjectDao.saveToHbase(receiverData);
                 logger.info("保存hhbase成功 Data = " + receiverData.getClass());

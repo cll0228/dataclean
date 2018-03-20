@@ -25,7 +25,7 @@ public class HotelConumerStartor {
 
     private static final Logger logger = LoggerFactory.getLogger(HotelConumerStartor.class);
 
-    final static ThreadPoolExecutor executor = new ThreadPoolExecutor(100, 150, 5, TimeUnit.SECONDS, new LinkedBlockingDeque<>());
+    final static ThreadPoolExecutor executor = new ThreadPoolExecutor(20, 30, 5, TimeUnit.SECONDS, new LinkedBlockingDeque<>());
 
     public static void main(String[] args) {
         if (args.length == 0) {

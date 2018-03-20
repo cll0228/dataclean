@@ -21,7 +21,7 @@ import java.util.concurrent.TimeUnit;
 public class OtherConumerStartor {
     private static final Logger logger = LoggerFactory.getLogger(OtherConumerStartor.class);
 
-    final static ThreadPoolExecutor executor = new ThreadPoolExecutor(100, 150, 5, TimeUnit.SECONDS, new LinkedBlockingDeque<>());
+    final static ThreadPoolExecutor executor = new ThreadPoolExecutor(20, 30, 5, TimeUnit.SECONDS, new LinkedBlockingDeque<>());
 
 
     public static void main(String[] args) {
