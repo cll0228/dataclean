@@ -1,5 +1,6 @@
 package dao;
 
+import com.alibaba.fastjson.JSON;
 import com.holyrobot.common.ReceiverData;
 import com.holyrobot.common.Routeinfo;
 import com.holyrobot.common.Routepriceinfo;
@@ -11,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Field;
+import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
@@ -19,6 +21,7 @@ import java.util.*;
 public class RouteObjectDao {
 
     private static final Logger logger = LoggerFactory.getLogger(RouteObjectDao.class);
+    private static SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
     private static String NAMESPACE = "HolyRobot";
 
@@ -90,6 +93,10 @@ public class RouteObjectDao {
             String[] column = new String[keySet.size()];
             String[] value = new String[keySet.size()];
             int i = 0;
+
+
+
+
             while(iterator.hasNext()){
                 String key = iterator.next();
                 String val = map.get(key);
@@ -120,7 +127,14 @@ public class RouteObjectDao {
             Field[] fields = cla.getDeclaredFields();
             for (Field field:fields) {
                 if(obj.containsKey(field.getName()) && StringUtils.isNotBlank(obj.getString(field.getName()))){
-                    map.put(field.getName(),obj.getString(field.getName()));
+                    if ("createdate".equals(field.getName())) {
+                        long time = Long.valueOf(JSON.parseObject(obj.getString(field.getName())).get("time").toString());
+                        map.put(field.getName(),fm.format(new Date(time)));
+                    } else {
+                        map.put(field.getName(),obj.getString(field.getName()));
+                    }
+
+
                 }
             }
         } catch (Exception e) {
