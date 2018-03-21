@@ -16,7 +16,7 @@ public class Routepriceinfo implements Serializable{
 
     private String lowestprice;
 
-    private Date createdate;
+    private String createdate;
 
     private String creator;
 
@@ -66,11 +66,11 @@ public class Routepriceinfo implements Serializable{
         this.lowestprice = lowestprice == null ? null : lowestprice.trim();
     }
 
-    public Date getCreatedate() {
+    public String getCreatedate() {
         return createdate;
     }
 
-    public void setCreatedate(Date createdate) {
+    public void setCreatedate(String createdate) {
         this.createdate = createdate;
     }
 
