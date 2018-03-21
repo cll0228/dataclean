@@ -1,5 +1,6 @@
 package com.holyrobot.hbase;
 
+import com.alibaba.fastjson.JSON;
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.Cell;
 import org.apache.hadoop.hbase.CellUtil;
@@ -10,7 +11,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -113,9 +117,42 @@ public class HBaseApi {
         }
     }
 
-    public static void main(String[] args) throws IOException {
-        queryByValue("HolyRobot:ScePriceInfo_clean");
-
-
+    private static void countHotel(String tableName) throws IOException, ParseException {
+        HTable table = new HTable(conf, Bytes.toBytes(tableName));
+        Scan s = new Scan();
+        ResultScanner scanner = table.getScanner(s);
+        Integer count = 0;
+        for (Result r : scanner) {
+            for (Cell cell : r.rawCells()) {
+                if ("createdate".equals(Bytes.toString(CellUtil.cloneQualifier(cell)))) {
+                    String datetime = Bytes.toString(CellUtil.cloneValue(cell));
+                    if ("null".equals(datetime) || "".equals(datetime)) {
+                        continue;
+                    }
+                    Long time = null;
+                    try {
+                        Date parse = fm.parse(datetime);
+                        time = parse.getTime();
+                    } catch (Exception e) {
+                        try {
+                            time = Long.valueOf(JSON.parseObject(datetime).get("time").toString());
+                        } catch (Exception e1) {
+                            System.out.println(e1);
+                        }
+                    }
+                    if (time > fm.parse("2018-03-20 00:00:00").getTime()) {
+                        count++;
+                    }
+                }
+            }
+        }
+        System.out.println(count);
     }
+
+    public static void main(String[] args) throws IOException, ParseException {
+//        scan("HolyRobot:HotelBasicInfo_clean");
+        countHotel("HolyRobot:Routeinfo_clean");
+    }
+
+    static SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 }
