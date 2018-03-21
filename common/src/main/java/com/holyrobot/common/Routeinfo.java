@@ -34,7 +34,7 @@ public class Routeinfo implements Serializable{
 
     private String datasource;
 
-    private String createdate;
+    private Date createdate;
 
     private String creator;
 
@@ -254,11 +254,11 @@ public class Routeinfo implements Serializable{
         this.datasource = datasource == null ? null : datasource.trim();
     }
 
-    public String getCreatedate() {
+    public Date getCreatedate() {
         return createdate;
     }
 
-    public void setCreatedate(String createdate) {
+    public void setCreatedate(Date createdate) {
         this.createdate = createdate;
     }
 
