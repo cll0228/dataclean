@@ -77,7 +77,5 @@ public class HotelCleanStartor {
         } catch (InterruptedException e) {
             logger.error("receive data failed", e);
         }
-
-
     }
 }

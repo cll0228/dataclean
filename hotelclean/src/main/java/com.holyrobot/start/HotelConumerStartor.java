@@ -19,18 +19,33 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Created by cuill on 2018/2/26.
- * 清洗程序消费者
+ * 清洗程序消费者.
  */
 public class HotelConumerStartor {
 
-    private static final Logger logger = LoggerFactory.getLogger(HotelConumerStartor.class);
+    /**
+     * 日志类.
+     */
+    private static final Logger LOGGER =
+            LoggerFactory.getLogger(HotelConumerStartor.class);
 
-    final static ThreadPoolExecutor executor = new ThreadPoolExecutor(20, 30, 5, TimeUnit.SECONDS, new LinkedBlockingDeque<>());
+    /**
+     * 线程池.
+     */
+    private static final ThreadPoolExecutor EXECUTOR =
+            new ThreadPoolExecutor(20, 30, 5, TimeUnit.SECONDS,
+                    new LinkedBlockingDeque<>());
 
+    /**
+     * 消费者程序入口.
+     *
+     * @param args 启动程序传入的参数集合，zk集群，kafkatopoic，消费者组，每次启动消费位置.
+     */
     public static void main(String[] args) {
         if (args.length == 0) {
-            args = new String[]{"cdh01:9092,cdh02:9092,cdh04:9092", "topic_hotel", "test3", "latest"};
-            System.out.println("param init success");
+            args = new String[]{"cdh01:9092,cdh02:9092,cdh04:9092",
+                    "topic_hotel", "test3", "latest"};
+            LOGGER.debug("param init success");
         }
         String bootstrap = args[0];
         String topic = args[1];
@@ -47,82 +62,115 @@ public class HotelConumerStartor {
         //consumer活性超时时间
         props.put("session.timeout.ms", "30000");
         props.put("auto.offset.reset", offset);
-        props.put("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
-        props.put("value.deserializer", "org.apache.kafka.common.serialization.ByteArrayDeserializer");
+        props.put("key.deserializer",
+                "org.apache.kafka.common.serialization.StringDeserializer");
+        props.put("value.deserializer",
+                "org.apache.kafka.common.serialization.ByteArrayDeserializer");
         props.put("key.deserializer.encoding", "UTF8");
         KafkaConsumer<String, byte[]> consumer = new KafkaConsumer<>(props);
         consumer.subscribe(Arrays.asList(topic));
         while (true) {
-            ConsumerRecords<String, byte[]> records = consumer.poll(Long.MAX_VALUE);
+            ConsumerRecords<String, byte[]> records =
+                    consumer.poll(Long.MAX_VALUE);
             for (ConsumerRecord<String, byte[]> record : records) {
                 try {
                     execBytes(record.value());
                 } catch (Exception e) {
                     e.printStackTrace();
-                    logger.error("consumer error", e);
+                    LOGGER.error("consumer error", e);
                 }
             }
         }
     }
 
-    public static void execBytes(byte[] bytes) {
+    /**
+     * 接受kafka字节数组处理业务逻辑.
+     *
+     * @param bytes 字节数组.
+     */
+    public static void execBytes(final byte[] bytes) {
         ReceiverData rd = (ReceiverData) StandardUtil.byteArrayToObject(bytes);
         if (null == rd || null == rd.getType() || null == rd.getData()) {
             return;
         }
-        System.out.println("消费者接受消息,type==" + rd.getType() + rd.getData().getClass() + " 启动处理");
+        LOGGER.debug("消费者接受消息,type=="
+                + rd.getType() + rd.getData().getClass() + " 启动处理");
         try {
-            executor.execute(new ProcessObj(rd));
-            System.out.println("启动线程处理数据 Class = " + rd.getData().getClass());
+            EXECUTOR.execute(new ProcessObj(rd));
+            LOGGER.debug("启动线程处理数据 Class = " + rd.getData().getClass());
         } catch (Exception e) {
-            logger.error("启动线程失败处理数据 Class = " + rd.getData().getClass(), e);
+            LOGGER.error("启动线程失败处理数据 Class = " + rd.getData().getClass(), e);
         }
     }
 
 
+    /**
+     * 处理酒店对象的内部类.
+     */
     public static class ProcessObj extends Thread {
-        private static final Logger logger = LoggerFactory.getLogger(ProcessObj.class);
+        /**
+         * 日志类.
+         */
+        private static final Logger LOGGER =
+                LoggerFactory.getLogger(ProcessObj.class);
 
+        /**
+         * 接受日志对象.
+         */
         private ReceiverData receiverData;
 
-
-        public ReceiverData getReceiverData() {
-            return receiverData;
+        /**
+         * 空参数构造.
+         */
+        public ProcessObj() {
+            super();
         }
 
-        public void setReceiverData(ReceiverData receiverData) {
+        /**
+         * 有参数构造.
+         *
+         * @param receiverData 接受kafka参数封装的酒店对象实体.
+         */
+        public ProcessObj(final ReceiverData receiverData) {
             this.receiverData = receiverData;
         }
 
-        public ProcessObj(ReceiverData receiverData) {
-            this.receiverData = receiverData;
-        }
-
+        /**
+         * 线程run方法.
+         */
         @Override
         public void run() {
-            System.out.println("线程==name" + Thread.currentThread().getName() + "执行清洗操作");
+            LOGGER.debug("线程==name"
+                    + Thread.currentThread().getName() + "执行清洗操作");
             if (receiverData.getType() == 1) {
-                System.out.println("type=1，进入数据清洗");
+                LOGGER.debug("type=1，进入数据清洗");
                 Hotelinfo hotelinfo = (Hotelinfo) receiverData.getData();
                 try {
-                    System.out.println("标准化前数据 hotelInfo = " + hotelinfo.toString());
-                    Hotelinfo standedHotel = HotelStandard.standardHotel(hotelinfo);
+                    LOGGER.debug("标准化前数据 hotelInfo = "
+                            + hotelinfo.toString());
+                    Hotelinfo standedHotel =
+                            HotelStandard.standardHotel(hotelinfo);
                     if (null != standedHotel) {
                         receiverData.setData(standedHotel);
-                        System.out.println("酒店数据标准化成功，标准化后数据hotelInfo=" + receiverData.getData().toString());
+                        LOGGER.debug("酒店数据标准化成功，标准化后数据hotelInfo="
+                                + receiverData.getData().toString());
                     } else {
-                        System.out.println("酒店数据异常返回 null hotelInfo = " + hotelinfo.toString());
+                        LOGGER.debug("酒店数据异常返回 null hotelInfo = "
+                                + hotelinfo.toString());
                         receiverData.setData(null);
                         return;
                     }
                 } catch (Exception e) {
-                    logger.error(receiverData.getData().getClass() + "酒店数据标准化失败 酒店hotelinfo=" + hotelinfo.toString(), e);
+                    LOGGER.error(receiverData.getData().getClass()
+                            + "酒店数据标准化失败 酒店hotelinfo="
+                            + hotelinfo.toString(), e);
                 }
             }
             //保存hbase
             if (null != receiverData && null != receiverData.getData()) {
                 HotelObjectDao.saveToHbase(receiverData);
-                System.out.println("保存hbase成功 Data=" + receiverData.getData().toString());
+                LOGGER.debug("保存hbase成功 Data="
+                        + receiverData.getData().toString());
             }
         }
     }
