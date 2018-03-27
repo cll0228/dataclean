@@ -23,7 +23,7 @@ public class ScenicConsumerStartor {
 
     public static void main(String[] args) {
         if (args.length < 4) {
-            args = new String[]{"cdh01:9092,cdh02:9092,cdh04:9092", "topic_scenic", "test2", "latest"};
+            args = new String[]{"cm-node01:9092,cm-node02:9092,cm-node03:9092", "topic_scenic", "test2", "latest"};
             logger.debug("param init success");
         }
         String bootstrap = args[0];

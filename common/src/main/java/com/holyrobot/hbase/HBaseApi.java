@@ -150,8 +150,8 @@ public class HBaseApi {
     }
 
     public static void main(String[] args) throws IOException, ParseException {
-//        scan("HolyRobot:HotelBasicInfo_clean");
-        countHotel("HolyRobot:Routeinfo_clean");
+        scan("HolyRobot:HotelBasicInfo_clean");
+//        countHotel("HolyRobot:Routeinfo_clean");
     }
 
     static SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");

@@ -38,19 +38,19 @@
   </property>
   <property>
     <name>dfs.namenode.rpc-address.cluster1.cdh01</name>
-    <value>cdh01:9000</value>
+    <value>cm-master01:9000</value>
   </property>
   <property>
     <name>dfs.namenode.http-address.cluster1.cdh01</name>
-    <value>cdh01:50070</value>
+    <value>cm-master01:50070</value>
   </property>
   <property>
     <name>dfs.namenode.rpc-address.cluster1.cdh04</name>
-    <value>cdh04:9000</value>
+    <value>cm-master01:9000</value>
   </property>
   <property>
     <name>dfs.namenode.http-address.cluster1.cdh04</name>
-    <value>cdh04:50070</value>
+    <value>cm-master01:50070</value>
   </property>
   <property>
     <name>dfs.ha.automatic-failover.enabled</name>
@@ -58,7 +58,7 @@
   </property>
   <property>
     <name>dfs.namenode.shared.edits.dir</name>
-    <value>qjournal://cdh02:8485;cdh03:8485;cdh04:8485;cdh05:8485;cdh06:8485/cluster1</value>
+    <value>qjournal://cm-node01:8485;cm-node02:8485;cm-node03:8485/cluster1</value>
   </property>
   <property>
     <name>dfs.client.failover.proxy.provider.cluster1</name>

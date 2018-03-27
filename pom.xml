@@ -22,19 +22,19 @@
                 <activeByDefault>true</activeByDefault>
             </activation>
             <properties>
-                <common.hbase.zookeeper.quorum>cdh04,cdh05,cdh06</common.hbase.zookeeper.quorum>
+                <common.hbase.zookeeper.quorum>cm-cm,cm-master01,cm-master02</common.hbase.zookeeper.quorum>
             </properties>
         </profile>
         <profile>
             <id>test</id>
             <properties>
-                <common.hbase.zookeeper.quorum>cdh04,cdh05,cdh06</common.hbase.zookeeper.quorum>
+                <common.hbase.zookeeper.quorum>cm-cm,cm-master01,cm-master02</common.hbase.zookeeper.quorum>
             </properties>
         </profile>
         <profile>
             <id>pro</id>
             <properties>
-                <common.hbase.zookeeper.quorum>cdh04,cdh05,cdh06</common.hbase.zookeeper.quorum>
+                <common.hbase.zookeeper.quorum>cm-cm,cm-master01,cm-master02</common.hbase.zookeeper.quorum>
             </properties>
         </profile>
     </profiles>

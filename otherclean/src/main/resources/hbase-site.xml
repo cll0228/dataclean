@@ -23,7 +23,7 @@
 <configuration>
   <property>
     <name>hbase.rootdir</name>
-    <value>hdfs://cdh01/hbase</value>
+    <value>hdfs://cm-cm:9000/hbase</value>
   </property>
   <property>
     <name>hbase.cluster.distributed</name>
@@ -31,6 +31,6 @@
   </property>
   <property>
     <name>hbase.zookeeper.quorum</name>
-    <value>cdh04:2181,cdh05:2181,cdh06:2181</value>
+    <value>cm-cm:2181,cm-master01:2181,cm-master02:2181</value>
   </property>
 </configuration>
