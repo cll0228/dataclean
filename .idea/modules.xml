@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/common/common.iml" filepath="$PROJECT_DIR$/common/common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/dataclean.iml" filepath="$PROJECT_DIR$/dataclean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hotelclean/hotelclean.iml" filepath="$PROJECT_DIR$/hotelclean/hotelclean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/otherclean/otherclean.iml" filepath="$PROJECT_DIR$/otherclean/otherclean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/routeclean/routeclean.iml" filepath="$PROJECT_DIR$/routeclean/routeclean.iml" />
+      <module fileurl="file://$PROJECT_DIR$/scenicclean/scenicclean.iml" filepath="$PROJECT_DIR$/scenicclean/scenicclean.iml" />
+    </modules>
+  </component>
+</project>

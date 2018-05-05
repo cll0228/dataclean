@@ -2,9 +2,7 @@ package com.holyrobot.hbase;
 
 import com.alibaba.fastjson.JSON;
 import org.apache.hadoop.conf.Configuration;
-import org.apache.hadoop.hbase.Cell;
-import org.apache.hadoop.hbase.CellUtil;
-import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.*;
 import org.apache.hadoop.hbase.client.*;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.slf4j.Logger;
@@ -13,9 +11,7 @@ import org.slf4j.LoggerFactory;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * hbaseapi
@@ -150,8 +146,13 @@ public class HBaseApi {
     }
 
     public static void main(String[] args) throws IOException, ParseException {
-        scan("HolyRobot:HotelBasicInfo_clean");
+//        scan("HolyRobot:HotelBasicInfo_clean");
 //        countHotel("HolyRobot:Routeinfo_clean");
+        HBaseAdmin admin = new HBaseAdmin(conf);
+        TableName[] tableNames = admin.listTableNames();
+        NamespaceDescriptor[] namespaceDescriptors = admin.listNamespaceDescriptors();
+
+
     }
 
     static SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");

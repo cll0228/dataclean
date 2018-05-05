@@ -44,7 +44,7 @@ public class HotelConumerStartor {
     public static void main(String[] args) {
         if (args.length == 0) {
             args = new String[]{"cm-node01:9092,cm-node02:9092,cm-node03:9092",
-                    "topic_hotel", "test3", "latest"};
+                    "topic_total", "test3", "latest"};
             LOGGER.debug("param init success");
         }
         String bootstrap = args[0];

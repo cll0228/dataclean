@@ -3,7 +3,7 @@ package com.holyrobot.common;
 import java.io.Serializable;
 import java.util.Date;
 
-public class Hotelinfo implements Serializable{
+public class Hotelinfo implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String id;
@@ -39,10 +39,15 @@ public class Hotelinfo implements Serializable{
     private String creatorid;
 
     private String adminarea;
-    
+
     private String introduction;
 
     private String remark;
+
+    public String toHdfsString() {
+        return id + "|" + urlid + "|" + name + "|" + address + "|" + longitude + "|" + latitude + "|" + star + "|" + price + "|" + datasource + "|" + grade + "|" + gradenum + "|" + beennum + "|" + whantto +
+                "|" + createdate + "|" + adminarea + "|" + introduction + "|" + remark + "\n";
+    }
 
     public String getIntroduction() {
         return introduction;
@@ -196,17 +201,14 @@ public class Hotelinfo implements Serializable{
         this.adminarea = adminarea == null ? null : adminarea.trim();
     }
 
-	@Override
-	public String toString() {
-		return "Hotelinfo [id=" + id + ", urlid=" + urlid + ", name=" + name + ", address=" + address + ", longitude="
-				+ longitude + ", latitude=" + latitude + ", star=" + star + ", price=" + price + ", datasource="
-				+ datasource + ", grade=" + grade + ", gradenum=" + gradenum + ", beennum=" + beennum + ", whantto="
-				+ whantto + ", createdate=" + createdate + ", creator=" + creator + ", creatorid=" + creatorid
-				+ ", adminarea=" + adminarea + ", introduction=" + introduction + ", remark=" + remark + "]";
-	}
-    
-    
-    
-    
-    
+    @Override
+    public String toString() {
+        return "Hotelinfo [id=" + id + ", urlid=" + urlid + ", name=" + name + ", address=" + address + ", longitude="
+                + longitude + ", latitude=" + latitude + ", star=" + star + ", price=" + price + ", datasource="
+                + datasource + ", grade=" + grade + ", gradenum=" + gradenum + ", beennum=" + beennum + ", whantto="
+                + whantto + ", createdate=" + createdate + ", creator=" + creator + ", creatorid=" + creatorid
+                + ", adminarea=" + adminarea + ", introduction=" + introduction + ", remark=" + remark + "]";
+    }
+
+
 }
